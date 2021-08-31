@@ -10,7 +10,7 @@ const SignInPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
-  const signIn = async (e) => {
+  const signIn = async (e:any) => {
     e.preventDefault();
     try {
       router.push("/");
@@ -22,14 +22,14 @@ const SignInPage = () => {
     [password, setPassword] = useState("");
 
   const inputEmail = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     },
     [setEmail]
   );
 
   const inputPassword = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setPassword(event.target.value);
     },
     [setPassword]

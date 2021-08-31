@@ -1,15 +1,15 @@
 import React, { useCallback, useState } from "react";
-import { ResetPassword, SignIn } from "../../redux/users/operation";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-import Layout from "../layouts/Layout";
+import Layout from "./layouts/Layout";
+import { ResetPassword } from "../redux/users/operation";
 
 const ResetPasswordPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
 
   const inputEmail = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     },
     [setEmail]

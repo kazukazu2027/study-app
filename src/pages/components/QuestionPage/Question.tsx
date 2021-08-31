@@ -39,7 +39,7 @@ const Question = () => {
     );
   }, [questionNumber]);
 
-  const handleCheck = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCheck = (event: any) => {
     dispatch(
       getCheckedAnswer({
         isChecked: true,

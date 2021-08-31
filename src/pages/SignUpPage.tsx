@@ -14,34 +14,34 @@ const SignUpPage = () => {
     [confirmPassword, setConfirmPassword] = useState("");
 
   const inputUserName = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setUserName(event.target.value);
     },
     [setUserName]
   );
 
   const inputEmail = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     },
     [setEmail]
   );
 
   const inputPassword = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setPassword(event.target.value);
     },
     [setPassword]
   );
 
   const inputConfirmPassword = useCallback(
-    (event: React.ChangeEvent<HTMLSelectElement>) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       setConfirmPassword(event.target.value);
     },
     [setConfirmPassword]
   );
 
-  const logIn = async (e) => {
+  const logIn = async (e:any) => {
     e.preventDefault();
     try {
       router.push("/");
