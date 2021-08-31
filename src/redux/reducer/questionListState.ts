@@ -18,10 +18,6 @@ export const question = (
       const { questionDataList } = action;
       return { ...state, questionDataList };
     }
-    // case Actions.QUESTION_DATA: {
-    //   const { questionData } = action;
-    //   return { ...state, questionData };
-    // }
     case Actions.QUESTION_NUMBER: {
       const { questionNumber } = action;
       return { ...state, questionNumber };

@@ -1,15 +1,13 @@
 import React, { useCallback, useState } from "react";
 import Layout from "./layouts/Layout";
 import { SignIn } from "../redux/users/operation";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-import { RootState } from "../redux/store";
 
 const SignInPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.user);
   const signIn = async (e:any) => {
     e.preventDefault();
     try {

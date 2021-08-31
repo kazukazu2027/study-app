@@ -10,7 +10,7 @@ const QuestionCard = (props: Props) => {
   const { title } = props;
   return title === "正解" ? (
     <>
-      <CorrectAnswerCard /> <p>aa</p>
+      <CorrectAnswerCard /> 
     </>
   ) : (
     <IncorrectAnswerCard />

@@ -1,11 +1,10 @@
-import { Data } from "../../pages/components/QuestionPage/Question";
-import { answerData, checkedAnswer } from "../store";
+import { checkedAnswer } from "../store";
 
 export const COUNT_CORRECT_ANSWER = "count correct answer";
-export const countCorrectAnswer = (correctQuestionIds: answerData[]) => {
+export const countCorrectAnswer = (resultQuestionIds: boolean[]) => {
   return {
     type: COUNT_CORRECT_ANSWER as typeof COUNT_CORRECT_ANSWER,
-    correctQuestionIds,
+    resultQuestionIds,
   };
 };
 

@@ -2,7 +2,7 @@ import * as Actions from "../action/countAnswer";
 import { answerData, checkedAnswer } from "../store";
 
 export const initialState = {
-  correctQuestionIds: [] as answerData[],
+  resultQuestionIds: [] as boolean[],
   checkedAnswer: {} as checkedAnswer,
 };
 
@@ -12,8 +12,8 @@ export const answer = (
 ): typeof initialState => {
   switch (action.type) {
     case Actions.COUNT_CORRECT_ANSWER: {
-      const { correctQuestionIds } = action;
-      return { ...state, correctQuestionIds };
+      const { resultQuestionIds } = action;
+      return { ...state, resultQuestionIds };
     }
     case Actions.GET_CHECKED_ANSWER: {
       const { checkedAnswer } = action;

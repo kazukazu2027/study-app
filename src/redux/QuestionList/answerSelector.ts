@@ -5,7 +5,7 @@ const answerSelector = (state: RootState) => state.answer;
 
 export const getCountAnswerSelector = createSelector(
   [answerSelector],
-  (state) => state.correctQuestionIds
+  (state) => state.resultQuestionIds
 );
 
 export const getCheckedAnswerStringSelector = createSelector(
