@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "./layouts/Layout";
 import Question from "./components/QuestionPage/Question";
 import questionData from "../../data.json";
 import AnswerCard from "./layouts/AnswerCard";
 import AnswerCardContainer from "./parts/AnswerCardContainer";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
 const answer = questionData[0].answerList.filter((list) => list.check === true);

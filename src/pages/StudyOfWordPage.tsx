@@ -9,7 +9,7 @@ const StudyOfWordPage = () => {
       <div>
         <h3>エンジニアに必要なプログラミング用語を学ぶ</h3>
       </div>
-      <WordCard href={"QuestionMainPage"}/>
+      <WordCard />
     </Layout>
   );
 };

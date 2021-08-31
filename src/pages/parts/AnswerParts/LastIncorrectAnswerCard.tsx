@@ -30,12 +30,14 @@ const LastIncorrectAnswerCard = () => {
     dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
   };
   return (
-    <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
-      onClick={resultIncorrectClick}
-    >
-      <Link href={"ResultPage"}>結果を見る</Link>
-    </button>
+    <Link href={"ResultPage"}>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
+        onClick={resultIncorrectClick}
+      >
+        結果を見る
+      </button>
+    </Link>
   );
 };
 

@@ -3,12 +3,7 @@ import Card from "../layouts/Card";
 import Image from "next/image";
 import Button from "./Button";
 
-interface Props {
-  href: string;
-}
-
-const WordCard = (props: Props) => {
-  const { href } = props;
+const WordCard = () => {
   return (
     <div className="mt-10">
       <Card>
@@ -20,7 +15,7 @@ const WordCard = (props: Props) => {
           <p className="text-md my-5 ">
             プログラミングを学習するときに、わからない用語がたくさん出てきませんか？用語が分からなければ、当然学習もできません。しっかり学びましょう。
           </p>
-          <Link href={href}>
+          <Link href={"QuestionMainPage"}>
             <div className="text-center pb-8">
               <Button text={"学習する"} color={"bg-blue-500"} />
             </div>

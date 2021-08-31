@@ -5,7 +5,7 @@ import WordCard from "../parts/WordCard";
 const StudyOfWord = () => {
   return (
     <>
-      <WordCard href={"QuestionMainPage"} />
+      <WordCard/>
     </>
   );
 };

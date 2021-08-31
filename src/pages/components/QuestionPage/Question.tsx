@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import questionData from "../../../../data.json";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";
-import { getQuestionData } from "../../../redux/action/questionList";
 import { getCheckedAnswerIsCheckedSelector } from "../../../redux/QuestionList/answerSelector";
 import {
   getQuestionDataListSelector,
@@ -28,16 +27,7 @@ const Question = () => {
   const selector = useSelector((state: RootState) => state);
   const questionList = getQuestionDataListSelector(selector);
   const questionNumber = getQuestionNumberSelector(selector);
-  const checkedAnswer = getCheckedAnswerIsCheckedSelector(selector)
-
-  useEffect(() => {
-    dispatch(
-      getQuestionData({
-        id: questionList[questionNumber].questionID,
-        question: questionList[questionNumber].question,
-      })
-    );
-  }, [questionNumber]);
+  const checkedAnswer = getCheckedAnswerIsCheckedSelector(selector);
 
   const handleCheck = (event: any) => {
     dispatch(
@@ -49,7 +39,7 @@ const Question = () => {
   };
   return (
     <>
-      {questionList && (
+      {questionList[questionNumber] && (
         <div className="border rounded-lg shadow m-auto mt-16">
           <div className="text-center py-8">
             <div className="pb-4">

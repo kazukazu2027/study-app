@@ -10,13 +10,13 @@ export const getQuestionDataList = (questionDataList: Data[]) => {
   };
 };
 
-export const QUESTION_DATA = "question data";
-export const getQuestionData = (questionData: questionList) => {
-  return {
-    type: QUESTION_DATA as typeof QUESTION_DATA,
-    questionData,
-  };
-};
+// export const QUESTION_DATA = "question data";
+// export const getQuestionData = (questionData: questionList) => {
+//   return {
+//     type: QUESTION_DATA as typeof QUESTION_DATA,
+//     questionData,
+//   };
+// };
 
 export const QUESTION_NUMBER = "question number";
 export const getQuestionNumber = (questionNumber: number) => {
@@ -29,6 +29,6 @@ export const getQuestionNumber = (questionNumber: number) => {
 
 export type QuestionType =
   | ReturnType<typeof getQuestionDataList>
-  | ReturnType<typeof getQuestionData>
+  // | ReturnType<typeof getQuestionData>
   | ReturnType<typeof getQuestionNumber>
   ;

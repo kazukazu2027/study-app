@@ -20,7 +20,6 @@ const AnswerCardContainer = (props: Props) => {
     (state: RootState) => state.answer.correctQuestionIds
   );
 
-  console.log(correctAnswersList)
 
 
   return (
