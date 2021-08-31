@@ -1,0 +1,132 @@
+[
+  {
+    "question": "デプロイする",
+    "questionID": "1",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "公開する",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "消去する",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "修正する",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "複製する",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "マージする",
+    "questionID": "2",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "消去する",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "追加する",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "編集する",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "複製する",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "プルする",
+    "questionID": "3",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "取り込む",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "消去する",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "修正する",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "複製する",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "コミットする",
+    "questionID": "4",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "リリースする",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "消去する",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "修正する",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "複製する",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "リバートする",
+    "questionID": "5",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "公開する",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "消去する",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "修正する",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "複製する",
+        "check": false
+      }
+    ]
+  }
+]
