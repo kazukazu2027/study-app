@@ -6,7 +6,6 @@ import {
   getCheckedAnswer,
 } from "../../../redux/action/countAnswer";
 import { getCountAnswerSelector } from "../../../redux/QuestionList/answerSelector";
-import { getQuestionDataSelector } from "../../../redux/QuestionList/selector";
 import { RootState } from "../../../redux/store";
 
 const LastCorrectAnswerCard = () => {

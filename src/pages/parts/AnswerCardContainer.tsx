@@ -1,38 +1,39 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getCheckedAnswerStringSelector, getCountAnswerSelector } from "../../redux/QuestionList/answerSelector";
+import {
+  getCheckedAnswerStringSelector,
+  getCountAnswerSelector,
+} from "../../redux/QuestionList/answerSelector";
 import { RootState } from "../../redux/store";
 import LastQuestion from "./AnswerParts/LastQuestion";
 import QuestionCard from "./AnswerParts/QuestionCard";
 
 interface Props {
-  title: string;
+  answerResult: string;
   color: string;
 }
 
 const AnswerCardContainer = (props: Props) => {
-  const { title, color } = props;
+  const { answerResult, color } = props;
   const selector = useSelector((state: RootState) => state);
 
-  const answer = getCheckedAnswerStringSelector(selector);
-  const resultAnswersList = getCountAnswerSelector(selector)
-
-
-
+  const checkedAnswerString = getCheckedAnswerStringSelector(selector);
+  const resultAnswersList = getCountAnswerSelector(selector);
 
   return (
     <>
       <div className={`${color} rounded py-4 w-5/12 m-auto`}>
-        <p>{title}</p>
+        <p>{answerResult}</p>
       </div>
       <div className=" font-bold text-2xl py-8">
-        <p>{answer}</p>
+        <p>{checkedAnswerString}</p>
       </div>
 
+      {/* 最終問題か確認 */}
       {resultAnswersList.length === 2 ? (
-        <LastQuestion title={title} />
+        <LastQuestion answerResult={answerResult} />
       ) : (
-        <QuestionCard title={title} />
+        <QuestionCard answerResult={answerResult} />
       )}
     </>
   );

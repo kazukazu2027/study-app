@@ -1,7 +1,6 @@
 import "../../styles/globals.css";
 import { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
-import AuthProvider from "../context/Auth";
 import authReducer from "../Firebase/authReducer";
 import { listenAuthState } from "../Firebase/firebase";
 import { useEffect, useReducer } from "react";

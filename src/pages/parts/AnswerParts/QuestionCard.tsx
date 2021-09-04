@@ -3,15 +3,13 @@ import CorrectAnswerCard from "./CorrectAnswerCard";
 import IncorrectAnswerCard from "./IncorrectAnswerCard";
 
 type Props = {
-  title: string;
+  answerResult: string;
 };
 
 const QuestionCard = (props: Props) => {
-  const { title } = props;
-  return title === "正解" ? (
-    <>
-      <CorrectAnswerCard /> 
-    </>
+  const { answerResult } = props;
+  return answerResult === "正解" ? (
+    <CorrectAnswerCard />
   ) : (
     <IncorrectAnswerCard />
   );

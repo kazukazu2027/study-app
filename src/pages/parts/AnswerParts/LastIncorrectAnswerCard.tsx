@@ -13,7 +13,6 @@ const LastIncorrectAnswerCard = () => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
-  const questionData = getQuestionDataSelector(selector);
   const questionIdsList = getCountAnswerSelector(selector);
 
   const resultIncorrectClick = () => {

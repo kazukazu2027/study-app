@@ -9,13 +9,14 @@ import {
 import { getCountAnswerSelector } from "../redux/QuestionList/answerSelector";
 import { getQuestionDataListSelector } from "../redux/QuestionList/selector";
 import { RootState } from "../redux/store";
-import Mark from "./components/ResultPage/mark";
+import Mark from "./components/ResultPage/Mark";
 import Card from "./layouts/Card";
 import Layout from "./layouts/Layout";
 
 const ResultPage = () => {
+  const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
-  const questionList = getQuestionDataListSelector(selector);
+  const questionDataList = getQuestionDataListSelector(selector);
   const resultAnswer = getCountAnswerSelector(selector);
 
   // 正解した問題のみの配列
@@ -24,7 +25,6 @@ const ResultPage = () => {
   // 正答率計算
   const numberOfCorrectAnswers = correctAnswer.length;
   const correctAnswerRate = Math.floor((numberOfCorrectAnswers / 3) * 100);
-  const dispatch = useDispatch();
 
   const resetAnswer = () => {
     dispatch(getQuestionDataList([]));
@@ -40,7 +40,7 @@ const ResultPage = () => {
           <p>
             正答率<span className=" text-3xl">{correctAnswerRate}</span>%
           </p>
-          <p>3問中{numberOfCorrectAnswers}問正解</p>
+          <p>{questionDataList.length}問中{numberOfCorrectAnswers}問正解</p>
 
           {resultAnswer.map((answer) => {
             if (answer === true) {
@@ -48,7 +48,7 @@ const ResultPage = () => {
             }
             return "×";
           })}
-          {questionList.map((question) => {
+          {questionDataList.map((question) => {
             return (
               <div className=" border-t-2 " key={question.questionID}>
                 <div className="px-2 flex">

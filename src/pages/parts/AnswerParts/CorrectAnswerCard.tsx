@@ -13,12 +13,12 @@ const CorrectAnswerCard = () => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
-  const number = getQuestionNumberSelector(selector);
+  const questionNumber = getQuestionNumberSelector(selector);
   const questionIdsList = getCountAnswerSelector(selector);
 
   const nextQuestionCorrectClick = () => {
     dispatch(countCorrectAnswer([...questionIdsList, true]));
-    dispatch(getQuestionNumber(number + 1));
+    dispatch(getQuestionNumber(questionNumber + 1));
     dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
   };
   return (

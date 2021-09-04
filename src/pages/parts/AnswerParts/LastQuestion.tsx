@@ -3,12 +3,12 @@ import LastCorrectAnswerCard from "./LastCorrectAnser";
 import LastIncorrectAnswerCard from "./LastIncorrectAnswerCard";
 
 type Props = {
-  title: string;
+  answerResult: string;
 };
 
 const LastQuestion = (props: Props) => {
-  const { title } = props;
-  return title === "正解" ? (
+  const { answerResult } = props;
+  return answerResult === "正解" ? (
     <LastCorrectAnswerCard />
   ) : (
     <LastIncorrectAnswerCard />

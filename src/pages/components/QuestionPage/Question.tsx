@@ -25,9 +25,9 @@ const Question = () => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
-  const questionList = getQuestionDataListSelector(selector);
+  const questionDataList = getQuestionDataListSelector(selector);
   const questionNumber = getQuestionNumberSelector(selector);
-  const checkedAnswer = getCheckedAnswerIsCheckedSelector(selector);
+  const isChecked = getCheckedAnswerIsCheckedSelector(selector);
 
   const handleCheck = (event: any) => {
     dispatch(
@@ -39,21 +39,21 @@ const Question = () => {
   };
   return (
     <>
-      {questionList[questionNumber] && (
+      {questionDataList[questionNumber] && (
         <div className="border rounded-lg shadow m-auto mt-16">
           <div className="text-center py-8">
             <div className="pb-4">
               <p className="">{`第${questionNumber + 1}問目`}</p>
             </div>
             <div className="font-bold text-2xl pb-4">
-              <p>{questionList[questionNumber].question}</p>
+              <p>{questionDataList[questionNumber].question}</p>
             </div>
             <div className="w-11/12 m-auto bg-gray-100 rounded-md">
               <div className=" w-10/12 m-auto py-4">
-                {questionList[questionNumber].answerList.map((answer) => {
+                {questionDataList[questionNumber].answerList.map((answer) => {
                   return (
                     <div key={answer.ID}>
-                      {checkedAnswer ? (
+                      {isChecked ? (
                         <label className="flex">
                           <input
                             type="radio"

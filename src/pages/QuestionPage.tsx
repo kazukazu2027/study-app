@@ -7,10 +7,10 @@ import AnswerCardContainer from "./parts/AnswerCardContainer";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
+// 問題の中から正解の答えを抽出
 const answer = questionData[0].answerList.filter((list) => list.check === true);
 
 const QuestionPage = () => {
-
   const checkedAnswerString = useSelector(
     (state: RootState) => state.answer.checkedAnswer.checkedAnswerString
   );
@@ -25,11 +25,11 @@ const QuestionPage = () => {
       <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
         {isTrue === -1 ? (
           <AnswerCard>
-            <AnswerCardContainer title="不正解" color={"bg-red-200"} />
+            <AnswerCardContainer answerResult="不正解" color={"bg-red-200"} />
           </AnswerCard>
         ) : (
           <AnswerCard>
-            <AnswerCardContainer title="正解" color={"bg-green-200"} />
+            <AnswerCardContainer answerResult="正解" color={"bg-green-200"} />
           </AnswerCard>
         )}
       </div>
