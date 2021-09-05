@@ -4,49 +4,51 @@ import { SignUp } from "../redux/users/operation";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
+import { auth, db } from "../Firebase/firebase";
+import ErrorMessage from "../Firebase/ErrorMassage";
 
 const SignUpPage = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const [userName, setUserName] = useState(""),
-    [email, setEmail] = useState(""),
-    [password, setPassword] = useState(""),
-    [confirmPassword, setConfirmPassword] = useState("");
 
-  const inputUserName = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setUserName(event.target.value);
-    },
-    [setUserName]
-  );
+  const [error, setError] = useState("");
 
-  const inputEmail = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setEmail(event.target.value);
-    },
-    [setEmail]
-  );
-
-  const inputPassword = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setPassword(event.target.value);
-    },
-    [setPassword]
-  );
-
-  const inputConfirmPassword = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setConfirmPassword(event.target.value);
-    },
-    [setConfirmPassword]
-  );
-
-  const logIn = async (e:any) => {
-    e.preventDefault();
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    const { userName, email, password, confirmPassword } =
+      event.target.elements;
     try {
-      router.push("/");
-    } catch (err) {
-      alert(err.message);
+      if (
+        userName.value === "" ||
+        email.value === "" ||
+        password.value === "" ||
+        confirmPassword.value === ""
+      ) {
+        alert("必須項目が未入力です");
+        return false;
+      }
+      if (password.value !== confirmPassword.value) {
+        alert("パスワードが一致しません");
+        return false;
+      }
+      await auth
+        .createUserWithEmailAndPassword(email.value, password.value)
+        .then((result) => {
+          const user = result.user;
+          if (user) {
+            const uid = user.uid;
+            const userInitialData = {
+              email: email.value,
+              uid: uid,
+              userName: userName.value,
+            };
+            console.log(userInitialData);
+            db.collection("users").doc(uid).set(userInitialData);
+          }
+          router.push("/");
+        });
+    } catch (error) {
+      console.log(error);
+      setError(error.message);
     }
   };
 
@@ -55,14 +57,14 @@ const SignUpPage = () => {
       <div className="bg-grey-lighter min-h-screen flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <form action="" onSubmit={logIn}>
+            <form action="" onSubmit={handleSubmit}>
               <h1 className="mb-8 text-3xl text-center">アカウント登録</h1>
+              <ErrorMessage error={error} />
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="fullname"
+                name="userName"
                 placeholder="ユーザー名"
-                onChange={inputUserName}
               />
 
               <input
@@ -70,7 +72,6 @@ const SignUpPage = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="email"
                 placeholder="メールアドレス"
-                onChange={inputEmail}
               />
 
               <input
@@ -78,29 +79,21 @@ const SignUpPage = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="password"
                 placeholder="パスワード"
-                onChange={inputPassword}
               />
 
               <input
                 type="password"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="confirm_password"
+                name="confirmPassword"
                 placeholder="パスワード再確認"
-                onChange={inputConfirmPassword}
               />
-            </form>
-
-            <Link href={"/"}>
               <button
                 type="submit"
                 className="w-full text-center py-3 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
-                onClick={() =>
-                  dispatch(SignUp(userName, email, password, confirmPassword))
-                }
               >
                 Create Account
               </button>
-            </Link>
+            </form>
           </div>
 
           <div className="text-grey-dark mt-6 flex">
