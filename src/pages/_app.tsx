@@ -6,9 +6,8 @@ import { listenAuthState } from "../Firebase/firebase";
 import { useEffect, useReducer } from "react";
 import AuthContext from "../context/Auth";
 import { Provider } from "react-redux";
-import { initializeStore } from "../redux/store";
-
-export const store = initializeStore();
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "../redux/store/configureStore";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [state, dispatch] = useReducer(
@@ -21,9 +20,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Provider store={store}>
-        <AuthContext.Provider value={state}>
-          <Component {...pageProps} />
-        </AuthContext.Provider>
+        <PersistGate loading={null} persistor={persistor}>
+          <AuthContext.Provider value={state}>
+            <Component {...pageProps} />
+          </AuthContext.Provider>
+        </PersistGate>
       </Provider>
     </>
   );
