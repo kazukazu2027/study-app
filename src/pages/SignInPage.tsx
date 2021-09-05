@@ -2,21 +2,44 @@ import React, { useCallback, useState } from "react";
 import Layout from "./layouts/Layout";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-import { auth } from "../Firebase/firebase";
+import { auth, db } from "../Firebase/firebase";
 import ErrorMessage from "../Firebase/errorMassage";
+import { signInAction } from "../redux/users/usersAction";
+import { useDispatch } from "react-redux";
 
 const SignInPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await auth.signInWithEmailAndPassword(email.value, password.value);
-      router.push("/");
+      await auth
+        .signInWithEmailAndPassword(email.value, password.value)
+        .then((result) => {
+          const user = result.user;
+          if (user) {
+            const uid = user.uid;
+            db.collection("users")
+              .doc(uid)
+              .get()
+              .then((snapshot) => {
+                const data = snapshot.data();
+                data &&
+                  dispatch(
+                    signInAction({
+                      isSignedIn: true,
+                      uid: uid,
+                      userName: data.userName,
+                    })
+                  );
+                router.push("/");
+              });
+          }
+        });
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
   };
