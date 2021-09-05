@@ -12,6 +12,10 @@ const ErrorMessage = (props: Props) => {
         return <p>メールアドレスの形式が正しくありません。</p>;
       case "The password is invalid or the user does not have a password.":
         return <p>パスワードが間違っています。</p>;
+      case "The email address is already in use by another account.":
+        return <p>このメールアドレスは既に使用されています。</p>;
+      case "Password should be at least 6 characters":
+        return <p>パスワードは６文字以上で設定してください。</p>;
     }
   };
   return <>{displayJapaneseErrorMessage()}</>;

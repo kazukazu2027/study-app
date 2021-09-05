@@ -1,7 +1,5 @@
 import React, { useCallback, useState } from "react";
 import Layout from "./layouts/Layout";
-import { SignUp } from "../redux/users/operation";
-import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { auth, db } from "../Firebase/firebase";
@@ -47,7 +45,6 @@ const SignUpPage = () => {
           router.push("/");
         });
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
   };
