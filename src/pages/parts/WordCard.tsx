@@ -2,8 +2,12 @@ import Link from "next/link";
 import Card from "../layouts/Card";
 import Image from "next/image";
 import Button from "./Button";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const WordCard = () => {
+  const a = useSelector((state:RootState) => state.user.signIn.userName)
+  console.log(a)
   return (
     <div className="mt-10">
       <Card>

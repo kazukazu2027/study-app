@@ -1,23 +1,28 @@
 import React from "react";
 import Layout from "./layouts/Layout";
 import Question from "./components/QuestionPage/Question";
-import questionData from "../../data.json";
 import AnswerCard from "./layouts/AnswerCard";
 import AnswerCardContainer from "./parts/AnswerCardContainer";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
-// 問題の中から正解の答えを抽出
-const answer = questionData[0].answerList.filter((list) => list.check === true);
+import { getCheckedAnswerStringSelector } from "../redux/QuestionList/answerSelector";
+import {
+  getQuestionDataListSelector,
+  getQuestionNumberSelector,
+} from "../redux/QuestionList/selector";
 
 const QuestionPage = () => {
-  const checkedAnswerString = useSelector(
-    (state: RootState) => state.answer.checkedAnswer.checkedAnswerString
-  );
+  const selector = useSelector((state: RootState) => state);
+  const checkedAnswerString = getCheckedAnswerStringSelector(selector);
+  const questionList = getQuestionDataListSelector(selector);
+  const questionNumber = getQuestionNumberSelector(selector);
 
+  // 問題の中から正解の答えを抽出
+  const answer = questionList[questionNumber].answerList.filter(
+    (list) => list.check === true
+  );
   // 正解かどうか判定
   const isTrue = answer[0].body.indexOf(checkedAnswerString);
-
 
   return (
     <Layout>

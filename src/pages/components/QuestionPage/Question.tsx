@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import questionData from "../../../../data.json";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";

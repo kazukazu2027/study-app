@@ -128,5 +128,112 @@
         "check": false
       }
     ]
+  },
+  {
+    "question": "HTML",
+    "questionID": "6",
+    "category": "language",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "HTMLの文字情報",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "デザインをする",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "JSのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "PHPのフレームワーク",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "CSS",
+    "questionID": "7",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "デザインする",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "PHPのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "サーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "データベースの言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "JavaScript",
+    "questionID": "8",
+    "category": "language",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "ブラウザ上で動く言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "データベースの言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "フレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "HTMLの文字情報",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "React",
+    "questionID": "9",
+    "category": "language",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "JSのフレームワーク",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "PHPのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "CSSのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "デザインする言語",
+        "check": false
+      }
+    ]
   }
 ]
