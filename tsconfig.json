@@ -24,7 +24,7 @@
     "src/pages/components/SideMenu.tsx",
     "src/pages/index.tsx"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "functions"],
   "baseUrl": ".",
   "paths": {
     "~/*": ["./*"]
