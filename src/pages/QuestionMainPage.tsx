@@ -20,8 +20,7 @@ const QuestionMainPage = () => {
             </div>
             <div className="py-5">
               <p>
-                これから、問題が１０問表示されます。
-                正しいと思う答えを4択の中から選んでください。
+                IT用語を覚えておけば、さまざまな場面で役立てることができます。また、エンジニアとの会話にもバッチリついていけます。これからIT業界を目指す方は、必須なので、しっかり学習しましょう。
               </p>
             </div>
             <Link href={"QuestionExplanationPage"}>
