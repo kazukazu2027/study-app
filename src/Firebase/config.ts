@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyCTGFE66bTtkXj_sUtIBGZjBSFpZHxbEd4",
-  authDomain: "study-service.firebaseapp.com",
-  databaseURL: "https://study-service.firebaseio.com",
-  projectId: "study-service",
-  storageBucket: "study-service.appspot.com",
-  messagingSenderId: "780824859256",
-  appId: "1:780824859256:web:c9f4f2e811772c0ad8d38d",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
 };
