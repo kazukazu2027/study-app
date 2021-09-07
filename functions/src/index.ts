@@ -30,3 +30,10 @@ export const addQuestionListSet = functions.https.onRequest(
     }
   }
 );
+
+export const testDelete = functions
+  .region("asia-northeast1")
+  .firestore.document("test/{testId}")
+  .onDelete(async (snap, context) => {
+    // hogehoge
+  });
