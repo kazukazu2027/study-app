@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import questionData from "../../../../data.json";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";
@@ -21,6 +21,12 @@ export type Data = {
   ];
 };
 
+type AnswerList = {
+  ID: string;
+  body: string;
+  check: boolean;
+};
+
 const Question = () => {
   const dispatch = useDispatch();
 
@@ -28,6 +34,22 @@ const Question = () => {
   const questionDataList = getQuestionDataListSelector(selector);
   const questionNumber = getQuestionNumberSelector(selector);
   const isChecked = getCheckedAnswerIsCheckedSelector(selector);
+
+  const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
+
+  useEffect(() => {
+    const answerList = questionDataList[questionNumber].answerList;
+    // 問題のリストをシャッフルして問題数を絞る
+    const shuffle = ([...answerList]) => {
+      for (let i = answerList.length - 1; i >= 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [answerList[i], answerList[j]] = [answerList[j], answerList[i]];
+      }
+      return answerList;
+    };
+    const shuffleAnswerList = shuffle(answerList);
+    setShuffleAnswerList(shuffleAnswerList);
+  }, [questionNumber]);
 
   const handleCheck = (event: any) => {
     dispatch(
@@ -50,30 +72,30 @@ const Question = () => {
             </div>
             <div className="w-11/12 m-auto bg-gray-100 rounded-md">
               <div className=" w-10/12 m-auto py-4">
-                {questionDataList[questionNumber].answerList.map((answer) => {
+                {shuffleAnswerList.map((answer) => {
                   return (
-                    <div key={answer.ID}>
+                    <div key={answer.ID} className="text-left">
                       {isChecked ? (
-                        <label className="flex">
+                        <label className="flex my-2">
                           <input
                             type="radio"
-                            className="mt-1 "
+                            className="mt-2 mr-2 "
                             value={answer.body}
                             disabled
                             name={questionData[0].questionID}
                           />
-                          <p className="pl-3 text-gray-400">{answer.body}</p>
+                          <span className="text-gray-400">{answer.body}</span>
                         </label>
                       ) : (
-                        <label className="flex ">
+                        <label className="flex my-2">
                           <input
                             type="radio"
-                            className="mt-1"
+                            className="mt-2 mr-2 "
                             value={answer.body}
                             onClick={handleCheck}
                             name={questionData[0].questionID}
                           />
-                          <p className="pl-3">{answer.body}</p>
+                          <span>{answer.body}</span>
                         </label>
                       )}
                     </div>

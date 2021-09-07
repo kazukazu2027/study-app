@@ -24,7 +24,7 @@ export const addQuestionListSet = functions.https.onRequest(
       const dataSet = req.body;
       for (const key of Object.keys(dataSet)) {
         const data = dataSet[key];
-        await db.collection("questions").doc(key).set(data);
+        await db.collection("questionDataList").doc(key).set(data);
       }
       sendResponse(res, 200, { message: "Successfully added dataset" });
     }

@@ -1,29 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Card from "./layouts/Card";
 import Button from "./parts/Button";
-import questionData from "../../data.json";
 import { getQuestionDataList } from "../redux/action/questionList";
 import Layout from "./layouts/Layout";
+import { db } from "../Firebase/firebase";
+import firebase from "firebase";
 
 const QuestionExplanationPage = () => {
   const dispatch = useDispatch();
+  const [questionDataList, setQuestionDataList] = useState<
+    firebase.firestore.DocumentData[]
+  >([]);
+  console.log(questionDataList);
 
-  // 問題のリストをシャッフルして問題数を絞る
   useEffect(() => {
-    const shuffle = ([...questionData]) => {
-      for (let i = questionData.length - 1; i >= 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [questionData[i], questionData[j]] = [questionData[j], questionData[i]];
-      }
-      return questionData;
-    };
-    const shuffleQuestionList = shuffle(questionData);
-    const questionList = shuffleQuestionList.slice(0, 3);
-    dispatch(getQuestionDataList([]));
-    dispatch(getQuestionDataList(questionList));
+    const questionDataList: firebase.firestore.DocumentData[] = [];
+    db.collection("questionDataList")
+      .get()
+      .then((snapShots) => {
+        snapShots.forEach((doc) => {
+          questionDataList.push(doc.data());
+          setQuestionDataList(questionDataList);
+
+          // 問題のリストをシャッフルして問題数を絞る
+          const shuffle = ([...questionDataList]) => {
+            for (let i = questionDataList.length - 1; i >= 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [questionDataList[i], questionDataList[j]] = [
+                questionDataList[j],
+                questionDataList[i],
+              ];
+            }
+            return questionDataList;
+          };
+          const shuffleQuestionList = shuffle(questionDataList);
+          const questionList = shuffleQuestionList.slice(0, 3);
+          dispatch(getQuestionDataList([]));
+          dispatch(getQuestionDataList(questionList));
+        });
+      });
   }, []);
 
   return (

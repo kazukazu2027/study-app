@@ -132,16 +132,16 @@
   {
     "question": "HTML",
     "questionID": "6",
-    "category": "language",
+    "category": "skill",
     "answerList": [
       {
         "ID": "1",
-        "body": "HTMLの文字情報",
+        "body": "マークアップをすることができる言語",
         "check": true
       },
       {
         "ID": "2",
-        "body": "デザインをする",
+        "body": "スタイルシート言語",
         "check": false
       },
       {
@@ -151,7 +151,7 @@
       },
       {
         "ID": "4",
-        "body": "PHPのフレームワーク",
+        "body": "バージョン管理システム",
         "check": false
       }
     ]
@@ -159,10 +159,11 @@
   {
     "question": "CSS",
     "questionID": "7",
+    "category": "skill",
     "answerList": [
       {
         "ID": "1",
-        "body": "デザインする",
+        "body": "スタイルシート言語",
         "check": true
       },
       {
@@ -172,12 +173,12 @@
       },
       {
         "ID": "3",
-        "body": "サーバーサイド言語",
+        "body": "JavaScriptのフレームワーク",
         "check": false
       },
       {
         "ID": "4",
-        "body": "データベースの言語",
+        "body": "マークアップをすることができる言語",
         "check": false
       }
     ]
@@ -185,38 +186,38 @@
   {
     "question": "JavaScript",
     "questionID": "8",
-    "category": "language",
+    "category": "skill",
     "answerList": [
       {
         "ID": "1",
-        "body": "ブラウザ上で動く言語",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
         "check": true
       },
       {
         "ID": "2",
-        "body": "データベースの言語",
+        "body": "OSに依存しないサーバーサイド言語",
         "check": false
       },
       {
         "ID": "3",
-        "body": "フレームワーク",
+        "body": "データベースを操作するための言語",
         "check": false
       },
       {
         "ID": "4",
-        "body": "HTMLの文字情報",
+        "body": "2009年にGoogleが開発したプログラミング言語",
         "check": false
       }
     ]
   },
   {
-    "question": "React",
-    "questionID": "9",
-    "category": "language",
+    "question": "jQuery",
+    "questionID": "10",
+    "category": "skill",
     "answerList": [
       {
         "ID": "1",
-        "body": "JSのフレームワーク",
+        "body": "JavaScriptのライブラリ",
         "check": true
       },
       {
@@ -226,12 +227,390 @@
       },
       {
         "ID": "3",
-        "body": "CSSのフレームワーク",
+        "body": "Rubyのフレームワーク",
         "check": false
       },
       {
         "ID": "4",
-        "body": "デザインする言語",
+        "body": "OSに依存しないサーバーサイド言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Ruby",
+    "questionID": "11",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "日本で開発された、オブジェクト指向のプログラミング言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "データベースを操作するための言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "サーバーサイドでも動くJavaScript",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "JavaScriptを拡張して作られたプログラミング言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Ruby on Rails",
+    "questionID": "12",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "Rubyのフレームワーク",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "PHPのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "Rubyのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "バージョン管理システム",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "PHP",
+    "questionID": "13",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "Web開発でよく使用されるサーバーサイド言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "JavaScriptを拡張して作られたプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "サーバーサイドでも動くJavaScript",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "データベースを操作するための言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Laravel",
+    "questionID": "14",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "PHPのフレームワーク",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "JavaScriptのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "Rubyのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "マークアップをすることができる言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Java",
+    "questionID": "15",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "OSに依存しないサーバーサイド言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "少ないコードで書くことのできるプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "日本で開発された、オブジェクト指向のプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Python",
+    "questionID": "16",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "少ないコードで書くことのできるプログラミング言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "JavaScriptを拡張して作られたプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "データベースを操作するための言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Git",
+    "questionID": "17",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "バージョン管理システム",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "データベースを操作するための言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "SQL",
+    "questionID": "18",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "データベースを操作するための言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "Web開発でよく使用されるサーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Sass",
+    "questionID": "19",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "cssを拡張して書きやすくしたスタイルシート",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "日本で開発された、オブジェクト指向のプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "Web開発でよく使用されるサーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "データベースを操作するための言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Go",
+    "questionID": "20",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "2009年にGoogleが開発したプログラミング言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "サーバーサイドでも動くJavaScript",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "JavaScriptのライブラリ",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "マークアップをすることができる言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Node.js",
+    "questionID": "21",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "サーバーサイドでも動くJavaScript",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "Web開発でよく使用されるサーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "OSに依存しないサーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "データベースを操作するための言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "Unity",
+    "questionID": "22",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "バージョン管理システム",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "少ないコードで書くことのできるプログラミング言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "MySQL",
+    "questionID": "23",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "データベース管理システム",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "少ないコードで書くことのできるプログラミング言語",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "Web開発でよく使用されるサーバーサイド言語",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "ブラウザ上で動くために開発されたプログラミング言語",
+        "check": false
+      }
+    ]
+  },
+  {
+    "question": "TypeScript",
+    "questionID": "24",
+    "category": "skill",
+    "answerList": [
+      {
+        "ID": "1",
+        "body": "JavaScriptを拡張して作られたプログラミング言語",
+        "check": true
+      },
+      {
+        "ID": "2",
+        "body": "PHPのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "3",
+        "body": "Rubyのフレームワーク",
+        "check": false
+      },
+      {
+        "ID": "4",
+        "body": "日本で開発された、オブジェクト指向のプログラミング言語",
         "check": false
       }
     ]
