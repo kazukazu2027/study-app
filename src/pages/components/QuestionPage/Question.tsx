@@ -16,7 +16,7 @@ export type Data = {
   questionID: string;
   answerList: {
     ID: string;
-    a: string;
+    body: string;
     check: boolean;
   };
 };
@@ -38,7 +38,7 @@ const Question = () => {
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
-    const trueAnswerText = questionDataList[questionNumber].answerList.a;
+    const trueAnswerText = questionDataList[questionNumber].answerList.body;
     const filterAnswerData = answerData.filter((answer) => {
       return answer.body !== trueAnswerText;
     });
