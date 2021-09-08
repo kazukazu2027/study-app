@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import questionData from "../../../../data.json";
 import answerData from "../../../../answer.json";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";
 import { getAnswerList } from "../../../redux/action/questionList";
@@ -23,7 +22,7 @@ export type Data = {
 
 export type AnswerList = {
   ID: string;
-  a: string;
+  body: string;
   check: boolean;
 };
 
@@ -83,28 +82,28 @@ const Question = () => {
               <div className=" w-10/12 m-auto py-4">
                 {shuffleAnswerList.map((answer) => {
                   return (
-                    <div key={answer.a} className="text-left">
+                    <div key={answer.body} className="text-left">
                       {isChecked ? (
                         <label className="flex my-2">
                           <input
                             type="radio"
                             className="mt-2 mr-2 "
-                            value={answer.a}
+                            value={answer.body}
                             disabled
-                            name={questionData[0].questionID}
+                            name={questionDataList[0].questionID}
                           />
-                          <span className="text-gray-400">{answer.a}</span>
+                          <span className="text-gray-400">{answer.body}</span>
                         </label>
                       ) : (
                         <label className="flex my-2">
                           <input
                             type="radio"
                             className="mt-2 mr-2 "
-                            value={answer.a}
+                            value={answer.body}
                             onClick={handleCheck}
-                            name={questionData[0].questionID}
+                            name={questionDataList[0].questionID}
                           />
-                          <span>{answer.a}</span>
+                          <span>{answer.body}</span>
                         </label>
                       )}
                     </div>
