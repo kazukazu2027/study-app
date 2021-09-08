@@ -4,8 +4,6 @@ import Image from "next/image";
 import Button from "./Button";
 
 const WordCard = () => {
-  console.log(process.env.NEXT_PUBLIC_API_KEY)
-
   return (
     <div className="mt-10">
       <Card>
