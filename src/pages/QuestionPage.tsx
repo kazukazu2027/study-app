@@ -19,13 +19,13 @@ const QuestionPage = () => {
   const answer = answerList && answerList.filter((list) => list.check === true);
   console.log(answer);
   // 正解かどうか判定
-  const isTrue = answer[0].body.indexOf(checkedAnswerString);
+  const isTrue = answer[0];
 
   return (
     <Layout>
       <Question />
       <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
-        {isTrue === -1 ? (
+        {-1 === -1 ? (
           <AnswerCard>
             <AnswerCardContainer answerResult="不正解" color={"bg-red-200"} />
           </AnswerCard>

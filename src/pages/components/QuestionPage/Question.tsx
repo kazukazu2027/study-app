@@ -21,7 +21,6 @@ export type Data = {
 };
 
 export type AnswerList = {
-  ID: string;
   body: string;
   check: boolean;
 };
