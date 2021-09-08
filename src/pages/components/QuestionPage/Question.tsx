@@ -16,14 +16,14 @@ export type Data = {
   questionID: string;
   answerList: {
     ID: string;
-    body: string;
+    a: string;
     check: boolean;
   };
 };
 
 export type AnswerList = {
   ID: string;
-  body: string;
+  a: string;
   check: boolean;
 };
 
@@ -38,7 +38,7 @@ const Question = () => {
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
-    const trueAnswerText = questionDataList[questionNumber].answerList.body;
+    const trueAnswerText = questionDataList[questionNumber].answerList.a;
     const filterAnswerData = answerData.filter((answer) => {
       return answer.body !== trueAnswerText;
     });
@@ -47,7 +47,6 @@ const Question = () => {
       questionDataList[questionNumber].answerList,
       ...sliceAnswerList,
     ];
-    // const answerList = questionDataList[questionNumber].answerList;
     // 問題のリストをシャッフルして問題数を絞る
     const shuffle = ([...answerList]) => {
       for (let i = answerList.length - 1; i >= 0; i--) {
@@ -84,28 +83,28 @@ const Question = () => {
               <div className=" w-10/12 m-auto py-4">
                 {shuffleAnswerList.map((answer) => {
                   return (
-                    <div key={answer.body} className="text-left">
+                    <div key={answer.a} className="text-left">
                       {isChecked ? (
                         <label className="flex my-2">
                           <input
                             type="radio"
                             className="mt-2 mr-2 "
-                            value={answer.body}
+                            value={answer.a}
                             disabled
                             name={questionData[0].questionID}
                           />
-                          <span className="text-gray-400">{answer.body}</span>
+                          <span className="text-gray-400">{answer.a}</span>
                         </label>
                       ) : (
                         <label className="flex my-2">
                           <input
                             type="radio"
                             className="mt-2 mr-2 "
-                            value={answer.body}
+                            value={answer.a}
                             onClick={handleCheck}
                             name={questionData[0].questionID}
                           />
-                          <span>{answer.body}</span>
+                          <span>{answer.a}</span>
                         </label>
                       )}
                     </div>
