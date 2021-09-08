@@ -16,7 +16,7 @@ const QuestionPage = () => {
   console.log(answerList);
 
   // 問題の中から正解の答えを抽出
-  const answer = answerList.filter((list) => list.check === true);
+  const answer = answerList && answerList.filter((list) => list.check === true);
   // 正解かどうか判定
   const isTrue = answer[0].body.indexOf(checkedAnswerString);
 
