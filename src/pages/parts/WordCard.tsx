@@ -2,7 +2,7 @@ import Link from "next/link";
 import Card from "../layouts/Card";
 import Image from "next/image";
 import Button from "./Button";
-import { firebaseConfig } from "../../Firebase/config";
+import { firebaseConfig } from "../../Firebase/firebase";
 
 const WordCard = () => {
   console.log(firebaseConfig.projectId)
