@@ -17,21 +17,22 @@ const QuestionPage = () => {
 
   // 問題の中から正解の答えを抽出
   const answer = answerList && answerList.filter((list) => list.check === true);
-  console.log(answer);
+  console.log(answer[0].body);
+  console.log(checkedAnswerString);
   // 正解かどうか判定
-  const isTrue = answer[0];
+  const isTrue = answer[0].body === checkedAnswerString;
 
   return (
     <Layout>
       <Question />
       <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
-        {-1 === -1 ? (
+        {isTrue ? (
           <AnswerCard>
-            <AnswerCardContainer answerResult="不正解" color={"bg-red-200"} />
+            <AnswerCardContainer answerResult="正解" color={"bg-green-200"} />
           </AnswerCard>
         ) : (
           <AnswerCard>
-            <AnswerCardContainer answerResult="正解" color={"bg-green-200"} />
+            <AnswerCardContainer answerResult="不正解" color={"bg-red-200"} />
           </AnswerCard>
         )}
       </div>
