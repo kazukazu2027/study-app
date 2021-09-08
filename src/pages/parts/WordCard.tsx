@@ -2,9 +2,10 @@ import Link from "next/link";
 import Card from "../layouts/Card";
 import Image from "next/image";
 import Button from "./Button";
+import { firebaseConfig } from "../../Firebase/config";
 
 const WordCard = () => {
-  console.log(process.env.NEXT_PUBLIC_PROJECT_ID)
+  console.log(firebaseConfig.projectId)
 
   return (
     <div className="mt-10">
