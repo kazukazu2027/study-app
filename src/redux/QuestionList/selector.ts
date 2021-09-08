@@ -17,3 +17,8 @@ export const getQuestionNumberSelector = createSelector(
   [questionsSelector],
   (state) => state.questionNumber
 );
+
+export const getAnswerListSelector = createSelector(
+  [questionsSelector],
+  (state) => state.answerList
+);

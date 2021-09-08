@@ -1,4 +1,4 @@
-import { Data } from "../../pages/components/QuestionPage/Question";
+import { AnswerList, Data } from "../../pages/components/QuestionPage/Question";
 import * as Actions from "../action/questionList";
 import { QuestionType } from "../action/questionList";
 import { questionList } from "../store";
@@ -7,6 +7,7 @@ export const initialState = {
   questionDataList: [] as Data[],
   questionData: {} as questionList,
   questionNumber: 0 as number,
+  answerList: [] as AnswerList[],
 };
 
 export const question = (
@@ -21,6 +22,10 @@ export const question = (
     case Actions.QUESTION_NUMBER: {
       const { questionNumber } = action;
       return { ...state, questionNumber };
+    }
+    case Actions.ANSWER_LIST: {
+      const { answerList } = action;
+      return { ...state, answerList };
     }
     default:
       return state;

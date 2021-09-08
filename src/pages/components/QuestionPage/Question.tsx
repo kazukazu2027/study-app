@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import questionData from "../../../../data.json";
+import answerData from "../../../../answer.json";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";
+import { getAnswerList } from "../../../redux/action/questionList";
 import { getCheckedAnswerIsCheckedSelector } from "../../../redux/QuestionList/answerSelector";
 import {
   getQuestionDataListSelector,
@@ -12,16 +14,14 @@ import { RootState } from "../../../redux/store";
 export type Data = {
   question: string;
   questionID: string;
-  answerList: [
-    {
-      ID: string;
-      body: string;
-      check: boolean;
-    }
-  ];
+  answerList: {
+    ID: string;
+    body: string;
+    check: boolean;
+  };
 };
 
-type AnswerList = {
+export type AnswerList = {
   ID: string;
   body: string;
   check: boolean;
@@ -38,7 +38,16 @@ const Question = () => {
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
-    const answerList = questionDataList[questionNumber].answerList;
+    const trueAnswerText = questionDataList[questionNumber].answerList.body;
+    const filterAnswerData = answerData.filter((answer) => {
+      return answer.body !== trueAnswerText;
+    });
+    const sliceAnswerList = filterAnswerData.slice(0, 3);
+    const answerList = [
+      questionDataList[questionNumber].answerList,
+      ...sliceAnswerList,
+    ];
+    // const answerList = questionDataList[questionNumber].answerList;
     // 問題のリストをシャッフルして問題数を絞る
     const shuffle = ([...answerList]) => {
       for (let i = answerList.length - 1; i >= 0; i--) {
@@ -49,6 +58,7 @@ const Question = () => {
     };
     const shuffleAnswerList = shuffle(answerList);
     setShuffleAnswerList(shuffleAnswerList);
+    dispatch(getAnswerList(shuffleAnswerList));
   }, [questionNumber]);
 
   const handleCheck = (event: any) => {
@@ -74,7 +84,7 @@ const Question = () => {
               <div className=" w-10/12 m-auto py-4">
                 {shuffleAnswerList.map((answer) => {
                   return (
-                    <div key={answer.ID} className="text-left">
+                    <div key={answer.body} className="text-left">
                       {isChecked ? (
                         <label className="flex my-2">
                           <input
