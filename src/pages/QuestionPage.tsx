@@ -13,6 +13,8 @@ const QuestionPage = () => {
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
 
+  console.log(answerList)
+
   // 問題の中から正解の答えを抽出
   const answer = answerList.filter((list) => list.check === true);
   // 正解かどうか判定
