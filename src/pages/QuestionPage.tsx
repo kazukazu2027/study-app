@@ -13,7 +13,7 @@ const QuestionPage = () => {
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
 
-  // console.log(answerList);
+  console.log(answerList);
 
   // 問題の中から正解の答えを抽出
   const answer = answerList && answerList.filter((list) => list.check === true);
@@ -23,7 +23,7 @@ const QuestionPage = () => {
 
   return (
     <Layout>
-      {answerList && <Question />}
+      {/* <Question /> */}
       <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
         {isTrue === -1 ? (
           <AnswerCard>
