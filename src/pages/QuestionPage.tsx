@@ -19,7 +19,7 @@ const QuestionPage = () => {
   const answer = answerList && answerList.filter((list) => list.check === true);
   console.log(answer);
   // 正解かどうか判定
-  const isTrue = answer && answer[0].body.indexOf(checkedAnswerString);
+  const isTrue = answer[0].body.indexOf(checkedAnswerString);
 
   return (
     <Layout>
