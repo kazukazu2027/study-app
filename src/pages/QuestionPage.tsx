@@ -16,7 +16,7 @@ const QuestionPage = () => {
 
   // 問題の中から正解の答えを抽出
   const answer = answerList.filter((list) => list.check === true);
-  console.log(answer)
+  console.log(answer[0])
   // 正解かどうか判定
   useEffect(() => {
     if (answer) {
