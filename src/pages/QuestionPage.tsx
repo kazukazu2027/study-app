@@ -12,24 +12,21 @@ const QuestionPage = () => {
   const selector = useSelector((state: RootState) => state);
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
-  const [isTrue, setIsTrue] = useState<boolean>();
+  const [correctAnswerString, setCorrectAnswerString] = useState("");
 
   // 問題の中から正解の答えを抽出
-  const answer = answerList.filter((list) => list.check === true);
-  console.log(answer[0])
-  // 正解かどうか判定
   useEffect(() => {
-    if (answer) {
-      const isTrue = answer[0];
-      setIsTrue(true);
-    }
-  }, [answer]);
+    const correctAnswerString = answerList.filter(
+      (list) => list.check === true
+    )[0].body;
+    setCorrectAnswerString(correctAnswerString);
+  }, [answerList]);
 
   return (
     <Layout>
       <Question />
       <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
-        {isTrue ? (
+        {correctAnswerString === checkedAnswerString ? (
           <AnswerCard>
             <AnswerCardContainer answerResult="正解" color={"bg-green-200"} />
           </AnswerCard>
