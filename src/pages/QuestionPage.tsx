@@ -18,7 +18,7 @@ const QuestionPage = () => {
   const answer = answerList.filter((list) => list.check === true);
   // 正解かどうか判定
   useEffect(() => {
-    if (answer[0].body) {
+    if (answer) {
       const isTrue = answer[0].body === checkedAnswerString;
       setIsTrue(isTrue);
     }
