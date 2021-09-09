@@ -18,9 +18,10 @@ const QuestionPage = () => {
   useEffect(() => {
     const correctAnswerString = answerList.filter(
       (list) => list.check === true
-    )[0].body;
-    setCorrectAnswerString(correctAnswerString);
-  }, [answerList]);
+    )[0];
+    // setCorrectAnswerString(correctAnswerString);
+    console.log(answerList)
+  }, []);
 
   return (
     <Layout>
