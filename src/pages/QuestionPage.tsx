@@ -16,11 +16,12 @@ const QuestionPage = () => {
 
   // 問題の中から正解の答えを抽出
   const answer = answerList.filter((list) => list.check === true);
+  console.log(answer)
   // 正解かどうか判定
   useEffect(() => {
     if (answer) {
-      const isTrue = answer[0].body === checkedAnswerString;
-      setIsTrue(isTrue);
+      const isTrue = answer[0];
+      setIsTrue(true);
     }
   }, [answer]);
 
