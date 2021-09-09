@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import answerData from "../../../../answer.json";
+import { shuffle } from "../../../functions/Shuffle";
 import { getCheckedAnswer } from "../../../redux/action/countAnswer";
 import { getAnswerList } from "../../../redux/action/questionList";
 import { getCheckedAnswerIsCheckedSelector } from "../../../redux/QuestionList/answerSelector";
@@ -40,19 +41,13 @@ const Question = () => {
     const filterAnswerData = answerData.filter((answer) => {
       return answer.body !== trueAnswerText;
     });
-    const sliceAnswerList = filterAnswerData.slice(0, 3);
+    const shuffleAnswerData = shuffle(filterAnswerData);
+    const sliceAnswerList = shuffleAnswerData.slice(0, 3);
     const answerList = [
       questionDataList[questionNumber].answerList,
       ...sliceAnswerList,
     ];
-    // 問題のリストをシャッフルして問題数を絞る
-    const shuffle = ([...answerList]) => {
-      for (let i = answerList.length - 1; i >= 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [answerList[i], answerList[j]] = [answerList[j], answerList[i]];
-      }
-      return answerList;
-    };
+
     const shuffleAnswerList = shuffle(answerList);
     setShuffleAnswerList(shuffleAnswerList);
     dispatch(getAnswerList(shuffleAnswerList));

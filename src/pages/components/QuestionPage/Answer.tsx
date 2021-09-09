@@ -19,7 +19,6 @@ const Answer = () => {
         (list) => list.check === true
       )[0].body;
       setCorrectAnswerString(correctAnswerString);
-      console.log(answerList);
     }
   }, [answerList]);
 
