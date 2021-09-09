@@ -8,6 +8,7 @@ export const initialState = {
   questionData: {} as questionList,
   questionNumber: 0 as number,
   answerList: [] as AnswerList[],
+  shuffleAnswerList: [] as AnswerList[],
 };
 
 export const question = (
@@ -26,6 +27,10 @@ export const question = (
     case Actions.ANSWER_LIST: {
       const { answerList } = action;
       return { ...state, answerList };
+    }
+    case Actions.SHUFFLE_ANSWER_LIST: {
+      const { shuffleAnswerList } = action;
+      return { ...state, shuffleAnswerList };
     }
     default:
       return state;

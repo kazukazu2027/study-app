@@ -24,7 +24,16 @@ export const getAnswerList = (answerList: AnswerList[]) => {
   };
 };
 
+export const SHUFFLE_ANSWER_LIST = "shufflr answerList";
+export const getShuffleAnswerList = (shuffleAnswerList: AnswerList[]) => {
+  return {
+    type: SHUFFLE_ANSWER_LIST as typeof SHUFFLE_ANSWER_LIST,
+    shuffleAnswerList,
+  };
+};
+
 export type QuestionType =
   | ReturnType<typeof getQuestionDataList>
   | ReturnType<typeof getQuestionNumber>
-  | ReturnType<typeof getAnswerList>;
+  | ReturnType<typeof getAnswerList>
+  | ReturnType<typeof getShuffleAnswerList>

@@ -8,13 +8,13 @@ import { getQuestionDataList } from "../redux/action/questionList";
 import Layout from "./layouts/Layout";
 import { db } from "../Firebase/firebase";
 import firebase from "firebase";
+import { shuffle } from "../functions/Shuffle";
 
 const QuestionExplanationPage = () => {
   const dispatch = useDispatch();
   const [questionDataList, setQuestionDataList] = useState<
     firebase.firestore.DocumentData[]
   >([]);
-  console.log(questionDataList);
 
   useEffect(() => {
     const questionDataList: firebase.firestore.DocumentData[] = [];
@@ -24,18 +24,6 @@ const QuestionExplanationPage = () => {
         snapShots.forEach((doc) => {
           questionDataList.push(doc.data());
           setQuestionDataList(questionDataList);
-
-          // 問題のリストをシャッフルして問題数を絞る
-          const shuffle = ([...questionDataList]) => {
-            for (let i = questionDataList.length - 1; i >= 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [questionDataList[i], questionDataList[j]] = [
-                questionDataList[j],
-                questionDataList[i],
-              ];
-            }
-            return questionDataList;
-          };
           const shuffleQuestionList = shuffle(questionDataList);
           const questionList = shuffleQuestionList.slice(0, 3);
           dispatch(getQuestionDataList([]));

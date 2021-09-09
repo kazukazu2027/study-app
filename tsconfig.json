@@ -23,7 +23,7 @@
     "src/pages/components/Header.tsx",
     "src/pages/components/SideMenu.tsx",
     "src/pages/index.tsx"
-  ],
+, "tsconfig.dev.json"  ],
   "exclude": ["node_modules", "functions"],
   "baseUrl": ".",
   "paths": {

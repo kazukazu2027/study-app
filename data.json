@@ -155,9 +155,225 @@
   {
     "question": "TypeScript",
     "questionID": "18",
-    "category": "skill",
+    "category": "git",
     "answerList": {
       "body": "JavaScriptを拡張して作られたプログラミング言語",
+      "check": true
+    }
+  },
+  {
+    "question": "リモートリポジトリ",
+    "questionID": "19",
+    "category": "git",
+    "answerList": {
+      "body": "サーバーにあるリポジトリ",
+      "check": true
+    }
+  },
+  {
+    "question": "ローカルリポジトリ",
+    "questionID": "20",
+    "category": "git",
+    "answerList": {
+      "body": "自分のPCにあるリポジトリ",
+      "check": true
+    }
+  },
+  {
+    "question": "ワークツリー",
+    "questionID": "21",
+    "category": "git",
+    "answerList": {
+      "body": "ファイルを変更したりする作業場のこと",
+      "check": true
+    }
+  },
+  {
+    "question": "ステージング",
+    "questionID": "22",
+    "category": "git",
+    "answerList": {
+      "body": "Gitリポジトリにコミットするファイルを置いておく場所",
+      "check": true
+    }
+  },
+  {
+    "question": "コミット",
+    "questionID": "23",
+    "category": "git",
+    "answerList": {
+      "body": "ファイルやディレクトリの変更をリポジトリに記録する",
+      "check": true
+    }
+  },
+  {
+    "question": "プッシュ",
+    "questionID": "24",
+    "category": "git",
+    "answerList": {
+      "body": "ローカルリポジトリの内容をリモートリポジトリにアップすること。",
+      "check": true
+    }
+  },
+  {
+    "question": "ブランチ",
+    "questionID": "25",
+    "category": "git",
+    "answerList": {
+      "body": "変更を分岐して記録し、他人と同時に開発をするためのもの",
+      "check": true
+    }
+  },
+  {
+    "question": "プルリクエスト",
+    "questionID": "26",
+    "category": "git",
+    "answerList": {
+      "body": "変更したコードをリポジトリに取り込む前にレビューを頼むことができる機能",
+      "check": true
+    }
+  },
+  {
+    "question": "git init",
+    "questionID": "27",
+    "category": "git",
+    "answerList": {
+      "body": "Gitで必要なものが含まれた.gitディレクトリが作成される",
+      "check": true
+    }
+  },
+  {
+    "question": "git clone <リポジトリ名>",
+    "questionID": "28",
+    "category": "git",
+    "answerList": {
+      "body": "リポジトリのコピーを作成する",
+      "check": true
+    }
+  },
+  {
+    "question": "git fetch",
+    "questionID": "29",
+    "category": "git",
+    "answerList": {
+      "body": "リモートから情報をとってくる（マージはしない）",
+      "check": true
+    }
+  },
+  {
+    "question": "git pull",
+    "questionID": "30",
+    "category": "git",
+    "answerList": {
+      "body": "リモートから情報をとってくる（マージもする）",
+      "check": true
+    }
+  },
+  {
+    "question": "git branch <ブランチ名>",
+    "questionID": "31",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチを新規追加する",
+      "check": true
+    }
+  },
+  {
+    "question": "git branch",
+    "questionID": "32",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチの一覧を表示する",
+      "check": true
+    }
+  },
+  {
+    "question": "git checkout <既存ブランチ>",
+    "questionID": "33",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチを切り替える",
+      "check": true
+    }
+  },
+  {
+    "question": "git checkout -b <既存ブランチ>",
+    "questionID": "34",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチを新規作成して、切り替える",
+      "check": true
+    }
+  },
+  {
+    "question": "git merge <ブランチ名>",
+    "questionID": "35",
+    "category": "git",
+    "answerList": {
+      "body": "変更を取り込む",
+      "check": true
+    }
+  },
+  {
+    "question": "git branch -m <ブランチ名>",
+    "questionID": "36",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチ名を変更する",
+      "check": true
+    }
+  },
+  {
+    "question": "git branch -d <ブランチ名>",
+    "questionID": "37",
+    "category": "git",
+    "answerList": {
+      "body": "ブランチを削除する",
+      "check": true
+    }
+  },
+  {
+    "question": "git stash",
+    "questionID": "38",
+    "category": "git",
+    "answerList": {
+      "body": "作業した変更分を一時的に退避させる",
+      "check": true
+    }
+  },
+  {
+    "question": "git stash list",
+    "questionID": "39",
+    "category": "git",
+    "answerList": {
+      "body": "退避させた変更分を確認する",
+      "check": true
+    }
+  },
+  {
+    "question": "git stash apply stash@{listで表示される番号}",
+    "questionID": "40",
+    "category": "git",
+    "answerList": {
+      "body": "特定の作業を復元させる",
+      "check": true
+    }
+  },
+  {
+    "question": "git stash drop stash@{listで表示される番号}",
+    "questionID": "41",
+    "category": "git",
+    "answerList": {
+      "body": "退避した作業を削除する",
+      "check": true
+    }
+  },
+  {
+    "question": "git stash pop stash@{listで表示される番号}",
+    "questionID": "42",
+    "category": "git",
+    "answerList": {
+      "body": "退避した作業を復元し、その作業を削除する",
       "check": true
     }
   }
