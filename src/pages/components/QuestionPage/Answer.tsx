@@ -14,12 +14,15 @@ const Answer = () => {
 
   // 問題の中から正解の答えを抽出
   useEffect(() => {
-    const correctAnswerString = answerList.filter(
-      (list) => list.check === true
-    )[0].body;
-    setCorrectAnswerString(correctAnswerString);
-    console.log(answerList);
-  }, [checkedAnswerString]);
+    if (answerList) {
+      const correctAnswerString = answerList.filter(
+        (list) => list.check === true
+      )[0].body;
+      setCorrectAnswerString(correctAnswerString);
+      console.log(answerList);
+    }
+  }, [answerList]);
+
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
       {correctAnswerString === checkedAnswerString ? (
