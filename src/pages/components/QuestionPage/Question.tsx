@@ -11,6 +11,7 @@ import {
   getQuestionNumberSelector,
 } from "../../../redux/QuestionList/selector";
 import { RootState } from "../../../redux/store";
+import { makeAnswerList } from "../../../functions/makeAnswerList";
 
 export type Data = {
   question: string;
@@ -41,40 +42,22 @@ const Question = () => {
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
       case "skill":
-        const trueAnswerText = questionDataList[questionNumber].answerList.body;
-
-        const filterAnswerData = answerData.filter((answer) => {
-          return answer.body !== trueAnswerText;
-        });
-        const shuffleAnswerData = shuffle(filterAnswerData);
-        const sliceAnswerList = shuffleAnswerData.slice(0, 3);
-        const answerList = [
-          questionDataList[questionNumber].answerList,
-          ...sliceAnswerList,
-        ];
-
-        const shuffleAnswerList = shuffle(answerList);
-        console.log(shuffleAnswerList);
-        setShuffleAnswerList(shuffleAnswerList);
-        dispatch(getAnswerList(shuffleAnswerList));
+        const shuffledAnswerList = makeAnswerList(
+          answerData,
+          questionDataList,
+          questionNumber
+        );
+        setShuffleAnswerList(shuffledAnswerList);
+        dispatch(getAnswerList(shuffledAnswerList));
         break;
       case "git":
-        const gitTrueAnswerText =
-          questionDataList[questionNumber].answerList.body;
-
-        const gitFilterAnswerData = gitAnswerData.filter((answer) => {
-          return answer.body !== gitTrueAnswerText;
-        });
-        const gitShuffleAnswerData = shuffle(gitFilterAnswerData);
-        const gitSliceAnswerList = gitShuffleAnswerData.slice(0, 3);
-        const gitAnswerList = [
-          questionDataList[questionNumber].answerList,
-          ...gitSliceAnswerList,
-        ];
-
-        const gitShuffleAnswerList = shuffle(gitAnswerList);
-        setShuffleAnswerList(gitShuffleAnswerList);
-        dispatch(getAnswerList(gitShuffleAnswerList));
+        const gitShuffledAnswerList = makeAnswerList(
+          gitAnswerData,
+          questionDataList,
+          questionNumber
+        );
+        setShuffleAnswerList(gitShuffledAnswerList);
+        dispatch(getAnswerList(gitShuffledAnswerList));
         break;
     }
   }, [questionNumber]);

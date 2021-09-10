@@ -25,7 +25,7 @@ const Category = () => {
               src={"/programmingLanguage.png"}
               width={150}
               height={90}
-              title={"言語"}
+              title={"git用語"}
             />
           </div>
         </Link>

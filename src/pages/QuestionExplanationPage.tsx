@@ -12,9 +12,6 @@ import { shuffle } from "../functions/Shuffle";
 
 const QuestionExplanationPage = () => {
   const dispatch = useDispatch();
-  const [questionDataList, setQuestionDataList] = useState<
-    firebase.firestore.DocumentData[]
-  >([]);
 
   useEffect(() => {
     const questionDataList: firebase.firestore.DocumentData[] = [];
@@ -23,7 +20,6 @@ const QuestionExplanationPage = () => {
       .then((snapShots) => {
         snapShots.forEach((doc) => {
           questionDataList.push(doc.data());
-          setQuestionDataList(questionDataList);
           const shuffleQuestionList = shuffle(questionDataList);
           const questionList = shuffleQuestionList.slice(0, 3);
           dispatch(getQuestionDataList([]));
