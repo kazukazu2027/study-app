@@ -4,7 +4,7 @@ import { getCheckedAnswerStringSelector } from "../../../redux/QuestionList/answ
 import { getAnswerListSelector } from "../../../redux/QuestionList/selector";
 import { RootState } from "../../../redux/store";
 import AnswerCard from "../../layouts/AnswerCard";
-import AnswerCardContainer from "../../parts/AnswerCardContainer";
+import AnswerCardContainer from "../../parts/AnswerCard/AnswerCardContainer";
 
 const Answer = () => {
   const selector = useSelector((state: RootState) => state);

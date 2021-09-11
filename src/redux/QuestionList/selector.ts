@@ -8,11 +8,6 @@ export const getQuestionDataListSelector = createSelector(
   (state) => state.questionDataList
 );
 
-export const getQuestionDataSelector = createSelector(
-  [questionsSelector],
-  (state) => state.questionData
-);
-
 export const getQuestionNumberSelector = createSelector(
   [questionsSelector],
   (state) => state.questionNumber
@@ -21,4 +16,9 @@ export const getQuestionNumberSelector = createSelector(
 export const getAnswerListSelector = createSelector(
   [questionsSelector],
   (state) => state.answerList
+);
+
+export const getShuffleAnswerListSelector = createSelector(
+  [questionsSelector],
+  (state) => state.shuffleAnswerList
 );

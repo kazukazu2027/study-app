@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import answerData from "../../../../skillAnswer.json";
 import gitAnswerData from "../../../../gitAnswer.json";
-import { shuffle } from "../../../functions/Shuffle";
-import { getCheckedAnswer } from "../../../redux/action/countAnswer";
 import { getAnswerList } from "../../../redux/action/questionList";
-import { getCheckedAnswerIsCheckedSelector } from "../../../redux/QuestionList/answerSelector";
 import {
   getQuestionDataListSelector,
   getQuestionNumberSelector,
 } from "../../../redux/QuestionList/selector";
 import { RootState } from "../../../redux/store";
 import { makeAnswerList } from "../../../functions/makeAnswerList";
+import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
+import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
+import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
 
 export type Data = {
   question: string;
@@ -35,9 +35,6 @@ const Question = () => {
   const selector = useSelector((state: RootState) => state);
   const questionDataList = getQuestionDataListSelector(selector);
   const questionNumber = getQuestionNumberSelector(selector);
-  const isChecked = getCheckedAnswerIsCheckedSelector(selector);
-
-  const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
@@ -47,7 +44,6 @@ const Question = () => {
           questionDataList,
           questionNumber
         );
-        setShuffleAnswerList(shuffledAnswerList);
         dispatch(getAnswerList(shuffledAnswerList));
         break;
       case "git":
@@ -56,62 +52,27 @@ const Question = () => {
           questionDataList,
           questionNumber
         );
-        setShuffleAnswerList(gitShuffledAnswerList);
         dispatch(getAnswerList(gitShuffledAnswerList));
         break;
     }
   }, [questionNumber]);
 
-  const handleCheck = (event: any) => {
-    dispatch(
-      getCheckedAnswer({
-        isChecked: true,
-        checkedAnswerString: event.target.value,
-      })
-    );
-  };
   return (
     <>
       {questionDataList[questionNumber] && (
         <div className="border rounded-lg shadow m-auto mt-16">
           <div className="text-center py-8">
             <div className="pb-4">
-              <p className="">{`第${questionNumber + 1}問目`}</p>
+              <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
             </div>
-            <div className="font-bold text-2xl pb-4">
-              <p>{questionDataList[questionNumber].question}</p>
+            <div className="pb-4 px-4">
+              <QuestionTitle>
+                {questionDataList[questionNumber].question}
+              </QuestionTitle>
             </div>
             <div className="w-11/12 m-auto bg-gray-100 rounded-md">
               <div className=" w-10/12 m-auto py-4">
-                {shuffleAnswerList.map((answer) => {
-                  return (
-                    <div key={answer.body} className="text-left">
-                      {isChecked ? (
-                        <label className="flex my-2">
-                          <input
-                            type="radio"
-                            className="mt-2 mr-2 "
-                            value={answer.body}
-                            disabled
-                            name={questionDataList[0].questionID}
-                          />
-                          <span className="text-gray-400">{answer.body}</span>
-                        </label>
-                      ) : (
-                        <label className="flex my-2">
-                          <input
-                            type="radio"
-                            className="mt-2 mr-2 "
-                            value={answer.body}
-                            onClick={handleCheck}
-                            name={questionDataList[0].questionID}
-                          />
-                          <span>{answer.body}</span>
-                        </label>
-                      )}
-                    </div>
-                  );
-                })}
+                <ShuffleAnswerList />
               </div>
             </div>
           </div>

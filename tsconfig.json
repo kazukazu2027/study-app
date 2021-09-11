@@ -20,7 +20,7 @@
     "**/*.tsx",
     "src/pages/components/Blog.tsx",
     "src/pages/components/Footer.tsx",
-    "src/pages/components/Header.tsx",
+    "src/pages/parts/Header/Header.tsx",
     "src/pages/components/SideMenu.tsx",
     "src/pages/index.tsx"
 , "tsconfig.dev.json"  ],

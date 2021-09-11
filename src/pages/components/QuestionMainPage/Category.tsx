@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React from "react";
 import CategoryCard from "../../parts/Category/CategoryCard";
+import SubTitle from "../../parts/Title/SubTitle";
 
 const Category = () => {
   return (
     <>
       <div className="py-4">
-        <h2 className="text-lg">カテゴリ</h2>
+        <SubTitle>カテゴリ</SubTitle>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <Link href={"QuestionExplanationPage"}>

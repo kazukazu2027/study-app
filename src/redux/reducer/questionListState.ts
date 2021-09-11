@@ -5,7 +5,6 @@ import { questionList } from "../store";
 
 export const initialState = {
   questionDataList: [] as Data[],
-  questionData: {} as questionList,
   questionNumber: 0 as number,
   answerList: [] as AnswerList[],
   shuffleAnswerList: [] as AnswerList[],
