@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import answerData from "../../../../skillAnswer.json";
-import gitAnswerData from "../../../../gitAnswer.json";
 import { getAnswerList } from "../../../redux/action/questionList";
 import {
   getQuestionDataListSelector,
@@ -12,6 +10,9 @@ import { makeAnswerList } from "../../../functions/makeAnswerList";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
 import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
 import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
+import firebase from "firebase";
+import { db } from "../../../Firebase/firebase";
+import { getData } from "../../../functions/getData";
 
 export type Data = {
   question: string;
@@ -39,45 +40,49 @@ const Question = () => {
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
       case "skill":
-        const shuffledAnswerList = makeAnswerList(
-          answerData,
-          questionDataList,
-          questionNumber
-        );
-        dispatch(getAnswerList(shuffledAnswerList));
+        (async () => {
+          const skillAnswerDataList = await getData("skillAnswerDataList");
+          const shuffledAnswerList = makeAnswerList(
+            skillAnswerDataList,
+            questionDataList,
+            questionNumber
+          );
+          dispatch(getAnswerList(shuffledAnswerList));
+        })();
         break;
       case "git":
-        const gitShuffledAnswerList = makeAnswerList(
-          gitAnswerData,
-          questionDataList,
-          questionNumber
-        );
-        dispatch(getAnswerList(gitShuffledAnswerList));
+        (async () => {
+          const gitAnswerDataList = await getData("gitAnswerDataList");
+          const gitShuffledAnswerList = makeAnswerList(
+            gitAnswerDataList,
+            questionDataList,
+            questionNumber
+          );
+          dispatch(getAnswerList(gitShuffledAnswerList));
+        })();
         break;
     }
   }, [questionNumber]);
 
   return (
     <>
-      {questionDataList[questionNumber] && (
-        <div className="border rounded-lg shadow m-auto mt-16">
-          <div className="text-center py-8">
-            <div className="pb-4">
-              <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
-            </div>
-            <div className="pb-4 px-4">
-              <QuestionTitle>
-                {questionDataList[questionNumber].question}
-              </QuestionTitle>
-            </div>
-            <div className="w-11/12 m-auto bg-gray-100 rounded-md">
-              <div className=" w-10/12 m-auto py-4">
-                <ShuffleAnswerList />
-              </div>
+      <div className="border rounded-lg shadow m-auto mt-16">
+        <div className="text-center py-8">
+          <div className="pb-4">
+            <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
+          </div>
+          <div className="pb-4 px-4">
+            <QuestionTitle>
+              {questionDataList[questionNumber].question}
+            </QuestionTitle>
+          </div>
+          <div className="w-11/12 m-auto bg-gray-100 rounded-md">
+            <div className=" w-10/12 m-auto py-4">
+              <ShuffleAnswerList />
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

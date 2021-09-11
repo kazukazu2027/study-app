@@ -2,32 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Card from "./layouts/Card";
-import Button from "./parts/Button";
+import firebase from "firebase";
+import { db } from "../Firebase/firebase";
+import { shuffle } from "../functions/Shuffle";
 import { getQuestionDataList } from "../redux/action/questionList";
 import Layout from "./layouts/Layout";
-import { db } from "../Firebase/firebase";
-import firebase from "firebase";
-import { shuffle } from "../functions/Shuffle";
+import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
+import Button from "./parts/Button";
+import { getData } from "../functions/getData";
 
 const QuestionExplanationPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const questionDataList: firebase.firestore.DocumentData[] = [];
-    db.collection("questionDataList")
-      .get()
-      .then((snapShots) => {
-        snapShots.forEach((doc) => {
-          questionDataList.push(doc.data());
-          const shuffleQuestionList = shuffle(questionDataList);
-          const questionList = shuffleQuestionList.slice(0, 3);
-          dispatch(getQuestionDataList([]));
-          dispatch(getQuestionDataList(questionList));
-        });
-      });
+    (async () => {
+      const questionData = await getData("questionDataList");
+      const shuffleQuestionList = shuffle(questionData);
+      const questionList = shuffleQuestionList.slice(0, 3);
+      dispatch(getQuestionDataList([]));
+      dispatch(getQuestionDataList(questionList));
+    })();
   }, []);
 
   return (

@@ -1,12 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import Layout from "./layouts/Layout";
-import Image from "next/image";
 import Card from "./layouts/Card";
-import Button from "./parts/Button";
-import Category from "./components/QuestionMainPage/Category";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
+import Button from "./parts/Button";
+import Category from "./components/QuestionMainPage/Category";
 
 const QuestionMainPage = () => {
   return (

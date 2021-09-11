@@ -22,3 +22,8 @@ export const getShuffleAnswerListSelector = createSelector(
   [questionsSelector],
   (state) => state.shuffleAnswerList
 );
+
+export const getQuestionCategorySelector = createSelector(
+  [questionsSelector],
+  (state) => state.questionCategory
+);

@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from "react";
-import Layout from "./layouts/Layout";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { auth, db } from "../Firebase/firebase";
+import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
 
 const SignUpPage = () => {
@@ -39,7 +39,6 @@ const SignUpPage = () => {
               uid: uid,
               userName: userName.value,
             };
-            console.log(userInitialData);
             db.collection("users").doc(uid).set(userInitialData);
           }
           router.push("/");

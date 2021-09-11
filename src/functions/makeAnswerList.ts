@@ -1,13 +1,14 @@
-import { AnswerList, Data } from "../pages/components/QuestionPage/Question";
+import { Data } from "../pages/components/QuestionPage/Question";
 import { shuffle } from "./Shuffle";
+import firebase from "firebase";
 
 export const makeAnswerList = (
-  answerData: AnswerList[],
+  answerData: Promise<firebase.firestore.DocumentData[]>,
   questionDataList: Data[],
   questionNumber: number
 ) => {
   // 答えのリストの中から正解の答えを除外する
-  const filterAnswerData = answerData.filter((answer) => {
+  const filterAnswerData =  answerData.filter((answer) => {
     return answer.body !== questionDataList[questionNumber].answerList.body;
   });
   // 不正解の答えのリストをシャッフルする

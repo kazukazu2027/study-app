@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Layout from "./layouts/Layout";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
+import { useDispatch } from "react-redux";
 import { auth, db } from "../Firebase/firebase";
 import { signInAction } from "../redux/users/usersAction";
-import { useDispatch } from "react-redux";
+import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
 
 const SignInPage = () => {

@@ -2,10 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { countCorrectAnswer } from "../redux/action/countAnswer";
-import {
-  getQuestionDataList,
-  getQuestionNumber,
-} from "../redux/action/questionList";
+import { getQuestionDataList, getQuestionNumber } from "../redux/action/questionList";
 import { getCountAnswerSelector } from "../redux/QuestionList/answerSelector";
 import { getQuestionDataListSelector } from "../redux/QuestionList/selector";
 import { RootState } from "../redux/store";

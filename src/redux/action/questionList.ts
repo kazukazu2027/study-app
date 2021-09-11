@@ -32,8 +32,17 @@ export const getShuffleAnswerList = (shuffleAnswerList: AnswerList[]) => {
   };
 };
 
+export const QUESTION_CATEGORY = "question category";
+export const getQuestionCategory = (questionCategory: string) => {
+  return {
+    type: QUESTION_CATEGORY as typeof QUESTION_CATEGORY,
+    questionCategory,
+  };
+};
+
 export type QuestionType =
   | ReturnType<typeof getQuestionDataList>
   | ReturnType<typeof getQuestionNumber>
   | ReturnType<typeof getAnswerList>
   | ReturnType<typeof getShuffleAnswerList>
+  | ReturnType<typeof getQuestionCategory>

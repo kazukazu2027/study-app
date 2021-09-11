@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Layout from "./layouts/Layout";
 import { auth } from "../Firebase/firebase";
+import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
 
 const ResetPasswordPage = () => {

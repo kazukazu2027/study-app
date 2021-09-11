@@ -16,8 +16,9 @@ const sendResponse = (
   });
 };
 
-export const addQuestionListSet = functions.https.onRequest(
-  async (req: any, res: any) => {
+export const addQuestionListSet = functions
+  .region("asia-northeast1")
+  .https.onRequest(async (req: any, res: any) => {
     if (req.method !== "POST") {
       sendResponse(res, 405, { error: "Invalid Request!" });
     } else {
@@ -28,5 +29,34 @@ export const addQuestionListSet = functions.https.onRequest(
       }
       sendResponse(res, 200, { message: "Successfully added dataset" });
     }
-  }
-);
+  });
+
+export const addAnswerListSet = functions
+  .region("asia-northeast1")
+  .https.onRequest(async (req: any, res: any) => {
+    if (req.method !== "POST") {
+      sendResponse(res, 405, { error: "Invalid Request!" });
+    } else {
+      const dataSet = req.body;
+      for (const key of Object.keys(dataSet)) {
+        const data = dataSet[key];
+        await db.collection("skillAnswerDataList").doc(key).set(data);
+      }
+      sendResponse(res, 200, { message: "Successfully added dataset" });
+    }
+  });
+
+export const addGitAnswerListSet = functions
+  .region("asia-northeast1")
+  .https.onRequest(async (req: any, res: any) => {
+    if (req.method !== "POST") {
+      sendResponse(res, 405, { error: "Invalid Request!" });
+    } else {
+      const dataSet = req.body;
+      for (const key of Object.keys(dataSet)) {
+        const data = dataSet[key];
+        await db.collection("gitAnswerDataList").doc(key).set(data);
+      }
+      sendResponse(res, 200, { message: "Successfully added dataset" });
+    }
+  });

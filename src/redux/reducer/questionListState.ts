@@ -1,13 +1,13 @@
 import { AnswerList, Data } from "../../pages/components/QuestionPage/Question";
 import * as Actions from "../action/questionList";
 import { QuestionType } from "../action/questionList";
-import { questionList } from "../store";
 
 export const initialState = {
   questionDataList: [] as Data[],
   questionNumber: 0 as number,
   answerList: [] as AnswerList[],
   shuffleAnswerList: [] as AnswerList[],
+  questionCategory: "" as string,
 };
 
 export const question = (
@@ -30,6 +30,10 @@ export const question = (
     case Actions.SHUFFLE_ANSWER_LIST: {
       const { shuffleAnswerList } = action;
       return { ...state, shuffleAnswerList };
+    }
+    case Actions.QUESTION_CATEGORY: {
+      const { questionCategory } = action;
+      return { ...state, questionCategory };
     }
     default:
       return state;
