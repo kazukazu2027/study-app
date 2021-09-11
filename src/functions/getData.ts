@@ -13,6 +13,6 @@ export const getData = async (
         answerDataList.push(doc.data());
       });
     });
-    console.log(answerDataList)
+  console.log(answerDataList);
   return answerDataList;
 };
