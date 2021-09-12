@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCheckedAnswer } from "../../../redux/action/answerAction";
-import { getCheckedAnswerIsCheckedSelector } from "../../../redux/selector/answerSelector";
+import { getAnswerListSelector, getCheckedAnswerIsCheckedSelector } from "../../../redux/selector/answerSelector";
 import {
-  getAnswerListSelector,
   getQuestionDataListSelector,
 } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
