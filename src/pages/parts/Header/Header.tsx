@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { auth, Firebase } from "../../../Firebase/firebase";
-import HamburgerMenu from "../HamburgerMenu";
+import HamburgerMenu from "../HumburgerMenu/HamburgerMenu";
 
 const Header = () => {
   const [displayMenu, setDisplayMenu] = useState(false);

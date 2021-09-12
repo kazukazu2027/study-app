@@ -18,3 +18,7 @@ export const getCheckedAnswerIsCheckedSelector = createSelector(
   (state) => state.checkedAnswer.isChecked
 );
 
+export const getAnswerListSelector = createSelector(
+  [answerSelector],
+  (state) => state.answerList
+);

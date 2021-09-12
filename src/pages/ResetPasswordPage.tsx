@@ -3,6 +3,9 @@ import Link from "next/link";
 import { auth } from "../Firebase/firebase";
 import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
+import InputParts from "./parts/Input/InputParts";
+import HaveAccount from "./parts/SignLink/HaveAccount";
+import CreateAccount from "./parts/SignLink/CreateAccount";
 
 const ResetPasswordPage = () => {
   const [error, setError] = useState("");
@@ -18,7 +21,7 @@ const ResetPasswordPage = () => {
       await auth.sendPasswordResetEmail(email.value).then(() => {
         alert("入力されたアドレスにパスワードリセット用のメールを送りました。");
       });
-    } catch (error) {
+    } catch (error:any) {
       setError(error.message);
     }
   };
@@ -33,13 +36,7 @@ const ResetPasswordPage = () => {
                 パスワードをリセット
               </h1>
               <ErrorMessage error={error} />
-
-              <input
-                type="text"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
-                placeholder="メールアドレス"
-              />
+              <InputParts name={"email"} />
 
               <button
                 type="submit"
@@ -50,18 +47,12 @@ const ResetPasswordPage = () => {
             </form>
           </div>
 
-          <div className="text-grey-dark mt-6 flex">
-            <p>アカウントをお作りする方は</p>
-            <Link href="SignUpPage">
-              <p className="underline text-blue-500">こちら</p>
-            </Link>
+          <div className="mt-6">
+            <CreateAccount />
           </div>
 
-          <div className="text-grey-dark mt-6 flex">
-            <p>すでにアカウントをお持ちの方は</p>
-            <Link href="SignInPage">
-              <p className="underline text-blue-500">こちら</p>
-            </Link>
+          <div className="mt-6">
+            <HaveAccount />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   getCheckedAnswerStringSelector,
   getCountAnswerSelector,
-} from "../../../redux/QuestionList/answerSelector";
+} from "../../../redux/selector/answerSelector";
 import { RootState } from "../../../redux/store";
 import LastQuestion from "./AnswerParts/LastQuestion";
 import QuestionCard from "./AnswerParts/QuestionCard";

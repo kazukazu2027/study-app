@@ -4,6 +4,8 @@ import { useRouter } from "next/dist/client/router";
 import { auth, db } from "../Firebase/firebase";
 import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
+import InputParts from "./parts/Input/InputParts";
+import HaveAccount from "./parts/SignLink/HaveAccount";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -43,7 +45,7 @@ const SignUpPage = () => {
           }
           router.push("/");
         });
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
     }
   };
@@ -56,47 +58,21 @@ const SignUpPage = () => {
             <form action="" onSubmit={handleSubmit}>
               <h1 className="mb-8 text-3xl text-center">アカウント登録</h1>
               <ErrorMessage error={error} />
-              <input
-                type="text"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="userName"
-                placeholder="ユーザー名"
-              />
-
-              <input
-                type="text"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
-                placeholder="メールアドレス"
-              />
-
-              <input
-                type="password"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="password"
-                placeholder="パスワード"
-              />
-
-              <input
-                type="password"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="confirmPassword"
-                placeholder="パスワード再確認"
-              />
+              <InputParts name={"userName"} />
+              <InputParts name={"email"} />
+              <InputParts name={"password"} />
+              <InputParts name={"confirmPassword"} />
               <button
                 type="submit"
                 className="w-full text-center py-3 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
               >
-                Create Account
+                アカウントを登録する
               </button>
             </form>
           </div>
 
-          <div className="text-grey-dark mt-6 flex">
-            <p>すでにアカウントをお持ちの方は</p>
-            <Link href="SignInPage">
-              <p className="underline text-blue-500">こちら</p>
-            </Link>
+          <div className=" mt-6 ">
+            <HaveAccount />
           </div>
         </div>
       </div>

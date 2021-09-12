@@ -5,7 +5,7 @@ import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
-import Button from "./parts/Button";
+import Button from "./parts/Button/Button";
 import Category from "./components/QuestionMainPage/Category";
 
 const QuestionMainPage = () => {

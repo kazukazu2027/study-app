@@ -1,4 +1,14 @@
-import { checkedAnswer } from "../store";
+import { AnswerList } from "../../pages/components/QuestionPage/Question";
+export type answerData = {
+  id: string;
+  question: string;
+  isCorrect: boolean;
+};
+
+export type checkedAnswer = {
+  isChecked: boolean;
+  checkedAnswerString: string;
+};
 
 export const COUNT_CORRECT_ANSWER = "count correct answer";
 export const countCorrectAnswer = (resultQuestionIds: boolean[]) => {
@@ -16,6 +26,15 @@ export const getCheckedAnswer = (checkedAnswer: checkedAnswer) => {
   };
 };
 
+export const ANSWER_LIST = "answerList";
+export const getAnswerList = (answerList: AnswerList[]) => {
+  return {
+    type: ANSWER_LIST as typeof ANSWER_LIST,
+    answerList,
+  };
+};
+
 export type AnswerType =
   | ReturnType<typeof countCorrectAnswer>
-  | ReturnType<typeof getCheckedAnswer>;
+  | ReturnType<typeof getCheckedAnswer>
+  | ReturnType<typeof getAnswerList>;

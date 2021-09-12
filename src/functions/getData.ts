@@ -13,6 +13,5 @@ export const getData = async (
         answerDataList.push(doc.data());
       });
     });
-  console.log(answerDataList);
   return answerDataList;
 };

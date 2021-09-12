@@ -1,9 +1,10 @@
-import * as Actions from "../action/countAnswer";
-import { answerData, checkedAnswer } from "../store";
+import { AnswerList } from "../../pages/components/QuestionPage/Question";
+import * as Actions from "../action/answerAction";
 
 export const initialState = {
   resultQuestionIds: [] as boolean[],
-  checkedAnswer: {} as checkedAnswer,
+  checkedAnswer: {} as Actions.checkedAnswer,
+  answerList: [] as AnswerList[],
 };
 
 export const answer = (
@@ -18,6 +19,10 @@ export const answer = (
     case Actions.GET_CHECKED_ANSWER: {
       const { checkedAnswer } = action;
       return { ...state, checkedAnswer };
+    }
+    case Actions.ANSWER_LIST: {
+      const { answerList } = action;
+      return { ...state, answerList };
     }
     default:
       return state;

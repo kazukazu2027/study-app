@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getCheckedAnswerStringSelector } from "../../../redux/QuestionList/answerSelector";
-import { getAnswerListSelector } from "../../../redux/QuestionList/selector";
+import { getCheckedAnswerStringSelector } from "../../../redux/selector/answerSelector";
+import { getAnswerListSelector } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 import AnswerCard from "../../layouts/AnswerCard";
 import AnswerCardContainer from "../../parts/AnswerCard/AnswerCardContainer";

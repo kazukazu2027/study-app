@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Card from "../../layouts/Card";
 import Image from "next/image";
-import Button from "../../parts/Button";
+import Button from "../../parts/Button/Button";
 import { firebaseConfig } from "../../../Firebase/firebase";
 import TitleInCard from "../../parts/Card/TitleInCard";
 import TextInCard from "../../parts/Card/TextInCard";

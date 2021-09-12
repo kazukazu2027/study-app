@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import firebase from "firebase";
 import { db } from "../Firebase/firebase";
 import { shuffle } from "../functions/Shuffle";
-import { getQuestionDataList } from "../redux/action/questionList";
+import { getQuestionDataList } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
-import Button from "./parts/Button";
+import Button from "./parts/Button/Button";
 import { getData } from "../functions/getData";
 
 const QuestionExplanationPage = () => {
@@ -20,9 +20,9 @@ const QuestionExplanationPage = () => {
     (async () => {
       const questionData = await getData("questionDataList");
       const shuffleQuestionList = shuffle(questionData);
-      const questionList = shuffleQuestionList.slice(0, 3);
+      const sliceQuestionList = shuffleQuestionList.slice(0, 3);
       dispatch(getQuestionDataList([]));
-      dispatch(getQuestionDataList(questionList));
+      dispatch(getQuestionDataList(sliceQuestionList));
     })();
   }, []);
 

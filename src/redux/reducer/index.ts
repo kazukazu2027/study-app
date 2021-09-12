@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { answer } from "./countAnswerState";
-import { question } from "./questionListState";
-import { user } from "../users/usersReducer";
+import { answer } from "./answerReducer";
+import { question } from "./questionReducer";
+import { user } from "./usersReducer";
 
 export const rootReducer = combineReducers({
   answer,

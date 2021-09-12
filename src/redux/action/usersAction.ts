@@ -1,5 +1,3 @@
-import { answerData, checkedAnswer } from "../store";
-
 export type signIn = {
   isSignedIn: boolean;
   userName: string;
@@ -7,12 +5,11 @@ export type signIn = {
 };
 
 export const SIGN_IN = "sign in";
-export const signInAction = (signIn:signIn) => {
+export const signInAction = (signIn: signIn) => {
   return {
     type: SIGN_IN as typeof SIGN_IN,
-    signIn
+    signIn,
   };
 };
 
-export type UserType =
-  | ReturnType<typeof signInAction>
+export type UserType = ReturnType<typeof signInAction>;

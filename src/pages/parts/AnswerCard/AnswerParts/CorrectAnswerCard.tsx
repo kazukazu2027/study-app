@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   countCorrectAnswer,
   getCheckedAnswer,
-} from "../../../../redux/action/countAnswer";
-import { getQuestionNumber } from "../../../../redux/action/questionList";
-import { getCountAnswerSelector } from "../../../../redux/QuestionList/answerSelector";
-import { getQuestionNumberSelector } from "../../../../redux/QuestionList/selector";
+} from "../../../../redux/action/answerAction";
+import { getQuestionNumber } from "../../../../redux/action/questionAction";
+import { getCountAnswerSelector } from "../../../../redux/selector/answerSelector";
+import { getQuestionNumberSelector } from "../../../../redux/selector/questionSelector";
 import { RootState } from "../../../../redux/store";
 
 const CorrectAnswerCard = () => {

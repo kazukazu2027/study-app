@@ -13,16 +13,6 @@ export const getQuestionNumberSelector = createSelector(
   (state) => state.questionNumber
 );
 
-export const getAnswerListSelector = createSelector(
-  [questionsSelector],
-  (state) => state.answerList
-);
-
-export const getShuffleAnswerListSelector = createSelector(
-  [questionsSelector],
-  (state) => state.shuffleAnswerList
-);
-
 export const getQuestionCategorySelector = createSelector(
   [questionsSelector],
   (state) => state.questionCategory

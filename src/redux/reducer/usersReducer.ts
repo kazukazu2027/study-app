@@ -1,4 +1,4 @@
-import * as Actions from "../../redux/users/usersAction";
+import * as Actions from "../action/usersAction";
 
 export const initialState = {
   signIn: {} as Actions.signIn,

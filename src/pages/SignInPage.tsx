@@ -3,9 +3,12 @@ import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { useDispatch } from "react-redux";
 import { auth, db } from "../Firebase/firebase";
-import { signInAction } from "../redux/users/usersAction";
+import { signInAction } from "../redux/action/usersAction";
 import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
+import InputParts from "./parts/Input/InputParts";
+import CreateAccount from "./parts/SignLink/CreateAccount";
+import ResetPassword from "./parts/SignLink/ResetPassword";
 
 const SignInPage = () => {
   const router = useRouter();
@@ -39,7 +42,7 @@ const SignInPage = () => {
               });
           }
         });
-    } catch (error) {
+    } catch (error:any) {
       setError(error.message);
     }
   };
@@ -51,21 +54,9 @@ const SignInPage = () => {
           <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
             <form action="" onSubmit={handleSubmit}>
               <h1 className="mb-8 text-3xl text-center">サインイン</h1>
-
               <ErrorMessage error={error} />
-              <input
-                type="text"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
-                placeholder="メールアドレス"
-              />
-
-              <input
-                type="password"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="password"
-                placeholder="パスワード"
-              />
+              <InputParts name={"email"} />
+              <InputParts name={"password"} />
 
               <button
                 type="submit"
@@ -76,18 +67,12 @@ const SignInPage = () => {
             </form>
           </div>
 
-          <div className="text-grey-dark mt-6 flex">
-            <p>アカウントをお持ちでない方は</p>
-            <Link href="SignUpPage">
-              <p className="underline text-blue-500">こちら</p>
-            </Link>
+          <div className="mt-6">
+            <CreateAccount />
           </div>
 
-          <div className="text-grey-dark mt-6 flex">
-            <p>パスワードを忘れた方は</p>
-            <Link href="ResetPasswordPage">
-              <p className="underline text-blue-500">こちら</p>
-            </Link>
+          <div className="mt-6">
+            <ResetPassword />
           </div>
         </div>
       </div>

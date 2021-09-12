@@ -1,4 +1,9 @@
-import { AnswerList, Data } from "../../pages/components/QuestionPage/Question";
+import { Data } from "../../pages/components/QuestionPage/Question";
+
+export type questionList = {
+  id: string;
+  question: string;
+};
 
 export const GET_QUESTION_DATA_LIST = "get question data list";
 export const getQuestionDataList = (questionDataList: Data[]) => {
@@ -16,22 +21,6 @@ export const getQuestionNumber = (questionNumber: number) => {
   };
 };
 
-export const ANSWER_LIST = "answerList";
-export const getAnswerList = (answerList: AnswerList[]) => {
-  return {
-    type: ANSWER_LIST as typeof ANSWER_LIST,
-    answerList,
-  };
-};
-
-export const SHUFFLE_ANSWER_LIST = "shufflr answerList";
-export const getShuffleAnswerList = (shuffleAnswerList: AnswerList[]) => {
-  return {
-    type: SHUFFLE_ANSWER_LIST as typeof SHUFFLE_ANSWER_LIST,
-    shuffleAnswerList,
-  };
-};
-
 export const QUESTION_CATEGORY = "question category";
 export const getQuestionCategory = (questionCategory: string) => {
   return {
@@ -43,6 +32,4 @@ export const getQuestionCategory = (questionCategory: string) => {
 export type QuestionType =
   | ReturnType<typeof getQuestionDataList>
   | ReturnType<typeof getQuestionNumber>
-  | ReturnType<typeof getAnswerList>
-  | ReturnType<typeof getShuffleAnswerList>
-  | ReturnType<typeof getQuestionCategory>
+  | ReturnType<typeof getQuestionCategory>;

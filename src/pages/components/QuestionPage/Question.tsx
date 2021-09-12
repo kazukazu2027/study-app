@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAnswerList } from "../../../redux/action/questionList";
 import {
   getQuestionDataListSelector,
   getQuestionNumberSelector,
-} from "../../../redux/QuestionList/selector";
+} from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 import { makeAnswerList } from "../../../functions/makeAnswerList";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
@@ -13,6 +12,7 @@ import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
 import firebase from "firebase";
 import { db } from "../../../Firebase/firebase";
 import { getData } from "../../../functions/getData";
+import { getAnswerList } from "../../../redux/action/answerAction";
 
 export type Data = {
   question: string;

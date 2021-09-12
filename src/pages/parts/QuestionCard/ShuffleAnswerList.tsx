@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCheckedAnswer } from "../../../redux/action/countAnswer";
-import { getCheckedAnswerIsCheckedSelector } from "../../../redux/QuestionList/answerSelector";
+import { getCheckedAnswer } from "../../../redux/action/answerAction";
+import { getCheckedAnswerIsCheckedSelector } from "../../../redux/selector/answerSelector";
 import {
   getAnswerListSelector,
   getQuestionDataListSelector,
-} from "../../../redux/QuestionList/selector";
+} from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 
 const ShuffleAnswerList = () => {

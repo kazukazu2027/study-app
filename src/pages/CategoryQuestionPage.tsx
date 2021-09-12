@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import firebase from "firebase";
 import { db } from "../Firebase/firebase";
 import { shuffle } from "../functions/Shuffle";
-import { getQuestionDataList } from "../redux/action/questionList";
+import { getQuestionDataList } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
-import Button from "./parts/Button";
-import { getQuestionCategorySelector } from "../redux/QuestionList/selector";
+import Button from "./parts/Button/Button";
+import { getQuestionCategorySelector } from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
 import SubTitle from "./parts/Title/SubTitle";
 

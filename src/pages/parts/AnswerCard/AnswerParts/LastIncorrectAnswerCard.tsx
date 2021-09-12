@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   countCorrectAnswer,
   getCheckedAnswer,
-} from "../../../../redux/action/countAnswer";
-import { getCountAnswerSelector } from "../../../../redux/QuestionList/answerSelector";
+} from "../../../../redux/action/answerAction";
+import { getCountAnswerSelector } from "../../../../redux/selector/answerSelector";
 import { RootState } from "../../../../redux/store";
 
 const LastIncorrectAnswerCard = () => {
