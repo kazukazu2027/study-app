@@ -1,8 +1,8 @@
 import { AnswerList } from "../../pages/components/QuestionPage/Question";
-export type answerData = {
-  id: string;
+export type AnswerData = {
   question: string;
   isCorrect: boolean;
+  explanation: string;
 };
 
 export type checkedAnswer = {
@@ -11,10 +11,10 @@ export type checkedAnswer = {
 };
 
 export const COUNT_CORRECT_ANSWER = "count correct answer";
-export const countCorrectAnswer = (resultQuestionIds: boolean[]) => {
+export const countCorrectAnswer = (answerData: AnswerData[]) => {
   return {
     type: COUNT_CORRECT_ANSWER as typeof COUNT_CORRECT_ANSWER,
-    resultQuestionIds,
+    answerData,
   };
 };
 

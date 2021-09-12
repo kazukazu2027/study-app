@@ -6,7 +6,10 @@ import {
 } from "../../../../redux/action/answerAction";
 import { getQuestionNumber } from "../../../../redux/action/questionAction";
 import { getCountAnswerSelector } from "../../../../redux/selector/answerSelector";
-import { getQuestionNumberSelector } from "../../../../redux/selector/questionSelector";
+import {
+  getQuestionDataListSelector,
+  getQuestionNumberSelector,
+} from "../../../../redux/selector/questionSelector";
 import { RootState } from "../../../../redux/store";
 
 const CorrectAnswerCard = () => {
@@ -15,9 +18,19 @@ const CorrectAnswerCard = () => {
   const selector = useSelector((state: RootState) => state);
   const questionNumber = getQuestionNumberSelector(selector);
   const questionIdsList = getCountAnswerSelector(selector);
+  const questionDataList = getQuestionDataListSelector(selector);
 
   const nextQuestionCorrectClick = () => {
-    dispatch(countCorrectAnswer([...questionIdsList, true]));
+    dispatch(
+      countCorrectAnswer([
+        ...questionIdsList,
+        {
+          isCorrect: true,
+          question: questionDataList[questionNumber].question,
+          explanation: questionDataList[questionNumber].answerList.body,
+        },
+      ])
+    );
     dispatch(getQuestionNumber(questionNumber + 1));
     dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
   };

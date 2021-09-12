@@ -2,7 +2,7 @@ import { AnswerList } from "../../pages/components/QuestionPage/Question";
 import * as Actions from "../action/answerAction";
 
 export const initialState = {
-  resultQuestionIds: [] as boolean[],
+  answerData: [] as Actions.AnswerData[],
   checkedAnswer: {} as Actions.checkedAnswer,
   answerList: [] as AnswerList[],
 };
@@ -13,8 +13,8 @@ export const answer = (
 ): typeof initialState => {
   switch (action.type) {
     case Actions.COUNT_CORRECT_ANSWER: {
-      const { resultQuestionIds } = action;
-      return { ...state, resultQuestionIds };
+      const { answerData } = action;
+      return { ...state, answerData };
     }
     case Actions.GET_CHECKED_ANSWER: {
       const { checkedAnswer } = action;

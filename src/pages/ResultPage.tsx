@@ -1,14 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { countCorrectAnswer } from "../redux/action/answerAction";
-import { getQuestionDataList, getQuestionNumber } from "../redux/action/questionAction";
+import {
+  getQuestionDataList,
+  getQuestionNumber,
+} from "../redux/action/questionAction";
 import { getCountAnswerSelector } from "../redux/selector/answerSelector";
 import { getQuestionDataListSelector } from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
-import Mark from "./components/ResultPage/Mark";
+import AnswerList from "./components/ResultPage/AnswerList";
 import Card from "./layouts/Card";
 import Layout from "./layouts/Layout";
+import Button from "./parts/Button/Button";
+import TitleInCard from "./parts/Card/TitleInCard";
 
 const ResultPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +22,9 @@ const ResultPage = () => {
   const resultAnswer = getCountAnswerSelector(selector);
 
   // 正解した問題のみの配列
-  const correctAnswer = resultAnswer.filter((answer) => answer === true);
+  const correctAnswer = resultAnswer.filter(
+    (answer) => answer.isCorrect === true
+  );
 
   // 正答率計算
   const numberOfCorrectAnswers = correctAnswer.length;
@@ -31,41 +38,37 @@ const ResultPage = () => {
 
   return (
     <Layout>
-      <Card>
-        <div className="text-center">
-          <p>テスト結果</p>
-          <p>
-            正答率<span className=" text-3xl">{correctAnswerRate}</span>%
-          </p>
-          <p>{questionDataList.length}問中{numberOfCorrectAnswers}問正解</p>
-
-          {resultAnswer.map((answer) => {
-            if (answer === true) {
-              return "◯";
-            }
-            return "×";
-          })}
-          {questionDataList.map((question) => {
-            return (
-              <div className=" border-t-2 " key={question.questionID}>
-                <div className="px-2 flex">
-                  <Mark isCorrect={resultAnswer} />
-                  <p className="w-8/12">{question.question}</p>
-                  <p className="w-2/12">＋</p>
+      <div className="mt-10">
+        <Card>
+          <div className="text-center">
+            <div className="py-2">
+              <TitleInCard>テスト結果</TitleInCard>
+            </div>
+            <div className="pb-2">
+              <p>
+                正答率<span className=" text-3xl">{correctAnswerRate}</span>%
+              </p>
+            </div>
+            <div className="pb-4">
+              <p>
+                {questionDataList.length}問中{numberOfCorrectAnswers}問正解
+              </p>
+            </div>
+            {resultAnswer.map((question) => {
+              return (
+                <div className="text-left" key={question.question}>
+                  <AnswerList question={question} />
                 </div>
-              </div>
-            );
-          })}
-          <Link href={"/"}>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"
-              onClick={resetAnswer}
-            >
-              TOPに戻る
-            </button>
-          </Link>
-        </div>
-      </Card>
+              );
+            })}
+            <Link href={"/"}>
+              <button onClick={resetAnswer} className="py-8">
+                <Button color={"bg-blue-500"}>TOPに戻る</Button>
+              </button>
+            </Link>
+          </div>
+        </Card>
+      </div>
     </Layout>
   );
 };

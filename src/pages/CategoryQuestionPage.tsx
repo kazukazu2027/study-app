@@ -38,7 +38,7 @@ const CategoryQuestionPage = () => {
                 const questionList = shuffleQuestionList.slice(0, 3);
                 dispatch(getQuestionDataList([]));
                 dispatch(getQuestionDataList(questionList));
-                break
+                break;
               case "git用語":
                 const filterGitQuestionDataList = questionDataList.filter(
                   (question) => question.category === "git"
@@ -49,7 +49,7 @@ const CategoryQuestionPage = () => {
                 const questionGitList = shuffleGitQuestionList.slice(0, 3);
                 dispatch(getQuestionDataList([]));
                 dispatch(getQuestionDataList(questionGitList));
-                break
+                break;
             }
           });
         });
@@ -71,7 +71,7 @@ const CategoryQuestionPage = () => {
         </div>
         <Link href={"QuestionPage"}>
           <div className="pb-8 text-center">
-            <Button color={"bg-blue-500"} text={"学習する"} />
+            <Button color={"bg-blue-500"}>学習する</Button>
           </div>
         </Link>
       </Card>

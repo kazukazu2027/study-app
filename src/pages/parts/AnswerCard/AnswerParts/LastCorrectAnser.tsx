@@ -6,6 +6,10 @@ import {
   getCheckedAnswer,
 } from "../../../../redux/action/answerAction";
 import { getCountAnswerSelector } from "../../../../redux/selector/answerSelector";
+import {
+  getQuestionDataListSelector,
+  getQuestionNumberSelector,
+} from "../../../../redux/selector/questionSelector";
 import { RootState } from "../../../../redux/store";
 
 const LastCorrectAnswerCard = () => {
@@ -13,8 +17,20 @@ const LastCorrectAnswerCard = () => {
 
   const selector = useSelector((state: RootState) => state);
   const questionIdsList = getCountAnswerSelector(selector);
+  const questionDataList = getQuestionDataListSelector(selector);
+  const questionNumber = getQuestionNumberSelector(selector);
+
   const resultCorrectClick = () => {
-    dispatch(countCorrectAnswer([...questionIdsList, true]));
+    dispatch(
+      countCorrectAnswer([
+        ...questionIdsList,
+        {
+          isCorrect: true,
+          question: questionDataList[questionNumber].question,
+          explanation: questionDataList[questionNumber].answerList.body,
+        },
+      ])
+    );
     dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
   };
   return (

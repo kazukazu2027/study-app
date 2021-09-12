@@ -22,7 +22,7 @@ const QuestionMainPage = () => {
           </div>
           <Link href={"QuestionExplanationPage"}>
             <div className="pb-8 text-center">
-              <Button color={"bg-blue-500"} text={"学習する"} />
+              <Button color={"bg-blue-500"}>学習する</Button>
             </div>
           </Link>
         </Card>

@@ -2,14 +2,14 @@ import React from "react";
 
 type Props = {
   color: string;
-  text: string;
+  children: string;
 };
 
 const Button = (props: Props) => {
-  const { color, text } = props;
+  const { color, children } = props;
   return (
     <button className={`${color} text-white font-bold py-2 px-12 rounded`}>
-      {text}
+      {children}
     </button>
   );
 };

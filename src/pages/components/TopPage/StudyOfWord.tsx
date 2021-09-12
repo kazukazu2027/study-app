@@ -19,7 +19,7 @@ const StudyOfWord = () => {
         </div>
         <Link href={"QuestionMainPage"}>
           <div className="text-center pb-8">
-            <Button text={"学習する"} color={"bg-blue-500"} />
+            <Button color={"bg-blue-500"}>学習する</Button>
           </div>
         </Link>
       </Card>
