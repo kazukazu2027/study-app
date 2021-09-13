@@ -17,3 +17,8 @@ export const getQuestionCategorySelector = createSelector(
   [questionsSelector],
   (state) => state.questionCategory
 );
+
+export const getQuestionDataSelector = createSelector(
+  [questionsSelector],
+  (state) => state.questionData
+);

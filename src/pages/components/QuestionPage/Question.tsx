@@ -17,6 +17,7 @@ export type Data = {
   question: string;
   questionID: string;
   category: string;
+  explanation: string;
   answerList: {
     ID: string;
     body: string;

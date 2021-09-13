@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { countCorrectAnswer } from "../redux/action/answerAction";
 import {
-  getQuestionDataList,
-  getQuestionNumber,
+  getQuestionNumber, getSliceQuestionDataList,
 } from "../redux/action/questionAction";
 import { getCountAnswerSelector } from "../redux/selector/answerSelector";
 import { getQuestionDataListSelector } from "../redux/selector/questionSelector";
@@ -31,7 +30,7 @@ const ResultPage = () => {
   const correctAnswerRate = Math.floor((numberOfCorrectAnswers / 3) * 100);
 
   const resetAnswer = () => {
-    dispatch(getQuestionDataList([]));
+    dispatch(getSliceQuestionDataList([]));
     dispatch(getQuestionNumber(0));
     dispatch(countCorrectAnswer([]));
   };

@@ -1,4 +1,4 @@
-import { AnswerList, Data } from "../../pages/components/QuestionPage/Question";
+import { Data } from "../../pages/components/QuestionPage/Question";
 import * as Actions from "../action/questionAction";
 import { QuestionType } from "../action/questionAction";
 
@@ -6,6 +6,7 @@ export const initialState = {
   questionDataList: [] as Data[],
   questionNumber: 0 as number,
   questionCategory: "" as string,
+  questionData: [] as Data[],
 };
 
 export const question = (
@@ -13,7 +14,7 @@ export const question = (
   action: QuestionType
 ): typeof initialState => {
   switch (action.type) {
-    case Actions.GET_QUESTION_DATA_LIST: {
+    case Actions.GET_SLICE_QUESTION_DATA_LIST: {
       const { questionDataList } = action;
       return { ...state, questionDataList };
     }
@@ -24,6 +25,10 @@ export const question = (
     case Actions.QUESTION_CATEGORY: {
       const { questionCategory } = action;
       return { ...state, questionCategory };
+    }
+    case Actions.GET_QUESTION_DATA: {
+      const { questionData } = action;
+      return { ...state, questionData };
     }
     default:
       return state;

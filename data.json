@@ -3,6 +3,7 @@
     "question": "HTML",
     "questionID": "1",
     "category": "skill",
+    "explanation": "簡単に言うと、人間の言語をコンピューターが理解できるようにマークアップする言語です。",
     "answerList": {
       "body": "マークアップをすることができる言語",
       "check": true
@@ -12,6 +13,7 @@
     "question": "CSS",
     "questionID": "2",
     "category": "skill",
+    "explanation": "htmlで作られた文章構造に、色やフォントなどの指定をし、デザインをする言語です。フロンドエンドエンジニアに、必須の言語になります。",
     "answerList": {
       "body": "スタイルシート言語",
       "check": true
@@ -21,6 +23,7 @@
     "question": "JavaScript",
     "questionID": "3",
     "category": "skill",
+    "explanation": "htmlで作られた文章構造に、色やフォントなどの指定をし、デザインをする言語です。フロンドエンドエンジニアに、必須の言語になります。",
     "answerList": {
       "body": "ブラウザ上で動くために開発されたプログラミング言語",
       "check": true
@@ -30,6 +33,7 @@
     "question": "jQuery",
     "questionID": "4",
     "category": "skill",
+    "explanation": "jQueryはJavaScriptのライブラリです。jQueryを使用することによって、よりシンプルにJavaScriptを記述することができます。つまり、より効率的にフロンドエンド開発を行えるようになります。",
     "answerList": {
       "body": "JavaScriptのライブラリ",
       "check": true
@@ -39,6 +43,7 @@
     "question": "Ruby",
     "questionID": "5",
     "category": "skill",
+    "explanation": "Rubyは、文法がわかりやすく、シンプルなコードで記述することができる言語です。Rubyはweb開発で使われることが多く、主にサーバーサイド側で使われることが多いです。また、Ruby",
     "answerList": {
       "body": "日本で開発された、オブジェクト指向のプログラミング言語",
       "check": true
@@ -48,6 +53,7 @@
     "question": "Ruby on Rails",
     "questionID": "6",
     "category": "skill",
+    "explanation": "RailsはRubyのフレームワークです。また、web開発向けのフレームワークとして設計されているため、Webアプリケーションを作るのに適しています。アプリを作るために必要な機能や構造が一つにまとまっているため、とても効率よく開発することができます。",
     "answerList": {
       "body": "Rubyのフレームワーク",
       "check": true
@@ -57,6 +63,7 @@
     "question": "PHP",
     "questionID": "7",
     "category": "skill",
+    "explanation": "PHPの特徴として、htmlに埋め込んで記述することができるという点が挙げられます。そのため、web開発で使われることが多いです。また、構文がわかりやすくシンプルと言う特異もあります。",
     "answerList": {
       "body": "Web開発でよく使用されるサーバーサイド言語",
       "check": true
@@ -66,6 +73,7 @@
     "question": "Laravel",
     "questionID": "8",
     "category": "skill",
+    "explanation": "Laravelは、PHPのフレームワークの中で最も人気のあるフレームワークとなっています。また、他のフレームワークに比べて、とても使いやすいものとされていて、初心者の人でも簡単に学ぶことができます。",
     "answerList": {
       "body": "PHPのフレームワーク",
       "check": true
@@ -75,6 +83,7 @@
     "question": "Java",
     "questionID": "9",
     "category": "skill",
+    "explanation": "Javaは、OSに依存せず、どんな環境でも動かすことができるサーバーサイド言語です。どんな環境でも使うことができるため、さまざまな現場で使われています。",
     "answerList": {
       "body": "OSに依存しないサーバーサイド言語",
       "check": true
@@ -84,6 +93,7 @@
     "question": "Python",
     "questionID": "10",
     "category": "skill",
+    "explanation": "Pythonはシンプルながらも汎用性が高い言語として知られています。そのため、多くの分野で使用されていて、特に人工知能開発で使われています。シンプルな記述で書くことができるため、勉強しやすく、初心者におすすめな言語です。",
     "answerList": {
       "body": "少ないコードで書くことのできるプログラミング言語",
       "check": true
@@ -93,6 +103,7 @@
     "question": "Git",
     "questionID": "11",
     "category": "skill",
+    "explanation": "Gitは、コードの編集履歴を、記録したり、追跡したりするバージョン管理システムです。チーム開発をする際に必ずと言っていいほど使われており、エンジニアにとって必須の知識になります。",
     "answerList": {
       "body": "バージョン管理システム",
       "check": true
@@ -102,6 +113,7 @@
     "question": "SQL",
     "questionID": "12",
     "category": "skill",
+    "explanation": "SQLは、データベースを操作するための言語です。SQLを使うことによって、データを追加したり、削除したり、検索したりするなど、様々なことが効率よく作業できるようになります。",
     "answerList": {
       "body": "データベースを操作するための言語",
       "check": true
@@ -111,6 +123,7 @@
     "question": "Sass",
     "questionID": "13",
     "category": "skill",
+    "explanation": "Sassはcssを拡張して、より効率よく書けるようにした言語です。Sassを使うことメリットとして、作業効率が上がったり、メンテナンス性が上がったりすることが挙げられます。",
     "answerList": {
       "body": "cssを拡張して書きやすくしたスタイルシート",
       "check": true
@@ -120,6 +133,7 @@
     "question": "Go",
     "questionID": "14",
     "category": "skill",
+    "explanation": "Goは、Googleによって開発された、オープンソースのプログラミング言語です。Goを使うことよって、シンプルで信頼性の高い効率的なソフトウェアを構築することができます。また、比較的簡単な記述でコーディングすることができます。",
     "answerList": {
       "body": "2009年にGoogleが開発したプログラミング言語",
       "check": true
@@ -129,6 +143,7 @@
     "question": "Node.js",
     "questionID": "15",
     "category": "skill",
+    "explanation": "jsはサーバーサイドで動くJavaScriptです。JavaScriptはブラウザで動作するプログラミング言語のため、主に、クライアント側で使われることが多かったですが、Node.jsを使うことによって、サーバーサイドもJavaScriptで書くことができます。",
     "answerList": {
       "body": "サーバーサイドでも動くJavaScript",
       "check": true
@@ -138,6 +153,7 @@
     "question": "Unity",
     "questionID": "16",
     "category": "skill",
+    "explanation": "Unityはゲーム開発の際に使われるライブラリや素材などの機能をまとめて提供してくれています。そのため、Unityを使うことによって簡単にゲーム開発をすることができます。",
     "answerList": {
       "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
       "check": true
@@ -147,6 +163,7 @@
     "question": "MySQL",
     "questionID": "17",
     "category": "skill",
+    "explanation": "MySQLは、多くの企業が利用しているデータベース管理システムです。MySQLを学ぶことによって、データベースの連携や、データの操作方法をしっかり学ぶことができます。",
     "answerList": {
       "body": "データベース管理システム",
       "check": true
@@ -155,9 +172,20 @@
   {
     "question": "TypeScript",
     "questionID": "18",
-    "category": "git",
+    "category": "skill",
+    "explanation": "TypeScriptは、マイクロソフト社が開発した、JavaScriptを拡張したオープンソースのプログラミング言語です。JavaScriptは動的型付け言語ですが、TypeScriptは静的型付け言語であると言う違いがあります。",
     "answerList": {
       "body": "JavaScriptを拡張して作られたプログラミング言語",
+      "check": true
+    }
+  },
+  {
+    "question": "React",
+    "questionID": "19",
+    "category": "skill",
+    "explanation": "Reactとは、Facebook社が開発したUIパーツを作るためのJavaScripのライブラリです。Facebook社が開発したと言うこともあり、改良が早く、品質も高く、人気なライブラリとなっています。また、ReactNativeを使うことによって、スマホアプリの開発を行うこともできます。",
+    "answerList": {
+      "body": "JavaScriptのライブラリ",
       "check": true
     }
   },

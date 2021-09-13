@@ -1,13 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import firebase from "firebase";
-import { db } from "../Firebase/firebase";
+import { useDispatch } from "react-redux";
 import { shuffle } from "../functions/Shuffle";
 import {
-  getQuestionDataList,
-  getQuestionNumber,
+  getQuestionNumber, getSliceQuestionDataList,
 } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
@@ -15,12 +12,10 @@ import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
 import Button from "./parts/Button/Button";
 import { getData } from "../functions/getData";
-import { RootState } from "../redux/store";
 import { countCorrectAnswer } from "../redux/action/answerAction";
 
 const QuestionExplanationPage = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state: RootState) => state);
 
   useEffect(() => {
     (async () => {
@@ -28,8 +23,8 @@ const QuestionExplanationPage = () => {
       const shuffleQuestionList = shuffle(questionData);
       const sliceQuestionList = shuffleQuestionList.slice(0, 3);
       dispatch(getQuestionNumber(0));
-      dispatch(getQuestionDataList([]));
-      dispatch(getQuestionDataList(sliceQuestionList));
+      dispatch(getSliceQuestionDataList([]));
+      dispatch(getSliceQuestionDataList(sliceQuestionList));
       dispatch(countCorrectAnswer([]));
     })();
   }, []);

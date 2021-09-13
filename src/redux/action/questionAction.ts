@@ -5,10 +5,10 @@ export type questionList = {
   question: string;
 };
 
-export const GET_QUESTION_DATA_LIST = "get question data list";
-export const getQuestionDataList = (questionDataList: Data[]) => {
+export const GET_SLICE_QUESTION_DATA_LIST = "get question data list";
+export const getSliceQuestionDataList = (questionDataList: Data[]) => {
   return {
-    type: GET_QUESTION_DATA_LIST as typeof GET_QUESTION_DATA_LIST,
+    type: GET_SLICE_QUESTION_DATA_LIST as typeof GET_SLICE_QUESTION_DATA_LIST,
     questionDataList,
   };
 };
@@ -29,7 +29,16 @@ export const getQuestionCategory = (questionCategory: string) => {
   };
 };
 
+export const GET_QUESTION_DATA = "question data";
+export const getQuestionData = (questionData: Data[]) => {
+  return {
+    type: GET_QUESTION_DATA as typeof GET_QUESTION_DATA,
+    questionData,
+  };
+};
+
 export type QuestionType =
-  | ReturnType<typeof getQuestionDataList>
+  | ReturnType<typeof getSliceQuestionDataList>
   | ReturnType<typeof getQuestionNumber>
-  | ReturnType<typeof getQuestionCategory>;
+  | ReturnType<typeof getQuestionCategory>
+  | ReturnType<typeof getQuestionData>;
