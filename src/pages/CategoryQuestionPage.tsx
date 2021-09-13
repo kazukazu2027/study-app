@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import firebase from "firebase";
 import { db } from "../Firebase/firebase";
 import { shuffle } from "../functions/Shuffle";
-import { getQuestionDataList } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
@@ -14,6 +13,7 @@ import Button from "./parts/Button/Button";
 import { getQuestionCategorySelector } from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
 import SubTitle from "./parts/Title/SubTitle";
+import { getSliceQuestionDataList } from "../redux/action/questionAction";
 
 const CategoryQuestionPage = () => {
   const dispatch = useDispatch();
@@ -36,8 +36,8 @@ const CategoryQuestionPage = () => {
                 );
                 const shuffleQuestionList = shuffle(filterQuestionDataList);
                 const questionList = shuffleQuestionList.slice(0, 3);
-                dispatch(getQuestionDataList([]));
-                dispatch(getQuestionDataList(questionList));
+                dispatch(getSliceQuestionDataList([]));
+                dispatch(getSliceQuestionDataList(questionList));
                 break;
               case "git用語":
                 const filterGitQuestionDataList = questionDataList.filter(
@@ -47,8 +47,8 @@ const CategoryQuestionPage = () => {
                   filterGitQuestionDataList
                 );
                 const questionGitList = shuffleGitQuestionList.slice(0, 3);
-                dispatch(getQuestionDataList([]));
-                dispatch(getQuestionDataList(questionGitList));
+                dispatch(getSliceQuestionDataList([]));
+                dispatch(getSliceQuestionDataList(questionGitList));
                 break;
             }
           });
