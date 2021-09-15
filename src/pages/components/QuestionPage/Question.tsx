@@ -71,7 +71,7 @@ const Question = () => {
   return (
     <>
       {shuffleAnswerList && (
-        <div className="border rounded-lg shadow m-auto mt-16">
+        <div className="border rounded-lg shadow m-auto">
           <div className="text-center py-8">
             <div className="pb-4">
               <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>

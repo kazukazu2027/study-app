@@ -6,8 +6,10 @@ import Layout from "./layouts/Layout";
 const QuestionPage = () => {
   return (
     <Layout>
-      <Question />
-      <Answer />
+      <div className="mx-2 mt-16">
+        <Question />
+        <Answer />
+      </div>
     </Layout>
   );
 };

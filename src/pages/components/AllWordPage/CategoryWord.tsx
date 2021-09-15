@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import firebase from "firebase";
-import Image from "next/image";
-import SubTitle from "../../parts/Title/SubTitle";
 import WordParts from "../../parts/WordParts/WordParts";
 
 type Props = {
@@ -14,7 +12,7 @@ const CategoryWord = (props: Props) => {
 
   return (
     <div>
-      {title && <p className="font-bold text-2xl py-2">{title}</p>}
+      {title && <p className="font-bold py-2 text-2xl">{title}</p>}
       {data.map((word) => {
         return <WordParts data={word} />;
       })}

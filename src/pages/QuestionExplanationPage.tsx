@@ -31,7 +31,7 @@ const QuestionExplanationPage = () => {
 
   return (
     <Layout>
-      <div className="mt-10">
+      <div className="mt-10 mx-3">
         <Card>
           <Image src={"/studying.png"} width={360} height={240} />
           <TitleInCard>プログラミング用語を学ぶ</TitleInCard>

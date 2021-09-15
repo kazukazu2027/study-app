@@ -12,7 +12,7 @@ const Header = () => {
     Firebase.auth().signOut();
   };
   return (
-    <div className="text-gray-700 text-xl relative">
+    <div className="text-gray-700 text-xl relative px-2">
       <div className="flex">
         <div className="pt-2">
           <Link href="/">

@@ -12,7 +12,7 @@ declare var window: ExtendedWindow;
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user", "answer", "question"],
+  whitelist: ["user", "answer", "question", "favorite"],
 };
 
 // 永続化設定されたReducerとして定義

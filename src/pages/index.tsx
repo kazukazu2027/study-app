@@ -4,8 +4,10 @@ import AllWord from "./components/TopPage/AllWord";
 
 const IndexPage = () => (
   <Layout>
-    <StudyOfWord />
-    <AllWord />
+    <div className="mb-10 mx-3">
+      <StudyOfWord />
+      <AllWord />
+    </div>
   </Layout>
 );
 

@@ -3,8 +3,7 @@ import { getData } from "../functions/getData";
 import Layout from "./layouts/Layout";
 import firebase from "firebase";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
-import Link from "next/dist/client/link";
-import PageTitle from "./parts/Title/PageTitle";
+import WordPageHeader from "./parts/Header/WordPageHeader";
 
 const AllWordPage = () => {
   const [skillData, setSkillData] = useState<firebase.firestore.DocumentData[]>(
@@ -23,12 +22,11 @@ const AllWordPage = () => {
   }, []);
   return (
     <Layout>
-      <div className="bg-gray-200">
-        <PageTitle>用語一覧</PageTitle>
-        <Link href={"SearchWordPage"} passHref>
-          <a href="">用語検索</a>
-        </Link>
-        <div className="bg-white m-3 rounded-md">
+      <div className="bg-gray-200 pb-8 px-3">
+        <div className="py-4">
+          <WordPageHeader />
+        </div>
+        <div className="bg-white mb-3 pb-6 rounded-md">
           <div className="px-4">
             <CategoryWord title={"skill"} data={skillData} />
             <CategoryWord title={"git"} data={gitData} />

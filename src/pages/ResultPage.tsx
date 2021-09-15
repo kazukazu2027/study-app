@@ -37,7 +37,7 @@ const ResultPage = () => {
 
   return (
     <Layout>
-      <div className="mt-10">
+      <div className="mt-10 mx-3">
         <Card>
           <div className="text-center">
             <div className="py-2">

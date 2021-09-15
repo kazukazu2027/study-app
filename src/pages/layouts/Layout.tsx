@@ -8,7 +8,7 @@ export interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <main className="px-2 m-auto">
+      <main className="m-auto">
         <Header />
         <div className=" m-auto">{children}</div>
       </main>
