@@ -12,7 +12,7 @@ const Header = () => {
     Firebase.auth().signOut();
   };
   return (
-    <div className="text-gray-700 text-xl relative px-2">
+    <div className="text-gray-700 bg-gray-50 text-xl relative px-2 py-1">
       <div className="flex">
         <div className="pt-2">
           <Link href="/">
@@ -27,12 +27,12 @@ const Header = () => {
         ) : (
           <div className="ml-auto">
             <Link href={"SignUpPage"}>
-              <button className="text-center text-sm py-1 rounded bg-green text-white bg-green-400 my-2 mr-5 px-2">
+              <button className="text-center text-sm py-1 rounded bg-green text-white bg-blue-400 my-2 mr-5 px-2">
                 会員登録
               </button>
             </Link>
             <Link href={"SignInPage"}>
-              <button className=" text-center text-sm py-1 rounded bg-green text-green-400 border border-green-400 my-2 px-2">
+              <button className=" text-center text-sm py-1 rounded bg-green text-blue-400 border border-blue-400 my-2 px-2">
                 ログイン
               </button>
             </Link>

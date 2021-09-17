@@ -1,45 +1,55 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
 import { auth, db } from "../Firebase/firebase";
 import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
 import InputParts from "./parts/Input/InputParts";
 import HaveAccount from "./parts/SignLink/HaveAccount";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import {
+  getConfirmPasswordSelector,
+  getEmailSelector,
+  getPasswordSelector,
+  getUserNameSelector,
+} from "../redux/selector/userSelector";
 
 const SignUpPage = () => {
   const router = useRouter();
+  const selector = useSelector((state: RootState) => state);
+  const userName = getUserNameSelector(selector);
+  const email = getEmailSelector(selector);
+  const password = getPasswordSelector(selector);
+  const confirmPassword = getConfirmPasswordSelector(selector);
 
   const [error, setError] = useState("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const { userName, email, password, confirmPassword } =
-      event.target.elements;
     try {
       if (
-        userName.value === "" ||
-        email.value === "" ||
-        password.value === "" ||
-        confirmPassword.value === ""
+        userName === "" ||
+        email === "" ||
+        password === "" ||
+        confirmPassword === ""
       ) {
         alert("必須項目が未入力です");
         return false;
       }
-      if (password.value !== confirmPassword.value) {
+      if (password !== confirmPassword) {
         alert("パスワードが一致しません");
         return false;
       }
       await auth
-        .createUserWithEmailAndPassword(email.value, password.value)
+        .createUserWithEmailAndPassword(email, password)
         .then((result) => {
           const user = result.user;
           if (user) {
             const uid = user.uid;
             const userInitialData = {
-              email: email.value,
+              email: email,
               uid: uid,
-              userName: userName.value,
+              userName: userName,
             };
             db.collection("users").doc(uid).set(userInitialData);
           }
@@ -64,7 +74,7 @@ const SignUpPage = () => {
               <InputParts name={"confirmPassword"} />
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-green text-white bg-blue-500 focus:outline-none my-1"
               >
                 アカウントを登録する
               </button>

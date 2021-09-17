@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth, db } from "../Firebase/firebase";
 import { signInAction } from "../redux/action/usersAction";
 import Layout from "./layouts/Layout";
@@ -9,40 +9,46 @@ import ErrorMessage from "../Firebase/ErrorMassage";
 import InputParts from "./parts/Input/InputParts";
 import CreateAccount from "./parts/SignLink/CreateAccount";
 import ResetPassword from "./parts/SignLink/ResetPassword";
+import { RootState } from "../redux/store";
+import {
+  getEmailSelector,
+  getPasswordSelector,
+} from "../redux/selector/userSelector";
 
 const SignInPage = () => {
   const router = useRouter();
-  const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const selector = useSelector((state: RootState) => state);
+  const email = getEmailSelector(selector);
+  const password = getPasswordSelector(selector);
+
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const { email, password } = event.target.elements;
     try {
-      await auth
-        .signInWithEmailAndPassword(email.value, password.value)
-        .then((result) => {
-          const user = result.user;
-          if (user) {
-            const uid = user.uid;
-            db.collection("users")
-              .doc(uid)
-              .get()
-              .then((snapshot) => {
-                const data = snapshot.data();
-                data &&
-                  dispatch(
-                    signInAction({
-                      isSignedIn: true,
-                      uid: uid,
-                      userName: data.userName,
-                    })
-                  );
-                router.push("/");
-              });
-          }
-        });
-    } catch (error:any) {
+      await auth.signInWithEmailAndPassword(email, password).then((result) => {
+        const user = result.user;
+        if (user) {
+          const uid = user.uid;
+          db.collection("users")
+            .doc(uid)
+            .get()
+            .then((snapshot) => {
+              const data = snapshot.data();
+              data &&
+                dispatch(
+                  signInAction({
+                    isSignedIn: true,
+                    uid: uid,
+                    userName: data.userName,
+                  })
+                );
+              router.push("/");
+            });
+        }
+      });
+    } catch (error: any) {
       setError(error.message);
     }
   };
@@ -57,10 +63,9 @@ const SignInPage = () => {
               <ErrorMessage error={error} />
               <InputParts name={"email"} />
               <InputParts name={"password"} />
-
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-green text-white bg-blue-500 focus:outline-none my-1"
               >
                 Sign In
               </button>

@@ -5,6 +5,5 @@ import thunk from "redux-thunk";
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const initializeStore = () => {
-  // const middlewares = [...customMiddlewares];
   return createStore(rootReducer, applyMiddleware(thunk));
 };

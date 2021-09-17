@@ -1,27 +1,30 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { auth } from "../Firebase/firebase";
 import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
 import InputParts from "./parts/Input/InputParts";
 import HaveAccount from "./parts/SignLink/HaveAccount";
 import CreateAccount from "./parts/SignLink/CreateAccount";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { getEmailSelector } from "../redux/selector/userSelector";
 
 const ResetPasswordPage = () => {
   const [error, setError] = useState("");
+  const selector = useSelector((state: RootState) => state);
+  const email = getEmailSelector(selector);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const { email } = event.target.elements;
     try {
-      if (email.value === "") {
+      if (email === "") {
         alert("必須項目が未入力です");
         return false;
       }
-      await auth.sendPasswordResetEmail(email.value).then(() => {
+      await auth.sendPasswordResetEmail(email).then(() => {
         alert("入力されたアドレスにパスワードリセット用のメールを送りました。");
       });
-    } catch (error:any) {
+    } catch (error: any) {
       setError(error.message);
     }
   };
@@ -37,10 +40,9 @@ const ResetPasswordPage = () => {
               </h1>
               <ErrorMessage error={error} />
               <InputParts name={"email"} />
-
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-green text-white bg-blue-500 focus:outline-none my-1"
               >
                 Reset Password
               </button>
