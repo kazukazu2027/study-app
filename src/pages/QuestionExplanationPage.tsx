@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { shuffle } from "../functions/Shuffle";
 import {
-  getQuestionNumber, getSliceQuestionDataList,
+  getQuestionNumber,
+  getSliceQuestionDataList,
 } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
@@ -13,13 +14,18 @@ import TextInCard from "./parts/Card/TextInCard";
 import Button from "./parts/Button/Button";
 import { getData } from "../functions/getData";
 import { countCorrectAnswer } from "../redux/action/answerAction";
+import firebase from "firebase";
 
-const QuestionExplanationPage = () => {
+type Props = {
+  questionData: firebase.firestore.DocumentData[];
+};
+
+const QuestionExplanationPage = (props: Props) => {
+  const { questionData } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
-      const questionData = await getData("questionDataList");
       const shuffleQuestionList = shuffle(questionData);
       const sliceQuestionList = shuffleQuestionList.slice(0, 3);
       dispatch(getQuestionNumber(0));
@@ -51,5 +57,14 @@ const QuestionExplanationPage = () => {
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const questionData = await getData("questionDataList");
+  return {
+    props: {
+      questionData,
+    },
+  };
+}
 
 export default QuestionExplanationPage;

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { countCorrectAnswer } from "../redux/action/answerAction";
 import {
-  getQuestionNumber, getSliceQuestionDataList,
+  getQuestionNumber,
+  getSliceQuestionDataList,
 } from "../redux/action/questionAction";
 import { getCountAnswerSelector } from "../redux/selector/answerSelector";
 import { getQuestionDataListSelector } from "../redux/selector/questionSelector";

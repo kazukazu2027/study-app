@@ -1,18 +1,17 @@
-import * as Actions from "../storeAction/favoriteAction";
+import * as Actions from "../action/favoriteAction";
 
 export const initialState = {
-  checkedQuestionIds: [] as string[],
+  questionId: [] as string[],
 };
 
 export const favorite = (
   state = initialState,
-  action: Actions.UpdateFavoriteType
+  action: Actions.FavoriteType
 ): typeof initialState => {
   switch (action.type) {
-    case Actions.UPDATE_FAVORITE_WORD: {
-      const { checkedQuestionIds } = action;
-      console.log(checkedQuestionIds)
-      return { ...state, checkedQuestionIds };
+    case Actions.ADD_FAVORITE_WORD: {
+      const { questionId } = action;
+      return { ...state, questionId };
     }
 
     default:

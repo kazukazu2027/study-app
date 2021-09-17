@@ -4,7 +4,7 @@ import AllWord from "./components/TopPage/AllWord";
 
 const IndexPage = () => (
   <Layout>
-    <div className="mb-10 mx-3">
+    <div className="mb-10 mx-3 bg-white">
       <StudyOfWord />
       <AllWord />
     </div>

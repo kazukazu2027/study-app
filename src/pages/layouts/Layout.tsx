@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <main className="m-auto">
         <Header />
-        <div className=" m-auto">{children}</div>
+        <div className="  m-auto">{children}</div>
       </main>
     </>
   );

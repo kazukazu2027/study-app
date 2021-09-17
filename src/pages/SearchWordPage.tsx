@@ -5,20 +5,17 @@ import { getData } from "../functions/getData";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
 import WordPageHeader from "./parts/Header/WordPageHeader";
 
-const SearchWordPage = () => {
-  const [wordData, setWordData] = useState<firebase.firestore.DocumentData[]>(
-    []
-  );
+type Props = {
+  wordData: firebase.firestore.DocumentData[];
+};
+
+const SearchWordPage = (props: Props) => {
+  const { wordData } = props;
+
   const [searchWordData, setSearchWordData] = useState<
     firebase.firestore.DocumentData[]
   >([]);
   const [text, setText] = useState("");
-  useEffect(() => {
-    (async () => {
-      const wordData = await getData("questionDataList");
-      setWordData(wordData);
-    })();
-  }, []);
 
   const handleChange = (e: any) => {
     const updateList = wordData.filter((data) => {
@@ -44,15 +41,26 @@ const SearchWordPage = () => {
               onChange={handleChange}
             />
           </div>
-          {text ? (
-            <CategoryWord data={searchWordData} />
-          ) : (
-            <CategoryWord data={wordData} />
-          )}
+          <div className="px-4">
+            {text ? (
+              <CategoryWord data={searchWordData} />
+            ) : (
+              <CategoryWord data={wordData} />
+            )}
+          </div>
         </div>
       </div>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const wordData = await getData("questionDataList");
+  return {
+    props: {
+      wordData,
+    },
+  };
+}
 
 export default SearchWordPage;

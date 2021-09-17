@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getData } from "../functions/getData";
 import { addFavoriteWordsSelector } from "../redux/selector/favoriteSelector";
@@ -6,15 +6,21 @@ import { RootState } from "../redux/store";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
 import Layout from "./layouts/Layout";
 import WordPageHeader from "./parts/Header/WordPageHeader";
+import firebase from "firebase";
 
-const FavoriteWordPage = async () => {
+type Props = {
+  wordData: firebase.firestore.DocumentData[];
+};
+
+const FavoriteWordPage = (props: Props) => {
+  const { wordData } = props;
   const selector = useSelector((state: RootState) => state);
   const favoriteWordsIds = addFavoriteWordsSelector(selector);
-  const wordData = await getData("questionDataList");
+
   const favoriteWords = wordData.filter(
-    (word) => word.questionId === favoriteWordsIds
+    (word) => favoriteWordsIds.indexOf(word.questionID) !== -1
   );
-  console.log(favoriteWordsIds);
+
   return (
     <Layout>
       <div className="bg-gray-200 min-h-screen px-3">
@@ -30,5 +36,14 @@ const FavoriteWordPage = async () => {
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const wordData = await getData("questionDataList");
+  return {
+    props: {
+      wordData,
+    },
+  };
+}
 
 export default FavoriteWordPage;

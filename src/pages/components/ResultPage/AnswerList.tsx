@@ -26,8 +26,11 @@ const AnswerList = (props: Props) => {
         </div>
       </button>
       {displayExplanation && (
-        <div className={"bg-gray-100 px-4 py-2"}>
-          <p>{question.explanation}</p>
+        <div
+          className="bg-gray-100 px-4 py-2 Button"
+          style={{ transition: "height 400ms ease-in-out" }}
+        >
+          <p className="">{question.explanation}</p>
         </div>
       )}
     </>

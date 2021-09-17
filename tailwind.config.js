@@ -9,6 +9,7 @@ module.exports = {
   },
   variants: {
     extend: { backgroundColor: ["hover"] },
+    transitionProperty: ["responsive", "hover", "focus"],
   },
   plugins: [],
 };
