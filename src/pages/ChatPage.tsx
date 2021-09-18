@@ -1,7 +1,15 @@
 import React from "react";
+import { getData } from "../functions/getData";
 import Layout from "./layouts/Layout";
+import firebase from 'firebase'
 
-const ChatPage = () => {
+type Props = {
+  content: firebase.firestore.DocumentData[]
+}
+
+const ChatPage = (props:Props) => {
+  const {content} = props
+  console.log(content)
   return (
     <div className="relative min-h-screen">
       <Layout>
@@ -21,5 +29,14 @@ const ChatPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const content = await getData("chat");
+  return {
+    props: {
+      content,
+    },
+  };
+}
 
 export default ChatPage;

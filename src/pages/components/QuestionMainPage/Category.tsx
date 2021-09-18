@@ -11,29 +11,29 @@ const Category = () => {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <Link href={"CategoryQuestionPage"} passHref>
-          <a>
+          <>
             <CategoryComponent category={"言語"} />
-          </a>
+          </>
         </Link>
         <Link href={"CategoryQuestionPage"} passHref>
-          <a>
+          <>
             <CategoryComponent category={"git用語"} />
-          </a>
+          </>
         </Link>
         <Link href={"QuestionExplanationPage"} passHref>
-          <a>
+          <>
             <CategoryComponent category={"言語"} />
-          </a>
+          </>
         </Link>
         <Link href={"QuestionExplanationPage"} passHref>
-          <a>
+          <>
             <CategoryComponent category={"言語"} />
-          </a>
+          </>
         </Link>
         <Link href={"QuestionExplanationPage"} passHref>
-          <a>
+          <>
             <CategoryComponent category={"言語"} />
-          </a>
+          </>
         </Link>
       </div>
     </>

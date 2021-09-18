@@ -62,9 +62,9 @@ const ResultPage = () => {
               );
             })}
             <Link href={"/"}>
-              <button onClick={resetAnswer} className="py-8">
+              <a onClick={resetAnswer} className="py-8 block">
                 <Button color={"bg-blue-500"}>TOPに戻る</Button>
-              </button>
+              </a>
             </Link>
           </div>
         </Card>

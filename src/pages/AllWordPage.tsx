@@ -6,24 +6,13 @@ import CategoryWord from "./components/AllWordPage/CategoryWord";
 import WordPageHeader from "./parts/Header/WordPageHeader";
 
 type Props = {
-  wordData: firebase.firestore.DocumentData[];
+  skillWord: firebase.firestore.DocumentData[];
+  gitWord: firebase.firestore.DocumentData[];
 };
 
 const AllWordPage = (props: Props) => {
-  const { wordData } = props;
-  const [skillData, setSkillData] = useState<firebase.firestore.DocumentData[]>(
-    []
-  );
-  const [gitData, setGitData] = useState<firebase.firestore.DocumentData[]>([]);
+  const { skillWord, gitWord } = props;
 
-  useEffect(() => {
-    (async () => {
-      const skillWord = wordData.filter((word) => word.category === "skill");
-      const gitWord = wordData.filter((word) => word.category === "git");
-      setSkillData(skillWord);
-      setGitData(gitWord);
-    })();
-  }, []);
   return (
     <Layout>
       <div className="bg-gray-200 pb-8 px-3">
@@ -32,10 +21,10 @@ const AllWordPage = (props: Props) => {
         </div>
         <div className="bg-white mb-3 pb-6 rounded-md">
           <div className="px-4">
-            {skillData && gitData && (
+            {skillWord && gitWord && (
               <>
-                <CategoryWord title={"skill"} data={skillData} />
-                <CategoryWord title={"git"} data={gitData} />
+                <CategoryWord title={"skill"} data={skillWord} />
+                <CategoryWord title={"git"} data={gitWord} />
               </>
             )}
           </div>
@@ -47,9 +36,12 @@ const AllWordPage = (props: Props) => {
 
 export async function getStaticProps() {
   const wordData = await getData("questionDataList");
+  const skillWord = await wordData.filter((word) => word.category === "skill");
+  const gitWord = await wordData.filter((word) => word.category === "git");
   return {
     props: {
-      wordData,
+      skillWord,
+      gitWord,
     },
   };
 }

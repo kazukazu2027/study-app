@@ -17,21 +17,19 @@ import { countCorrectAnswer } from "../redux/action/answerAction";
 import firebase from "firebase";
 
 type Props = {
-  questionData: firebase.firestore.DocumentData[];
+  sliceQuestionList: firebase.firestore.DocumentData[];
 };
 
 const QuestionExplanationPage = (props: Props) => {
-  const { questionData } = props;
+  const { sliceQuestionList } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
-      const shuffleQuestionList = shuffle(questionData);
-      const sliceQuestionList = shuffleQuestionList.slice(0, 3);
-      dispatch(getQuestionNumber(0));
-      dispatch(getSliceQuestionDataList([]));
-      dispatch(getSliceQuestionDataList(sliceQuestionList));
-      dispatch(countCorrectAnswer([]));
+     await dispatch(getQuestionNumber(0));
+     await dispatch(getSliceQuestionDataList([]));
+     await dispatch(getSliceQuestionDataList(sliceQuestionList));
+     await dispatch(countCorrectAnswer([]));
     })();
   }, []);
 
@@ -60,9 +58,11 @@ const QuestionExplanationPage = (props: Props) => {
 
 export async function getStaticProps() {
   const questionData = await getData("questionDataList");
+  const shuffleQuestionList = shuffle(questionData);
+  const sliceQuestionList = shuffleQuestionList.slice(0, 3);
   return {
     props: {
-      questionData,
+      sliceQuestionList,
     },
   };
 }

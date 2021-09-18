@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { auth, Firebase } from "../../../Firebase/firebase";
-import HamburgerMenu from "../HumburgerMenu/HamburgerMenu";
 
 const Header = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
@@ -12,68 +11,42 @@ const Header = () => {
     Firebase.auth().signOut();
   };
   return (
-    <div className="text-gray-700 bg-gray-50 text-xl relative px-2 py-1">
-      <div className="flex">
-        <div className="pt-2">
+    <div className="text-gray-200 bg-gray-600 text relative px-2 py-1">
+      <div className="flex py-2">
+        <div>
           <Link href="/">
-            <h1 className="font-bold">学習サービス</h1>
+            <p className=" text-lg font-bold pt-1">学習サービス</p>
           </Link>
         </div>
-
-        {auth.currentUser ? (
-          <div className="ml-auto" onClick={clickMenu}>
-            <HamburgerMenu />
-          </div>
-        ) : (
-          <div className="ml-auto">
-            <Link href={"SignUpPage"}>
-              <button className="text-center text-sm py-1 rounded bg-green text-white bg-blue-400 my-2 mr-5 px-2">
-                会員登録
-              </button>
-            </Link>
-            <Link href={"SignInPage"}>
-              <button className=" text-center text-sm py-1 rounded bg-green text-blue-400 border border-blue-400 my-2 px-2">
-                ログイン
-              </button>
-            </Link>
-          </div>
-        )}
-      </div>
-      {displayMenu && (
-        <div className="z-10 bg-gray-200 absolute inset-0 w-9/12 text-center text-base h-60">
-          <ul className="py-10">
-            <Link href="/">
-              <li className="hover:bg-gray-100 cursor-pointer">ホーム</li>
-            </Link>
-            <a href="">
-              <li className="hover:bg-gray-100 pt-2">学ぶ</li>
-            </a>
-            <a href="">
-              <li className="hover:bg-gray-100 pt-2">新規登録</li>
-            </a>
-            <a href="">
-              {auth.currentUser ? (
-                <Link href="SignInPage">
-                  <div className="">
-                    <li
-                      className="text-red-500 hover:bg-gray-100 pt-2"
-                      onClick={logout}
-                    >
-                      ログアウト
-                    </li>
-                  </div>
-                </Link>
-              ) : (
-                <Link href="SignInPage">
-                  <li className="px-6 pt-2 text-red-500 hover:bg-gray-100">
-                    ログイン
-                  </li>
-                </Link>
-              )}
-            </a>
-          </ul>
+        <div className="ml-auto">
+          <Link href={"SignUpPage"}>
+            <button className="text-center text-sm py-1 rounded bg-green text-white bg-blue-400 mr-5 px-2">
+              会員登録
+            </button>
+          </Link>
+          <Link href={"SignInPage"}>
+            <button className=" text-center text-sm py-1 rounded bg-green text-blue-400 border border-blue-400 bg-gray-50  px-2">
+              ログイン
+            </button>
+          </Link>
         </div>
-      )}
+      </div>
+      <div className="flex py-2">
+        <div className="pt-2 flex w-full justify-around">
+          <Link href="/">
+            <h1 className="font-bold">ホーム</h1>
+          </Link>
+          <Link href="QuestionMainPage">
+            <h1 className="font-bold">クイズ</h1>
+          </Link>
+          <Link href="AllWordPage">
+            <h1 className="font-bold">一覧</h1>
+          </Link>
+          <Link href="/">
+            <h1 className="font-bold">質問</h1>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import Layout from "./layouts/Layout";
 import StudyOfWord from "./components/TopPage/StudyOfWord";
 import AllWord from "./components/TopPage/AllWord";
+import AskQuestion from "./components/TopPage/AskQuestion";
 
 const IndexPage = () => (
   <Layout>
     <div className="mb-10 mx-3 bg-white">
       <StudyOfWord />
       <AllWord />
+      <AskQuestion />
     </div>
   </Layout>
 );
