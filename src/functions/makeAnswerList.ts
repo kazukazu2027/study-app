@@ -4,7 +4,7 @@ import firebase from "firebase";
 
 export const makeAnswerList = (
   answerData: firebase.firestore.DocumentData[],
-  questionDataList: Data[],
+  questionDataList: firebase.firestore.DocumentData,
   questionNumber: number
 ) => {
   // 答えのリストの中から正解の答えを除外する
