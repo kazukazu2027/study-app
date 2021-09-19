@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { auth, Firebase } from "../../../Firebase/firebase";
+import { Firebase } from "../../../Firebase/firebase";
 
 const Header = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
@@ -11,8 +11,8 @@ const Header = () => {
     Firebase.auth().signOut();
   };
   return (
-    <div className="text-gray-200 bg-gray-600 text relative px-2 py-1">
-      <div className="flex py-2">
+    <div className="text-gray-200 relative">
+      <div className="flex py-2 px-1 bg-gray-600">
         <div>
           <Link href="/">
             <p className=" text-lg font-bold pt-1">学習サービス</p>
@@ -31,8 +31,8 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="flex py-2">
-        <div className="pt-2 flex w-full justify-around">
+      <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
+        <div className="py-2 flex w-full justify-around">
           <Link href="/">
             <h1 className="font-bold">ホーム</h1>
           </Link>
@@ -43,7 +43,7 @@ const Header = () => {
             <h1 className="font-bold">一覧</h1>
           </Link>
           <Link href="/">
-            <h1 className="font-bold">質問</h1>
+            <h1 className="font-bold">掲示板</h1>
           </Link>
         </div>
       </div>

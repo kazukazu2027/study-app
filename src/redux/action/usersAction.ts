@@ -2,6 +2,7 @@ export type signIn = {
   isSignedIn: boolean;
   userName: string;
   uid: string;
+  chatUserName: string
 };
 
 export const SIGN_IN = "sign in";
@@ -39,10 +40,18 @@ export const signInConfirmPassword = (confirmPassword: string) => {
     confirmPassword,
   };
 };
+export const REGISTER_USER_NAME = "register user name";
+export const registerUserName = (chatUserName: string) => {
+  return {
+    type: REGISTER_USER_NAME as typeof REGISTER_USER_NAME,
+    chatUserName,
+  };
+};
 
 export type UserType =
   | ReturnType<typeof signInAction>
   | ReturnType<typeof signInUserName>
   | ReturnType<typeof signInEmail>
   | ReturnType<typeof signInPassword>
-  | ReturnType<typeof signInConfirmPassword>;
+  | ReturnType<typeof signInConfirmPassword>
+  | ReturnType<typeof registerUserName>;

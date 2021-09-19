@@ -5,7 +5,7 @@ import AskQuestion from "./components/TopPage/AskQuestion";
 
 const IndexPage = () => (
   <Layout>
-    <div className="mb-10 mx-3 bg-white">
+    <div className="pb-10 mx-3 ">
       <StudyOfWord />
       <AllWord />
       <AskQuestion />

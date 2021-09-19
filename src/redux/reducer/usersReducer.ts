@@ -6,6 +6,7 @@ export const initialState = {
   email: "" as string,
   password: "" as string,
   confirmPassword: "" as string,
+  chatUserName: "" as string,
 };
 
 export const user = (
@@ -32,6 +33,10 @@ export const user = (
     case Actions.SEND_CONFIRM_PASSWORD: {
       const { confirmPassword } = action;
       return { ...state, confirmPassword };
+    }
+    case Actions.REGISTER_USER_NAME: {
+      const { chatUserName } = action;
+      return { ...state, chatUserName };
     }
 
     default:

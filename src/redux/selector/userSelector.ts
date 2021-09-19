@@ -19,3 +19,7 @@ export const getConfirmPasswordSelector = createSelector(
   [favoriteSelector],
   (state) => state.confirmPassword
 );
+export const getChatUserNameSelector = createSelector(
+  [favoriteSelector],
+  (state) => state.chatUserName
+);
