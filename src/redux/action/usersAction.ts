@@ -2,7 +2,6 @@ export type signIn = {
   isSignedIn: boolean;
   userName: string;
   uid: string;
-  chatUserName: string
 };
 
 export const SIGN_IN = "sign in";
