@@ -6,6 +6,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    height: {
+      sm: '52px',
+      xl: "480px",
+    },
   },
   variants: {
     extend: { backgroundColor: ["hover"] },

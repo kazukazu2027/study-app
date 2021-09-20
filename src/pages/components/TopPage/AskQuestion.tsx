@@ -17,7 +17,7 @@ const AskQuestion = () => {
             このページでは、さまざまなことを質問することができます。もし、学習中に何かわからないことがあれば、積極的に質問をしましょう！！
           </TextInCard>
         </div>
-        <Link href={"InputUserNamePage"}>
+        <Link href={"ChatPage"}>
           <div className="text-center pb-8">
             <Button color={"bg-blue-500"}>掲示板を見てみる</Button>
           </div>

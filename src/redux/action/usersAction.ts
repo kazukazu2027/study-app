@@ -39,10 +39,10 @@ export const signInConfirmPassword = (confirmPassword: string) => {
     confirmPassword,
   };
 };
-export const REGISTER_USER_NAME = "register user name";
-export const registerUserName = (chatUserName: string) => {
+export const CHAT_USER_NAME = "register user name";
+export const chatUserName = (chatUserName: string) => {
   return {
-    type: REGISTER_USER_NAME as typeof REGISTER_USER_NAME,
+    type: CHAT_USER_NAME as typeof CHAT_USER_NAME,
     chatUserName,
   };
 };
@@ -53,4 +53,4 @@ export type UserType =
   | ReturnType<typeof signInEmail>
   | ReturnType<typeof signInPassword>
   | ReturnType<typeof signInConfirmPassword>
-  | ReturnType<typeof registerUserName>;
+  | ReturnType<typeof chatUserName>;

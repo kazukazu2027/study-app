@@ -34,7 +34,7 @@ export const user = (
       const { confirmPassword } = action;
       return { ...state, confirmPassword };
     }
-    case Actions.REGISTER_USER_NAME: {
+    case Actions.CHAT_USER_NAME: {
       const { chatUserName } = action;
       return { ...state, chatUserName };
     }

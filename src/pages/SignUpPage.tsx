@@ -53,7 +53,7 @@ const SignUpPage = () => {
             };
             db.collection("users").doc(uid).set(userInitialData);
           }
-          router.push("/");
+          router.push("/SignInPage");
         });
     } catch (error: any) {
       setError(error.message);
