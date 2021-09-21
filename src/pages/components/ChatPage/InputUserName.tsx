@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../../parts/Button/Button";
 import Link from "next/link";
 import { db, Firebase } from "../../../Firebase/firebase";
+import Layout from "../../layouts/Layout";
 
 export const InputUserName = () => {
   const [userName, setUserName] = useState("");
@@ -14,22 +15,34 @@ export const InputUserName = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <div className="px-3 text-center pt-10">
-        <input
-          type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
-          name="userName"
-          placeholder="お名前を入力"
-          onChange={inputUserName}
-        />
-        <Link href="ChatPage">
-          <Button onClick={sendUserName} color="bg-green-400">
-            参加する
-          </Button>
-        </Link>
+    <Layout>
+      <div className="bg-gray-50">
+        <div className="px-3 text-center pt-10">
+          <div className="text-left pb-10">
+            <p>チャットで使う名前を設定してください</p>
+            <p>※一度設定すると変更できません</p>
+          </div>
+          <input
+            type="text"
+            className="block border border-grey-light w-full p-3 rounded mb-10"
+            name="userName"
+            placeholder="お名前を入力"
+            onChange={inputUserName}
+          />
+          <Link href="SelectChatRoomPage">
+            <button
+              onClick={sendUserName}
+              className={`text-white font-bold  rounded px-12 py-2 ${
+                userName ? "bg-green-400" : "bg-gray-400"
+              } `}
+              disabled={!userName}
+            >
+              参加する
+            </button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

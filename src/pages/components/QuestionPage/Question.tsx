@@ -30,12 +30,7 @@ export type AnswerList = {
   check: boolean;
 };
 
-type Props = {
-  scroll: () => void;
-};
-
-const Question = (props: Props) => {
-  const { scroll } = props;
+const Question = () => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
@@ -88,7 +83,7 @@ const Question = (props: Props) => {
             </div>
             <div className="w-11/12 m-auto bg-gray-100 rounded-md">
               <div className=" w-10/12 m-auto py-4">
-                <ShuffleAnswerList scroll={scroll} />
+                <ShuffleAnswerList />
               </div>
             </div>
           </div>

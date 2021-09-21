@@ -24,6 +24,7 @@ const IncorrectAnswerCard = () => {
         isCorrect: false,
         question: questionDataList[questionNumber].question,
         explanation: questionDataList[questionNumber].explanation,
+        id: questionDataList[questionNumber].questionID
       },
     ]));
     dispatch(getQuestionNumber(questionNumber + 1));

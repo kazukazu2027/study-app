@@ -26,7 +26,7 @@ const AnswerCardContainer = (props: Props) => {
         <p>{answerResult}</p>
       </div>
       <div className=" font-bold text-2xl py-8 px-2">
-        <p className="text-left">{checkedAnswerString}</p>
+        <p className="">{checkedAnswerString}</p>
       </div>
 
       {/* 最終問題か確認 */}

@@ -15,7 +15,7 @@ const QuestionPage = () => {
   return (
     <Layout>
       <div className="mx-2 mt-16">
-        <Question scroll={scrollToBottomOfList} />
+        <Question />
         <Answer />
         <div id="bottom" ref={ref} />
       </div>

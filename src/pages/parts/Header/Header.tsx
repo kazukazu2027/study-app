@@ -16,7 +16,7 @@ const Header = () => {
         </div>
         {user ? (
           <div className="ml-auto">
-            <Link href={"SignInPage"}>
+            <Link href={"/SignInPage"}>
               <button className="text-center text-sm py-1 rounded text-white bg-red-400 mr-5  px-2" onClick={logout}>
                 ログアウト
               </button>

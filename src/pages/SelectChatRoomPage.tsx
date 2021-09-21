@@ -4,6 +4,7 @@ import Link from "next/dist/client/link";
 import Button from "./parts/Button/Button";
 import { db } from "../Firebase/firebase";
 import firebase from "firebase";
+import Layout from "./layouts/Layout";
 
 const SelectChatRoomPage = () => {
   const [roomName, setRoomName] = useState("");
@@ -16,9 +17,10 @@ const SelectChatRoomPage = () => {
   const addChatRoom = () => {
     db.collection("rooms").add({
       roomName: roomName,
-      id: "room" + roomName.length,
+      id: "room" + chatRoom.length,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
+    setRoomName("");
   };
 
   useEffect(() => {
@@ -37,34 +39,42 @@ const SelectChatRoomPage = () => {
       unSub();
     };
   }, []);
-  
+
   return (
-    <>
-      <SubTitle>チャット選択ページ</SubTitle>
+    <Layout>
+      <div className="py-3 pl-4">
+        <SubTitle>チャット選択ページ</SubTitle>
+      </div>
+      <div className="pb-4 text-center">
+        <input
+          type="text"
+          className="block border border-grey-light w-full p-3 rounded mb-4"
+          name="userName"
+          placeholder="チャット名"
+          onChange={onChangeRoomName}
+          value={roomName}
+        />
+        <Button color="bg-blue-400" onClick={addChatRoom}>
+          追加
+        </Button>
+      </div>
       <div>
         {chatRoom.map((room) => {
           return (
             <div className="border-t-2 py-3">
               <Link href={`/chats/${room.id}`}>
-                <button>{room.name}</button>
+                <div className="pl-4">
+                  <a>{room.name}</a>
+                </div>
               </Link>
             </div>
           );
         })}
-
-        <div className=" w-full bg-gray-200 h-0.5"></div>
+        {chatRoom.length > 0 && (
+          <div className=" w-full bg-gray-200 h-border"></div>
+        )}
       </div>
-      <input
-        type="text"
-        className="block border border-grey-light w-full p-3 rounded mb-4"
-        name="userName"
-        placeholder="チャット名"
-        onChange={onChangeRoomName}
-      />
-      <Button color="bg-blue-400" onClick={addChatRoom}>
-        追加
-      </Button>
-    </>
+    </Layout>
   );
 };
 

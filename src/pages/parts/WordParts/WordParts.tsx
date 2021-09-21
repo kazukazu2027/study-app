@@ -26,7 +26,6 @@ const WordParts = (props: Props) => {
     dispatch(addFavoriteWordAction(newQuestionIDs));
   };
 
-  console.log(questionIDs.length)
 
   const isFavorited = questionIDs.includes(questionID);
 

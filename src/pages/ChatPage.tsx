@@ -8,23 +8,23 @@ import { getData } from "../functions/getData";
 import { InputUserName } from "./components/ChatPage/InputUserName";
 import SelectChatRoomPage from "./SelectChatRoomPage";
 import { getChatUserNameAction } from "../redux/action/chatAction";
+import { Firebase } from "../Firebase/firebase";
 
 type Props = {
-  data: firebase.firestore.DocumentData[];
+  userNameData: firebase.firestore.DocumentData[];
 };
 
 const ChatPage = (props: Props) => {
-  const { data } = props;
+  const { userNameData } = props;
   const dispatch = useDispatch();
-  const selector = useSelector((state: RootState) => state);
-  const uid = getUidSelector(selector);
+  const uid = Firebase.auth().currentUser?.uid;
   const [isUserName, setIsUserName] = useState<
     firebase.firestore.DocumentData[]
   >([]);
 
   useEffect(() => {
     (async () => {
-      const isUserName = await data.filter((data) => data.uid === uid);
+      const isUserName = await userNameData.filter((data) => data.uid === uid);
       setIsUserName(isUserName);
       dispatch(getChatUserNameAction(isUserName));
     })();
@@ -32,18 +32,16 @@ const ChatPage = (props: Props) => {
   console.log(isUserName);
   return (
     <div className="relative min-h-screen">
-      <Layout>
-        {isUserName.length > 0 ? <SelectChatRoomPage /> : <InputUserName />}
-      </Layout>
+      {isUserName.length > 0 ? <SelectChatRoomPage /> : <InputUserName />}
     </div>
   );
 };
 
 export async function getStaticProps() {
-  const data = await getData("userName");
+  const userNameData = await getData("userName");
   return {
     props: {
-      data,
+      userNameData,
     },
   };
 }

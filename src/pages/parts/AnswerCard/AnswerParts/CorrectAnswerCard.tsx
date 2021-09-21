@@ -19,6 +19,7 @@ const CorrectAnswerCard = () => {
   const questionNumber = getQuestionNumberSelector(selector);
   const questionIdsList = getCountAnswerSelector(selector);
   const questionDataList = getQuestionDataListSelector(selector);
+  console.log(questionDataList)
 
   const nextQuestionCorrectClick = () => {
     dispatch(
@@ -28,6 +29,7 @@ const CorrectAnswerCard = () => {
           isCorrect: true,
           question: questionDataList[questionNumber].question,
           explanation: questionDataList[questionNumber].explanation,
+          id: questionDataList[questionNumber].questionID
         },
       ])
     );

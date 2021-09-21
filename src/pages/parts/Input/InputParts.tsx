@@ -1,19 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { signInConfirmPassword, signInEmail, signInPassword, signInUserName } from "../../../redux/action/usersAction";
+import {
+  signInConfirmPassword,
+  signInEmail,
+  signInPassword,
+  signInUserName,
+} from "../../../redux/action/usersAction";
 
 type Props = {
   name: InputName;
 };
 
-type InputName = "userName" | "email" | "password" | "confirmPassword";
+type InputName = "email" | "password" | "confirmPassword";
 
 const InputParts = (props: Props) => {
   const dispatch = useDispatch();
   const { name } = props;
-  const onChangeUserName = (e: any) => {
-    dispatch(signInUserName(e.target.value));
-  };
   const onChangeEmail = (e: any) => {
     dispatch(signInEmail(e.target.value));
   };
@@ -25,17 +27,6 @@ const InputParts = (props: Props) => {
   };
   const displayInput = () => {
     switch (name) {
-      case "userName":
-        return (
-          <input
-            type="text"
-            className="block border border-grey-light w-full p-3 rounded mb-4"
-            name="userName"
-            placeholder="ユーザー名"
-            onChange={onChangeUserName}
-          />
-        );
-
       case "email":
         return (
           <input

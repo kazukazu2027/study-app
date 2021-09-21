@@ -8,12 +8,7 @@ import {
 import { getQuestionDataListSelector } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 
-type Props = {
-  scroll: () => void;
-};
-
-const ShuffleAnswerList = (props: Props) => {
-  const { scroll } = props;
+const ShuffleAnswerList = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
 
@@ -21,13 +16,16 @@ const ShuffleAnswerList = (props: Props) => {
   const isChecked = getCheckedAnswerIsCheckedSelector(selector);
   const shuffleAnswerList = getAnswerListSelector(selector);
   const handleCheck = (event: any) => {
-    scroll
     dispatch(
       getCheckedAnswer({
         isChecked: true,
         checkedAnswerString: event.target.value,
       })
     );
+    const scrollArea = document.getElementById("bottom");
+    if (scrollArea) {
+      scrollArea.scrollTop = scrollArea.scrollHeight;
+    }
   };
   return (
     <>
@@ -60,6 +58,7 @@ const ShuffleAnswerList = (props: Props) => {
           </div>
         );
       })}
+      <div id="bottom"></div>
     </>
   );
 };

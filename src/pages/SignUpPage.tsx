@@ -27,12 +27,7 @@ const SignUpPage = () => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     try {
-      if (
-        userName === "" ||
-        email === "" ||
-        password === "" ||
-        confirmPassword === ""
-      ) {
+      if (email === "" || password === "" || confirmPassword === "") {
         alert("必須項目が未入力です");
         return false;
       }
@@ -69,7 +64,6 @@ const SignUpPage = () => {
               <form action="" onSubmit={handleSubmit}>
                 <h1 className="mb-8 text-3xl text-center">アカウント登録</h1>
                 <ErrorMessage error={error} />
-                <InputParts name={"userName"} />
                 <InputParts name={"email"} />
                 <InputParts name={"password"} />
                 <InputParts name={"confirmPassword"} />

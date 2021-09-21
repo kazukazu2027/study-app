@@ -28,6 +28,7 @@ const LastIncorrectAnswerCard = () => {
           isCorrect: false,
           question: questionDataList[questionNumber].question,
           explanation: questionDataList[questionNumber].explanation,
+          id: questionDataList[questionNumber].questionID,
         },
       ])
     );

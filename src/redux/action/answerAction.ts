@@ -3,6 +3,7 @@ export type AnswerData = {
   question: string;
   isCorrect: boolean;
   explanation: string;
+  id: string;
 };
 
 export type checkedAnswer = {
