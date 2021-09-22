@@ -1,4 +1,7 @@
-import firebase from 'firebase'
+export type chatUserName = {
+  id?: string;
+  userName: string;
+};
 
 export const GET_CHAT_ROOM_ACTION = "add get chat room";
 export const getChatRoomAction = (roomName: string) => {
@@ -8,7 +11,7 @@ export const getChatRoomAction = (roomName: string) => {
   };
 };
 export const GET_CHAT_USER_NAME_ACTION = "add get chat user name";
-export const getChatUserNameAction = (userName: firebase.firestore.DocumentData[]) => {
+export const getChatUserNameAction = (userName: chatUserName[]) => {
   return {
     type: GET_CHAT_USER_NAME_ACTION as typeof GET_CHAT_USER_NAME_ACTION,
     userName,

@@ -58,11 +58,11 @@ const SignUpPage = () => {
   return (
     <div className=" min-h-screen">
       <Layout>
-        <div className="bg-grey-lighter min-h-screen flex flex-col">
+        <div className="bg-grey-lighter pt-16">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
               <form action="" onSubmit={handleSubmit}>
-                <h1 className="mb-8 text-3xl text-center">アカウント登録</h1>
+                <h1 className="mb-5 text-3xl text-center">アカウント登録</h1>
                 <ErrorMessage error={error} />
                 <InputParts name={"email"} />
                 <InputParts name={"password"} />

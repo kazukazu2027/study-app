@@ -7,24 +7,26 @@ import { getUidSelector } from "../redux/selector/userSelector";
 import { getData } from "../functions/getData";
 import { InputUserName } from "./components/ChatPage/InputUserName";
 import SelectChatRoomPage from "./SelectChatRoomPage";
-import { getChatUserNameAction } from "../redux/action/chatAction";
+import {
+  chatUserName,
+  getChatUserNameAction,
+} from "../redux/action/chatAction";
 import { Firebase } from "../Firebase/firebase";
 
 type Props = {
-  userNameData: firebase.firestore.DocumentData[];
+  userNameData: chatUserName[];
 };
 
 const ChatPage = (props: Props) => {
   const { userNameData } = props;
+
   const dispatch = useDispatch();
   const uid = Firebase.auth().currentUser?.uid;
-  const [isUserName, setIsUserName] = useState<
-    firebase.firestore.DocumentData[]
-  >([]);
+  const [isUserName, setIsUserName] = useState<chatUserName[]>([]);
 
   useEffect(() => {
     (async () => {
-      const isUserName = await userNameData.filter((data) => data.uid === uid);
+      const isUserName = await userNameData.filter((data) => data.id === uid);
       setIsUserName(isUserName);
       dispatch(getChatUserNameAction(isUserName));
     })();

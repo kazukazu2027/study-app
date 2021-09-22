@@ -17,7 +17,10 @@ const Header = () => {
         {user ? (
           <div className="ml-auto">
             <Link href={"/SignInPage"}>
-              <button className="text-center text-sm py-1 rounded text-white bg-red-400 mr-5  px-2" onClick={logout}>
+              <button
+                className="text-center text-sm py-1 rounded text-white bg-red-400 mr-5  px-2"
+                onClick={logout}
+              >
                 ログアウト
               </button>
             </Link>
@@ -38,7 +41,7 @@ const Header = () => {
         )}
       </div>
       <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
-        <div className="py-2 flex w-full justify-around">
+        <div className="py-3 flex w-full justify-around">
           <Link href="/">
             <h1 className="font-bold">ホーム</h1>
           </Link>
