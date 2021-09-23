@@ -1,0 +1,152 @@
+[
+  {
+    "body": "マークアップをすることができる言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "スタイルシート言語", "check": false, "category": "skill" },
+  {
+    "body": "ブラウザ上で動くために開発されたプログラミング言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "JavaScriptのライブラリ", "check": false, "category": "skill" },
+  {
+    "body": "日本で開発された、オブジェクト指向のプログラミング言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "Rubyのフレームワーク", "check": false, "category": "skill" },
+  {
+    "body": "Web開発でよく使用されるサーバーサイド言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "PHPのフレームワーク", "check": false, "category": "skill" },
+  {
+    "body": "OSに依存しないサーバーサイド言語",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "少ないコードで書くことのできるプログラミング言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "バージョン管理システム", "check": false, "category": "skill" },
+  {
+    "body": "データベースを操作するための言語",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "cssを拡張して書きやすくしたスタイルシート",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "2009年にGoogleが開発したプログラミング言語",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "サーバーサイドでも動くJavaScript",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "ゲームを開発するためによく使用する機能を一つにまとめたゲームエンジン",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "データベース管理システム",
+    "check": false,
+    "category": "skill"
+  },
+  {
+    "body": "JavaScriptを拡張して作られたプログラミング言語",
+    "check": false,
+    "category": "skill"
+  },
+  { "body": "サーバーにあるリポジトリ", "check": false, "category": "git" },
+  { "body": "自分のPCにあるリポジトリ", "check": false, "category": "git" },
+  {
+    "body": "ファイルを変更したりする作業場のこと",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "Gitリポジトリにコミットするファイルを置いておく場所",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "ファイルやディレクトリの変更をリポジトリに記録する",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "ローカルリポジトリの内容をリモートリポジトリにアップすること。",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "変更を分岐して記録し、他人と同時に開発をするためのもの",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "変更したコードをリポジトリに取り込む前にレビューを頼むことができる機能",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "Gitで必要なものが含まれた、gitディレクトリが作成される",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "リポジトリのコピーを作成する",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "リモートから情報をとってくる（マージはしない）",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "リモートから情報をとってくる（マージもする）",
+    "check": false,
+    "category": "git"
+  },
+  { "body": "ブランチを新規追加する", "check": false, "category": "git" },
+  { "body": "ブランチを切り替える", "check": false, "category": "git" },
+  { "body": "ブランチの一覧を表示する", "check": false, "category": "git" },
+  {
+    "body": "ブランチを新規作成して、切り替える",
+    "check": false,
+    "category": "git"
+  },
+  {
+    "body": "変更を取り込む",
+    "check": false,
+    "category": "git"
+  },
+  { "body": "ブランチを削除する", "check": false, "category": "git" },
+  { "body": "ブランチ名を変更する", "check": false, "category": "git" },
+  {
+    "body": "作業した変更分を一時的に退避させる",
+    "check": false,
+    "category": "git"
+  },
+  { "body": "退避させた変更分を確認する", "check": false, "category": "git" },
+  { "body": "特定の作業を復元させる", "check": false, "category": "git" },
+  { "body": "退避した作業を削除する", "check": false, "category": "git" },
+  {
+    "body": "退避した作業を復元し、その作業を削除する",
+    "check": false,
+    "category": "git"
+  }
+]

@@ -28,9 +28,15 @@ export type Data = {
 export type AnswerList = {
   body: string;
   check: boolean;
+  category: string;
 };
 
-const Question = () => {
+type Props = {
+  answerDataList: AnswerList[];
+};
+
+const Question = (props: Props) => {
+  const { answerDataList } = props;
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
@@ -42,7 +48,9 @@ const Question = () => {
     switch (questionDataList[questionNumber].category) {
       case "skill":
         (async () => {
-          const skillAnswerDataList = await getData("skillAnswerDataList");
+          const skillAnswerDataList = await answerDataList.filter(
+            (answer) => answer.category === "skill"
+          );
           const shuffledAnswerList = makeAnswerList(
             skillAnswerDataList,
             questionDataList,
@@ -53,7 +61,9 @@ const Question = () => {
         break;
       case "git":
         (async () => {
-          const gitAnswerDataList = await getData("gitAnswerDataList");
+          const gitAnswerDataList = await answerDataList.filter(
+            (answer) => answer.category === "git"
+          );
           const gitShuffledAnswerList = makeAnswerList(
             gitAnswerDataList,
             questionDataList,
