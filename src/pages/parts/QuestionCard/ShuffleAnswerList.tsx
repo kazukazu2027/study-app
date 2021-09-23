@@ -22,6 +22,7 @@ const ShuffleAnswerList = () => {
         checkedAnswerString: event.target.value,
       })
     );
+
     const scrollArea = document.getElementById("bottom");
     if (scrollArea) {
       scrollArea.scrollTop = scrollArea.scrollHeight;
@@ -32,29 +33,20 @@ const ShuffleAnswerList = () => {
       {shuffleAnswerList.map((answer) => {
         return (
           <div key={answer.body} className="text-left">
-            {isChecked ? (
-              <label className="flex my-2">
-                <input
-                  type="radio"
-                  className="mt-2 mr-2 "
-                  value={answer.body}
-                  disabled
-                  name={questionDataList[0].questionID}
-                />
-                <span className="text-gray-400">{answer.body}</span>
-              </label>
-            ) : (
-              <label className="flex my-2">
-                <input
-                  type="radio"
-                  className="mt-4 mr-2 "
-                  value={answer.body}
-                  onClick={handleCheck}
-                  name={questionDataList[0].questionID}
-                />
-                <span>{answer.body}</span>
-              </label>
-            )}
+            <label className="flex my-2">
+              <input
+                id="answerRadio"
+                type="radio"
+                className="mt-2 mr-2 "
+                value={answer.body}
+                onClick={handleCheck}
+                name={questionDataList[0].questionID}
+                disabled={isChecked}
+              />
+              <span className={`${isChecked && "text-gray-400"}`}>
+                {answer.body}
+              </span>
+            </label>
           </div>
         );
       })}

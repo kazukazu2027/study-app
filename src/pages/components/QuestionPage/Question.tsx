@@ -30,7 +30,12 @@ export type AnswerList = {
   check: boolean;
 };
 
-const Question = () => {
+type Props = {
+  skillAnswerDataListTest: AnswerList[];
+  gitAnswerDataList: AnswerList[];
+};
+
+const Question = (props: Props) => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
@@ -38,7 +43,6 @@ const Question = () => {
   const questionNumber = getQuestionNumberSelector(selector);
   const shuffleAnswerList = getAnswerListSelector(selector);
 
-  console.log(questionNumber);
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
       case "skill":
@@ -65,8 +69,6 @@ const Question = () => {
         break;
     }
   }, [questionNumber]);
-
-  console.log(questionNumber);
 
   return (
     <>

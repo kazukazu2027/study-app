@@ -19,7 +19,6 @@ const CorrectAnswerCard = () => {
   const questionNumber = getQuestionNumberSelector(selector);
   const questionIdsList = getCountAnswerSelector(selector);
   const questionDataList = getQuestionDataListSelector(selector);
-  console.log(questionDataList)
 
   const nextQuestionCorrectClick = () => {
     dispatch(

@@ -19,7 +19,6 @@ const AnswerCardContainer = (props: Props) => {
 
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const resultAnswersList = getCountAnswerSelector(selector);
-  console.log(resultAnswersList);
   return (
     <>
       <div className={`${color} rounded py-4 w-5/12 m-auto`}>
