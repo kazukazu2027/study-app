@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getData } from "../functions/getData";
 import Layout from "./layouts/Layout";
-import firebase from "firebase";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
 import WordPageHeader from "./parts/Header/WordPageHeader";
 
+export type Word = {
+  answerList: { body: string; check: boolean };
+  category: string;
+  explanation: string;
+  question: string;
+  questionID: string;
+};
+
 type Props = {
-  skillWord: firebase.firestore.DocumentData[];
-  gitWord: firebase.firestore.DocumentData[];
+  skillWord: Word[];
+  gitWord: Word[];
+  workWord: Word[];
+  networkWord: Word[];
 };
 
 const AllWordPage = (props: Props) => {
-  const { skillWord, gitWord } = props;
+  const { skillWord, gitWord, workWord, networkWord } = props;
+  console.log(skillWord);
 
   return (
     <Layout>
@@ -25,6 +35,8 @@ const AllWordPage = (props: Props) => {
               <>
                 <CategoryWord title={"skill"} data={skillWord} />
                 <CategoryWord title={"git"} data={gitWord} />
+                <CategoryWord title={"職業"} data={workWord} />
+                <CategoryWord title={"ネットワーク関連"} data={networkWord} />
               </>
             )}
           </div>
@@ -38,10 +50,16 @@ export async function getStaticProps() {
   const wordData = await getData("questionDataList");
   const skillWord = await wordData.filter((word) => word.category === "skill");
   const gitWord = await wordData.filter((word) => word.category === "git");
+  const workWord = await wordData.filter((word) => word.category === "work");
+  const networkWord = await wordData.filter(
+    (word) => word.category === "network"
+  );
   return {
     props: {
       skillWord,
       gitWord,
+      workWord,
+      networkWord,
     },
   };
 }

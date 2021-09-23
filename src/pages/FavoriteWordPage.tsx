@@ -7,9 +7,10 @@ import CategoryWord from "./components/AllWordPage/CategoryWord";
 import Layout from "./layouts/Layout";
 import WordPageHeader from "./parts/Header/WordPageHeader";
 import firebase from "firebase";
+import { Word } from "./AllWordPage";
 
 type Props = {
-  wordData: firebase.firestore.DocumentData[];
+  wordData: Word[];
 };
 
 const FavoriteWordPage = (props: Props) => {

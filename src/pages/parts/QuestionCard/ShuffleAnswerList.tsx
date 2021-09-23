@@ -33,7 +33,7 @@ const ShuffleAnswerList = () => {
       {shuffleAnswerList.map((answer) => {
         return (
           <div key={answer.body} className="text-left">
-            <label className="flex my-2">
+            <label className="my-2">
               <input
                 id="answerRadio"
                 type="radio"

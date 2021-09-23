@@ -72,6 +72,32 @@ const Question = (props: Props) => {
           dispatch(getAnswerList(gitShuffledAnswerList));
         })();
         break;
+      case "work":
+        (async () => {
+          const workAnswerDataList = await answerDataList.filter(
+            (answer) => answer.category === "work"
+          );
+          const workShuffledAnswerList = makeAnswerList(
+            workAnswerDataList,
+            questionDataList,
+            questionNumber
+          );
+          dispatch(getAnswerList(workShuffledAnswerList));
+        })();
+        break;
+      case "network":
+        (async () => {
+          const networkAnswerDataList = await answerDataList.filter(
+            (answer) => answer.category === "network"
+          );
+          const networkShuffledAnswerList = makeAnswerList(
+            networkAnswerDataList,
+            questionDataList,
+            questionNumber
+          );
+          dispatch(getAnswerList(networkShuffledAnswerList));
+        })();
+        break;
     }
   }, [questionNumber]);
 

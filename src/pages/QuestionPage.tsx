@@ -8,8 +8,9 @@ type Props = {
   answerDataList: AnswerList[];
 };
 
-const QuestionPage = (props:Props) => {
-  const {answerDataList} = props
+const QuestionPage = (props: Props) => {
+  const { answerDataList } = props;
+  console.log(answerDataList)
   const ref = React.createRef<HTMLDivElement>();
   const scrollToBottomOfList = React.useCallback(() => {
     ref!.current!.scrollIntoView({

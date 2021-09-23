@@ -24,6 +24,7 @@ const CategoryQuestionPage = (props: Props) => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
   const questionCategory = getQuestionCategorySelector(selector);
+  console.log(questionCategory);
 
   useEffect(() => {
     switch (questionCategory) {
@@ -44,6 +45,26 @@ const CategoryQuestionPage = (props: Props) => {
         const questionGitList = shuffleGitQuestionList.slice(0, 3);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionGitList));
+        break;
+      case "職業":
+        const filterWorkQuestionDataList = questionData.filter(
+          (question) => question.category === "work"
+        );
+        const shuffleWorkQuestionList = shuffle(filterWorkQuestionDataList);
+        const questionWorkList = shuffleWorkQuestionList.slice(0, 3);
+        dispatch(getSliceQuestionDataList([]));
+        dispatch(getSliceQuestionDataList(questionWorkList));
+        break;
+      case "ネットワーク関連":
+        const filterNetworkQuestionDataList = questionData.filter(
+          (question) => question.category === "network"
+        );
+        const shuffleNetworkQuestionList = shuffle(
+          filterNetworkQuestionDataList
+        );
+        const questionNetworkList = shuffleNetworkQuestionList.slice(0, 3);
+        dispatch(getSliceQuestionDataList([]));
+        dispatch(getSliceQuestionDataList(questionNetworkList));
         break;
     }
   }, []);

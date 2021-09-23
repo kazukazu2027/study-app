@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getQuestionCategory } from "../../../redux/action/questionAction";
+import Git from "../../../../public/git.svg";
 
 type Props = {
   src: string;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import firebase from "firebase";
 import WordParts from "../../parts/WordParts/WordParts";
+import { Word } from "../../AllWordPage";
 
 type Props = {
   title?: string;
-  data: firebase.firestore.DocumentData[];
+  data: Word[];
 };
 
 const CategoryWord = (props: Props) => {

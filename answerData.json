@@ -148,5 +148,145 @@
     "body": "退避した作業を復元し、その作業を削除する",
     "check": false,
     "category": "git"
+  },
+  {
+    "body": "ユーザーが直接操作する場所を設計・構築・実装をするエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "サーバー側で動作するものを実装するエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "システム設計や保守や運用をするエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "サーバーやネットワークなどのインフラを担当するエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "サービスの運用や保守を担当するエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "顧客が求めるシステムを構築・導入・運用する職業",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "スマホのネイティブアプリを作るエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "aiエンジニアの中で機械学習に携わるエンジニア",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "設計から開発、保守まで全て一人でできるひと",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "エンジニアのマネジメント、ヒューマンマネジメント",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "エンジニアの技術面のリーダー",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "会社の最高技術責任者",
+    "check": false,
+    "category": "work"
+  },
+  {
+    "body": "データを通信するときのプロトコル",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "通信内容が暗号化されたHTTP",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "ファイルを送受信するときのプロトコル",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "データの通信を暗号化し、送受信させる仕組み",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "リモートコンピュータと通信するためのプロトコル",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "確実性を持った通信を行歌目のプロトコル",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "コンピューターが通信に使用する出入り口の番号",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "外部からの不正なアクセスを防ぐシステム",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "インターネット上に接続された機器が持つナンバー",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "インターネット上における住所",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "ドメイン名とIPアドレスを関連づける仕組み",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "ネットを使用している利用者間に、仮想的なプライベートネットワークを構築し、セキュリティを確保して通信を行う技術",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "内部と外部のネットワークの中継をするサーバー",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "コンピューターの土台となるソフトウェア",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "パソコンにおける目に見える形のある部分",
+    "check": false,
+    "category": "network"
+  },
+  {
+    "body": "パソコンにおける目に見えない部分",
+    "check": false,
+    "category": "network"
   }
 ]

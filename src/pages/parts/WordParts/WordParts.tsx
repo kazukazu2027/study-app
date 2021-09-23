@@ -5,10 +5,11 @@ import { addFavoriteWordAction } from "../../../redux/action/favoriteAction";
 import { RootState } from "../../../redux/store";
 import { addFavoriteWordsSelector } from "../../../redux/selector/favoriteSelector";
 import { toggleItem } from "../../../functions/toggleItem";
-import BookMark from "../../../../public/bookmark.svg";
+import BookMark from "../../../../public/bookmark2.svg";
+import { Word } from "../../AllWordPage";
 
 type Props = {
-  data: firebase.firestore.DocumentData;
+  data: Word;
 };
 
 const WordParts = (props: Props) => {
@@ -26,16 +27,13 @@ const WordParts = (props: Props) => {
     dispatch(addFavoriteWordAction(newQuestionIDs));
   };
 
-
   const isFavorited = questionIDs.includes(questionID);
 
   return (
     <div>
       <div className="border-t-2 flex px-2 py-2">
         <button onClick={handleFavorite}>
-          <div
-            className={`fill-current ${isFavorited ? "text-green-500" : ""} `}
-          >
+          <div className={`fill-current stroke-current ${isFavorited ? "text-red-400" : "text-gray-200"} `}>
             <BookMark />
           </div>
         </button>

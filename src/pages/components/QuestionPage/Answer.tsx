@@ -21,6 +21,7 @@ const Answer = () => {
     )[0].body;
     setCorrectAnswerString(correctAnswerString);
   }, [checkedAnswerString]);
+
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
       {correctAnswerString === checkedAnswerString ? (

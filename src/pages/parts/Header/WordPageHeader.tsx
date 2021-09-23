@@ -15,7 +15,7 @@ const WordPageHeader = () => {
             <Image src={"/book.svg"} width={30} height={30} />
           </Link>
         </div>
-        <div className="pr-4">
+        <div className="pr-4 pt-1">
           <Link href={"SearchWordPage"} passHref>
             <Image src={"/search_icon.svg"} width={30} height={23} />
           </Link>

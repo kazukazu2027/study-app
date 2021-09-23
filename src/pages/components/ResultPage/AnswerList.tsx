@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnswerData } from "../../../redux/action/answerAction";
-import BookMark from "../../../../public/bookmark.svg";
+import BookMark from "../../../../public/bookmark2.svg";
 import { toggleItem } from "../../../functions/toggleItem";
 import { addFavoriteWordAction } from "../../../redux/action/favoriteAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,13 +33,13 @@ const AnswerList = (props: Props) => {
     <>
       <div
         className={`${
-          question.isCorrect ? "bg-green-100" : "bg-red-100"
+          question.isCorrect ? "bg-green-300" : "bg-red-300"
         } py-2 flex border-t-2`}
       >
         <button onClick={handleFavorite}>
           <div
-            className={`fill-current ${
-              isFavorited ? "text-green-500" : ""
+            className={`fill-current stroke-current ${
+              isFavorited ? "text-red-400" : "text-gray-200"
             } pl-2`}
           >
             <BookMark />

@@ -11,7 +11,7 @@ import Category from "./components/QuestionMainPage/Category";
 const QuestionMainPage = () => {
   return (
     <Layout>
-      <div className="pt-10 mx-3">
+      <div className="py-10 mx-3">
         <Card>
           <Image src={"/studying.png"} width={360} height={240} />
           <TitleInCard>プログラミング用語を学ぶ</TitleInCard>

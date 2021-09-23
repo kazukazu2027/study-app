@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {
+  getAnswerListSelector,
   getCheckedAnswerStringSelector,
   getCountAnswerSelector,
 } from "../../../redux/selector/answerSelector";
@@ -16,8 +17,11 @@ interface Props {
 const AnswerCardContainer = (props: Props) => {
   const { answerResult, color } = props;
   const selector = useSelector((state: RootState) => state);
+  const answerList = getAnswerListSelector(selector);
+  const correctAnswerString = answerList.filter(
+    (list) => list.check === true
+  )[0].body;
 
-  const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const resultAnswersList = getCountAnswerSelector(selector);
   return (
     <>
@@ -25,7 +29,7 @@ const AnswerCardContainer = (props: Props) => {
         <p>{answerResult}</p>
       </div>
       <div className=" font-bold text-2xl py-8 px-2">
-        <p className="">{checkedAnswerString}</p>
+        <p className="">{correctAnswerString}</p>
       </div>
 
       {/* 最終問題か確認 */}

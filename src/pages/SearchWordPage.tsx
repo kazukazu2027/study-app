@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import firebase from "firebase";
 import Layout from "./layouts/Layout";
 import { getData } from "../functions/getData";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
 import WordPageHeader from "./parts/Header/WordPageHeader";
+import { Word } from "./AllWordPage";
 
 type Props = {
-  wordData: firebase.firestore.DocumentData[];
+  wordData: Word[];
 };
 
 const SearchWordPage = (props: Props) => {
   const { wordData } = props;
 
-  const [searchWordData, setSearchWordData] = useState<
-    firebase.firestore.DocumentData[]
-  >([]);
+  const [searchWordData, setSearchWordData] = useState<Word[]>([]);
   const [text, setText] = useState("");
 
   const handleChange = (e: any) => {
