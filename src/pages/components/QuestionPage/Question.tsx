@@ -30,12 +30,7 @@ export type AnswerList = {
   check: boolean;
 };
 
-type Props = {
-  skillAnswerDataListTest: AnswerList[];
-  gitAnswerDataList: AnswerList[];
-};
-
-const Question = (props: Props) => {
+const Question = () => {
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
