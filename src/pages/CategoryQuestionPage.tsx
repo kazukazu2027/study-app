@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import firebase from "firebase";
 import { shuffle } from "../functions/Shuffle";
@@ -9,10 +9,16 @@ import Card from "./layouts/Card";
 import TitleInCard from "./parts/Card/TitleInCard";
 import TextInCard from "./parts/Card/TextInCard";
 import Button from "./parts/Button/Button";
-import { getQuestionCategorySelector } from "../redux/selector/questionSelector";
+import {
+  getQuestionCategorySelector,
+  getTheNumberOfQuestions as getTheNumberOfQuestionsSelector,
+} from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
 import SubTitle from "./parts/Title/SubTitle";
-import { getSliceQuestionDataList } from "../redux/action/questionAction";
+import {
+  getSliceQuestionDataList,
+  getTheNumberOfQuestions,
+} from "../redux/action/questionAction";
 import { getData } from "../functions/getData";
 
 type Props = {
@@ -24,7 +30,16 @@ const CategoryQuestionPage = (props: Props) => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
   const questionCategory = getQuestionCategorySelector(selector);
-  console.log(questionCategory);
+  const theNumberOfQuestions = getTheNumberOfQuestionsSelector(selector);
+
+  const [choice, setChoice] = useState(false);
+  const [questionNumber, setQuestionNumber] = useState(0);
+
+  const handleClick = (event: any) => {
+    setQuestionNumber(Number(event.target.value));
+    dispatch(getTheNumberOfQuestions(Number(event.target.value)));
+    setChoice(true);
+  };
 
   useEffect(() => {
     switch (questionCategory) {
@@ -33,7 +48,7 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "skill"
         );
         const shuffleQuestionList = shuffle(filterQuestionDataList);
-        const questionList = shuffleQuestionList.slice(0, 3);
+        const questionList = shuffleQuestionList.slice(0, 7);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionList));
         break;
@@ -42,7 +57,7 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "git"
         );
         const shuffleGitQuestionList = shuffle(filterGitQuestionDataList);
-        const questionGitList = shuffleGitQuestionList.slice(0, 3);
+        const questionGitList = shuffleGitQuestionList.slice(0, 7);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionGitList));
         break;
@@ -51,7 +66,7 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "work"
         );
         const shuffleWorkQuestionList = shuffle(filterWorkQuestionDataList);
-        const questionWorkList = shuffleWorkQuestionList.slice(0, 3);
+        const questionWorkList = shuffleWorkQuestionList.slice(0, 7);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionWorkList));
         break;
@@ -62,7 +77,8 @@ const CategoryQuestionPage = (props: Props) => {
         const shuffleNetworkQuestionList = shuffle(
           filterNetworkQuestionDataList
         );
-        const questionNetworkList = shuffleNetworkQuestionList.slice(0, 3);
+        console.log(questionNumber);
+        const questionNetworkList = shuffleNetworkQuestionList.slice(0, 7);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionNetworkList));
         break;
@@ -72,20 +88,63 @@ const CategoryQuestionPage = (props: Props) => {
   return (
     <Layout>
       <div className="px-3">
-        <SubTitle>カテゴリー別問題</SubTitle>
+        <div className="py-4">
+          <SubTitle>カテゴリー別問題</SubTitle>
+        </div>
         <Card>
           <Image src={"/studying.png"} width={360} height={240} />
           <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
           <p className="text-center text-lg">[{questionCategory}]</p>
           <div className="py-5">
             <TextInCard>
-              これから、問題が１０問表示されます。
+              これから、問題が{theNumberOfQuestions}問表示されます。
               正しいと思う答えを4択の中から選んでください。
             </TextInCard>
           </div>
-          <Link href={"QuestionPage"}>
+          <div className="pb-5">
+            <p>問題数を選んでください</p>
+            <div className="flex justify-between w-3/4 m-auto">
+              <label className="my-2 mr-4">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={3}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>3問</span>
+              </label>
+              <label className="my-2 mr-4">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={7}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>7問</span>
+              </label>
+              <label className="my-2">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={10}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>10問</span>
+              </label>
+            </div>
+          </div>
+
+          <Link href={choice ? "QuestionPage" : ""}>
             <div className="pb-8 text-center">
-              <Button color={"bg-blue-500"}>学習する</Button>
+              <Button color={choice ? "bg-blue-500" : "bg-gray-400"}>
+                学習する
+              </Button>
             </div>
           </Link>
         </Card>

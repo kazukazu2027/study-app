@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { shuffle } from "../functions/Shuffle";
 import {
@@ -24,11 +24,13 @@ type Props = {
 const QuestionExplanationPage = (props: Props) => {
   const { shuffleQuestionList } = props;
   const dispatch = useDispatch();
+  const [choice, setChoice] = useState(false);
 
   const handleClick = (event: any) => {
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
     const sliceQuestionList = shuffleQuestionList.slice(0, event.target.value);
     dispatch(getSliceQuestionDataList(sliceQuestionList));
+    setChoice(true);
   };
 
   useEffect(() => {
@@ -88,9 +90,11 @@ const QuestionExplanationPage = (props: Props) => {
               </label>
             </div>
           </div>
-          <Link href={"QuestionPage"}>
+          <Link href={choice ? "QuestionPage" : ""}>
             <div className="pb-8 text-center">
-              <Button color={"bg-blue-500"}>学習する</Button>
+              <Button color={choice ? "bg-blue-500" : "bg-gray-400"}>
+                学習する
+              </Button>
             </div>
           </Link>
         </Card>

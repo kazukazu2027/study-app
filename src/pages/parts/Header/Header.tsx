@@ -40,7 +40,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      {/* <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
+      <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
         <div className="py-3 flex w-full justify-around">
           <Link href="/">
             <h1 className="font-bold">ホーム</h1>
@@ -55,7 +55,7 @@ const Header = () => {
             <h1 className="font-bold">掲示板</h1>
           </Link>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

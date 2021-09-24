@@ -6,7 +6,7 @@ type Props = {
 
 const SubTitle = (props: Props) => {
   const { children } = props;
-  return <p className=" text-xl">{children}</p>;
+  return <p className=" font-semibold text-xl">{children}</p>;
 };
 
 export default SubTitle;
