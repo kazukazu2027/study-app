@@ -7,7 +7,9 @@ export type questionList = {
 };
 
 export const GET_SLICE_QUESTION_DATA_LIST = "get question data list";
-export const getSliceQuestionDataList = (questionDataList: firebase.firestore.DocumentData[]) => {
+export const getSliceQuestionDataList = (
+  questionDataList: firebase.firestore.DocumentData[]
+) => {
   return {
     type: GET_SLICE_QUESTION_DATA_LIST as typeof GET_SLICE_QUESTION_DATA_LIST,
     questionDataList,
@@ -38,8 +40,17 @@ export const getQuestionData = (questionData: Data[]) => {
   };
 };
 
+export const GET_THE_NUMBER_OF_QUESTIONS = "the number of questions";
+export const getTheNumberOfQuestions = (theNumberOfQuestions: number) => {
+  return {
+    type: GET_THE_NUMBER_OF_QUESTIONS as typeof GET_THE_NUMBER_OF_QUESTIONS,
+    theNumberOfQuestions,
+  };
+};
+
 export type QuestionType =
   | ReturnType<typeof getSliceQuestionDataList>
   | ReturnType<typeof getQuestionNumber>
   | ReturnType<typeof getQuestionCategory>
-  | ReturnType<typeof getQuestionData>;
+  | ReturnType<typeof getQuestionData>
+  | ReturnType<typeof getTheNumberOfQuestions>;

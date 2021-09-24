@@ -20,6 +20,7 @@ const WordPageHeader = () => {
             <Image src={"/search_icon.svg"} width={30} height={23} />
           </Link>
         </div>
+        
         <Link href={"FavoriteWordPage"} passHref>
           <Image src={"/heart.svg"} width={25} height={1} />
         </Link>

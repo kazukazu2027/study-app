@@ -37,7 +37,7 @@ const ShuffleAnswerList = () => {
               <input
                 id="answerRadio"
                 type="radio"
-                className="mt-2 mr-2 "
+                className="mt-4 mr-2 "
                 value={answer.body}
                 onClick={handleCheck}
                 name={questionDataList[0].questionID}

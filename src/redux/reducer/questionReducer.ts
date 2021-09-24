@@ -8,6 +8,7 @@ export const initialState = {
   questionNumber: 0 as number,
   questionCategory: "" as string,
   questionData: [] as Data[],
+  theNumberOfQuestions: 0 as number,
 };
 
 export const question = (
@@ -30,6 +31,10 @@ export const question = (
     case Actions.GET_QUESTION_DATA: {
       const { questionData } = action;
       return { ...state, questionData };
+    }
+    case Actions.GET_THE_NUMBER_OF_QUESTIONS: {
+      const { theNumberOfQuestions } = action;
+      return { ...state, theNumberOfQuestions };
     }
     default:
       return state;

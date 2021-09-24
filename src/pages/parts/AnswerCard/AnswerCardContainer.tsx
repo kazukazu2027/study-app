@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import {
   getAnswerListSelector,
-  getCheckedAnswerStringSelector,
   getCountAnswerSelector,
 } from "../../../redux/selector/answerSelector";
+import { getTheNumberOfQuestions } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 import LastQuestion from "./AnswerParts/LastQuestion";
 import QuestionCard from "./AnswerParts/QuestionCard";
@@ -18,6 +18,7 @@ const AnswerCardContainer = (props: Props) => {
   const { answerResult, color } = props;
   const selector = useSelector((state: RootState) => state);
   const answerList = getAnswerListSelector(selector);
+  const theNumberOfQuestions = getTheNumberOfQuestions(selector);
   const correctAnswerString = answerList.filter(
     (list) => list.check === true
   )[0].body;
@@ -33,7 +34,7 @@ const AnswerCardContainer = (props: Props) => {
       </div>
 
       {/* 最終問題か確認 */}
-      {resultAnswersList.length === 2 ? (
+      {resultAnswersList.length === theNumberOfQuestions - 1 ? (
         <LastQuestion answerResult={answerResult} />
       ) : (
         <QuestionCard answerResult={answerResult} />

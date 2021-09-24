@@ -22,3 +22,8 @@ export const getQuestionDataSelector = createSelector(
   [questionsSelector],
   (state) => state.questionData
 );
+
+export const getTheNumberOfQuestions = createSelector(
+  [questionsSelector],
+  (state) => state.theNumberOfQuestions
+);

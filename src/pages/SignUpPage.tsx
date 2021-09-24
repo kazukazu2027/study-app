@@ -44,7 +44,6 @@ const SignUpPage = () => {
             const userInitialData = {
               email: email,
               uid: uid,
-              userName: userName,
             };
             db.collection("users").doc(uid).set(userInitialData);
           }

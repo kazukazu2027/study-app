@@ -5,20 +5,25 @@ import Button from "./parts/Button/Button";
 import { db } from "../Firebase/firebase";
 import firebase from "firebase";
 import Layout from "./layouts/Layout";
+import Firebase from "firebase";
+import { makeRoomId } from "../functions/makeRoomId";
 
 const SelectChatRoomPage = () => {
   const [roomName, setRoomName] = useState("");
-  const [chatRoom, setChatRoom] = useState([{ id: "", name: "" }]);
+  const [chatRoom, setChatRoom] = useState([{ id: "", name: "", uid: "" }]);
+  const uid = Firebase.auth().currentUser?.uid;
 
   const onChangeRoomName = (e: any) => {
     setRoomName(e.target.value);
   };
 
   const addChatRoom = () => {
-    db.collection("rooms").add({
+    const id = makeRoomId();
+    db.collection("rooms").doc(id).set({
       roomName: roomName,
-      id: "room" + chatRoom.length,
+      id: id,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      uid: uid,
     });
     setRoomName("");
   };
@@ -32,6 +37,7 @@ const SelectChatRoomPage = () => {
           snapshot.docs.map((doc) => ({
             id: doc.data().id,
             name: doc.data().roomName,
+            uid: doc.data().uid,
           }))
         )
       );
@@ -60,13 +66,26 @@ const SelectChatRoomPage = () => {
       </div>
       <div>
         {chatRoom.map((room) => {
+          const deleteChatRoom = () => {
+            db.collection("rooms").doc(room.id).delete();
+          };
           return (
-            <div className="border-t-2 py-3">
+            <div className="flex border-t-2 py-4 ">
               <Link href={`/chats/${room.id}`}>
-                <div className="pl-4">
-                  <a>{room.name}</a>
+                <div className=" ">
+                  <div className="pl-4 pt-1  font-semibold">
+                    <p className="">{room.name}</p>
+                  </div>
                 </div>
               </Link>
+              {room.uid === uid && (
+                <button
+                  className="bg-red-400 py-1 text-white font-bold  px-6 rounded ml-auto mr-6"
+                  onClick={deleteChatRoom}
+                >
+                  削除
+                </button>
+              )}
             </div>
           );
         })}

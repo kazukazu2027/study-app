@@ -16,7 +16,7 @@ const CategoryWord = (props: Props) => {
       {data.map((word) => {
         return <WordParts data={word} key={word.question} />;
       })}
-      <div className=" w-full bg-gray-200 h-0.5"></div>
+      <div className=" w-full bg-gray-200 h-border"></div>
     </div>
   );
 };

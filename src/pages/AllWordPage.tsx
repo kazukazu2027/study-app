@@ -25,7 +25,7 @@ const AllWordPage = (props: Props) => {
 
   return (
     <Layout>
-      <div className="bg-gray-200 pb-8 px-3">
+      <div className="bg-gray-200 pb-8 mt-4 px-3">
         <div className="py-4">
           <WordPageHeader />
         </div>

@@ -27,11 +27,11 @@ const SearchWordPage = (props: Props) => {
   };
   return (
     <Layout>
-      <div className="bg-gray-200 min-h-screen px-3">
+      <div className="bg-gray-200 min-h-screen px-3 pb-8 mt-4">
         <div className="py-4">
           <WordPageHeader />
         </div>
-        <div className=" bg-white mb-3 rounded-md">
+        <div className=" bg-white mb-3 rounded-md pb-4">
           <div className="w-full py-6">
             <input
               type="text"

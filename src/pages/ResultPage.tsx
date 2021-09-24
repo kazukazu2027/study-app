@@ -7,7 +7,10 @@ import {
   getSliceQuestionDataList,
 } from "../redux/action/questionAction";
 import { getCountAnswerSelector } from "../redux/selector/answerSelector";
-import { getQuestionDataListSelector } from "../redux/selector/questionSelector";
+import {
+  getQuestionDataListSelector,
+  getTheNumberOfQuestions,
+} from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
 import AnswerList from "./components/ResultPage/AnswerList";
 import Card from "./layouts/Card";
@@ -20,6 +23,7 @@ const ResultPage = () => {
   const selector = useSelector((state: RootState) => state);
   const questionDataList = getQuestionDataListSelector(selector);
   const resultAnswer = getCountAnswerSelector(selector);
+  const theNumberOfQuestions = getTheNumberOfQuestions(selector);
 
   // 正解した問題のみの配列
   const correctAnswer = resultAnswer.filter(
@@ -28,7 +32,9 @@ const ResultPage = () => {
 
   // 正答率計算
   const numberOfCorrectAnswers = correctAnswer.length;
-  const correctAnswerRate = Math.floor((numberOfCorrectAnswers / 3) * 100);
+  const correctAnswerRate = Math.floor(
+    (numberOfCorrectAnswers / theNumberOfQuestions) * 100
+  );
 
   const resetAnswer = () => {
     dispatch(getSliceQuestionDataList([]));

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { db, Firebase } from "../../../Firebase/firebase";
-import Layout from "../../layouts/Layout";
+import { db, Firebase } from "../Firebase/firebase";
+import Layout from "./layouts/Layout";
 import { useDispatch } from "react-redux";
-import { getChatUserNameAction } from "../../../redux/action/chatAction";
+import { getChatUserNameAction } from "../redux/action/chatAction";
 
 export const InputUserName = () => {
   const [userName, setUserName] = useState("");
@@ -14,7 +14,7 @@ export const InputUserName = () => {
   };
   const sendUserName = () => {
     db.collection("userName").add({ uid: uid, userName: userName });
-    dispatch(getChatUserNameAction([{ id: uid, userName: userName }]));
+    dispatch(getChatUserNameAction([{ uid: uid, userName: userName }]));
   };
 
   return (

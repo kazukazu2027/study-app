@@ -1,5 +1,5 @@
 export type chatUserName = {
-  id?: string;
+  uid?: string;
   userName: string;
 };
 

@@ -6,6 +6,7 @@ import { shuffle } from "../functions/Shuffle";
 import {
   getQuestionNumber,
   getSliceQuestionDataList,
+  getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
 import Layout from "./layouts/Layout";
 import Card from "./layouts/Card";
@@ -17,19 +18,23 @@ import { countCorrectAnswer } from "../redux/action/answerAction";
 import firebase from "firebase";
 
 type Props = {
-  sliceQuestionList: firebase.firestore.DocumentData[];
+  shuffleQuestionList: firebase.firestore.DocumentData[];
 };
 
 const QuestionExplanationPage = (props: Props) => {
-  const { sliceQuestionList } = props;
+  const { shuffleQuestionList } = props;
   const dispatch = useDispatch();
+
+  const handleClick = (event: any) => {
+    dispatch(getTheNumberOfQuestions(Number(event.target.value)));
+    const sliceQuestionList = shuffleQuestionList.slice(0, event.target.value);
+    dispatch(getSliceQuestionDataList(sliceQuestionList));
+  };
 
   useEffect(() => {
     (async () => {
-     await dispatch(getQuestionNumber(0));
-     await dispatch(getSliceQuestionDataList([]));
-     await dispatch(getSliceQuestionDataList(sliceQuestionList));
-     await dispatch(countCorrectAnswer([]));
+      await dispatch(getQuestionNumber(0));
+      await dispatch(countCorrectAnswer([]));
     })();
   }, []);
 
@@ -45,6 +50,44 @@ const QuestionExplanationPage = (props: Props) => {
               正しいと思う答えを4択の中から選んでください。
             </TextInCard>
           </div>
+          <div className="pb-5">
+            <p>問題数を選んでください</p>
+            <div className="flex justify-between w-3/4 m-auto">
+              <label className="my-2 mr-4">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={3}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>3問</span>
+              </label>
+              <label className="my-2 mr-4">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={7}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>7問</span>
+              </label>
+              <label className="my-2">
+                <input
+                  id="answerRadio"
+                  type="radio"
+                  className="mt-4 mr-2 "
+                  value={10}
+                  onClick={handleClick}
+                  name={"問題数"}
+                />
+                <span>10問</span>
+              </label>
+            </div>
+          </div>
           <Link href={"QuestionPage"}>
             <div className="pb-8 text-center">
               <Button color={"bg-blue-500"}>学習する</Button>
@@ -59,10 +102,9 @@ const QuestionExplanationPage = (props: Props) => {
 export async function getStaticProps() {
   const questionData = await getData("questionDataList");
   const shuffleQuestionList = shuffle(questionData);
-  const sliceQuestionList = shuffleQuestionList.slice(0, 3);
   return {
     props: {
-      sliceQuestionList,
+      shuffleQuestionList,
     },
   };
 }
