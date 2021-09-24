@@ -55,9 +55,9 @@ const SignInPage = () => {
   return (
     <div className="min-h-screen">
       <Layout>
-        <div className="bg-grey-lighter mt-16">
+        <div className="bg-grey-lighter mt-24">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-            <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <div className="bg-white px-6 py-8 text-center rounded shadow-md text-black w-full">
               <form action="" onSubmit={handleSubmit}>
                 <h1 className="mb-5 text-3xl text-center">サインイン</h1>
                 <ErrorMessage error={error} />
@@ -65,9 +65,9 @@ const SignInPage = () => {
                 <InputParts name={"password"} />
                 <button
                   type="submit"
-                  className="w-full text-center py-3 rounded bg-green text-white bg-blue-500 focus:outline-none my-1"
+                  className="px-4 py-3 rounded bg-green text-white bg-blue-400 focus:outline-none my-1"
                 >
-                  Sign In
+                  サインインする
                 </button>
               </form>
             </div>

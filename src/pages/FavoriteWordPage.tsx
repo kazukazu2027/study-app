@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { getData } from "../functions/getData";
 import { addFavoriteWordsSelector } from "../redux/selector/favoriteSelector";
@@ -6,7 +6,6 @@ import { RootState } from "../redux/store";
 import CategoryWord from "./components/AllWordPage/CategoryWord";
 import Layout from "./layouts/Layout";
 import WordPageHeader from "./parts/Header/WordPageHeader";
-import firebase from "firebase";
 import { Word } from "./AllWordPage";
 
 type Props = {

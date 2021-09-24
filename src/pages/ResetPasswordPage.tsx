@@ -32,9 +32,9 @@ const ResetPasswordPage = () => {
   return (
     <div className="min-h-screen">
       <Layout>
-        <div className="bg-grey-lighter pt-16">
+        <div className="bg-grey-lighter pt-40">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-            <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <div className="bg-white px-6 py-8 rounded text-center shadow-md text-black w-full">
               <form action="" onSubmit={handleSubmit}>
                 <h1 className="mb-5 text-2xl text-center">
                   パスワードをリセット
@@ -43,9 +43,9 @@ const ResetPasswordPage = () => {
                 <InputParts name={"email"} />
                 <button
                   type="submit"
-                  className="w-full text-center py-3 rounded bg-green text-white bg-blue-500 focus:outline-none my-1"
+                  className=" text-center py-3 px-4 rounded bg-green text-white bg-blue-400 focus:outline-none my-1"
                 >
-                  Reset Password
+                  リセットする
                 </button>
               </form>
             </div>
