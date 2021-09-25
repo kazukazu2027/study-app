@@ -67,7 +67,11 @@ const SelectChatRoomPage = () => {
       <div>
         {chatRoom.map((room) => {
           const deleteChatRoom = () => {
-            db.collection("rooms").doc(room.id).delete();
+            const res = confirm("本当に削除しますか？");
+            if (res) {
+              db.collection("rooms").doc(room.id).delete();
+            } else {
+            }
           };
           return (
             <div className="flex border-t-2 py-4 ">
