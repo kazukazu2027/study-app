@@ -17,7 +17,16 @@ export const getChatUserNameAction = (userName: chatUserName[]) => {
     userName,
   };
 };
+export const IS_HAVE_CHAT_USER_NAME = "is have chat user name";
+export const isHaveChatUserName = (isHaveChatUserName: boolean) => {
+  return {
+    type: IS_HAVE_CHAT_USER_NAME as typeof IS_HAVE_CHAT_USER_NAME,
+    isHaveChatUserName,
+  };
+};
 
 export type FavoriteType =
   | ReturnType<typeof getChatRoomAction>
-  | ReturnType<typeof getChatUserNameAction>;
+  | ReturnType<typeof getChatUserNameAction>
+  | ReturnType<typeof isHaveChatUserName>
+  ;

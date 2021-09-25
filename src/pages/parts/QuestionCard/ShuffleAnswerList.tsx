@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCheckedAnswer } from "../../../redux/action/answerAction";
 import {
@@ -15,6 +15,8 @@ const ShuffleAnswerList = () => {
   const questionDataList = getQuestionDataListSelector(selector);
   const isChecked = getCheckedAnswerIsCheckedSelector(selector);
   const shuffleAnswerList = getAnswerListSelector(selector);
+
+  const scrollBottomRef = useRef<HTMLDivElement>(null);
   const handleCheck = (event: any) => {
     dispatch(
       getCheckedAnswer({
@@ -22,12 +24,11 @@ const ShuffleAnswerList = () => {
         checkedAnswerString: event.target.value,
       })
     );
-
-    const scrollArea = document.getElementById("bottom");
-    if (scrollArea) {
-      scrollArea.scrollTop = scrollArea.scrollHeight;
-    }
   };
+
+  useEffect(() => {
+    scrollBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [handleCheck]);
   return (
     <>
       {shuffleAnswerList.map((answer) => {
@@ -50,7 +51,7 @@ const ShuffleAnswerList = () => {
           </div>
         );
       })}
-      <div id="bottom"></div>
+      <div ref={scrollBottomRef} />
     </>
   );
 };

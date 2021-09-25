@@ -11,3 +11,8 @@ export const getUserNameSelector = createSelector(
   [favoriteSelector],
   (state) => state.userName
 );
+
+export const getIsHaveChatUserName = createSelector(
+  [favoriteSelector],
+  (state) => state.isHaveChatUserName
+);

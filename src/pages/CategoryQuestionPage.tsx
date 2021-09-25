@@ -48,7 +48,7 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "skill"
         );
         const shuffleQuestionList = shuffle(filterQuestionDataList);
-        const questionList = shuffleQuestionList.slice(0, 7);
+        const questionList = shuffleQuestionList.slice(0, questionNumber);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionList));
         break;
@@ -57,7 +57,7 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "git"
         );
         const shuffleGitQuestionList = shuffle(filterGitQuestionDataList);
-        const questionGitList = shuffleGitQuestionList.slice(0, 7);
+        const questionGitList = shuffleGitQuestionList.slice(0, questionNumber);
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionGitList));
         break;
@@ -66,7 +66,10 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "work"
         );
         const shuffleWorkQuestionList = shuffle(filterWorkQuestionDataList);
-        const questionWorkList = shuffleWorkQuestionList.slice(0, 7);
+        const questionWorkList = shuffleWorkQuestionList.slice(
+          0,
+          questionNumber
+        );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionWorkList));
         break;
@@ -78,7 +81,10 @@ const CategoryQuestionPage = (props: Props) => {
           filterNetworkQuestionDataList
         );
         console.log(questionNumber);
-        const questionNetworkList = shuffleNetworkQuestionList.slice(0, 7);
+        const questionNetworkList = shuffleNetworkQuestionList.slice(
+          0,
+          questionNumber
+        );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionNetworkList));
         break;
