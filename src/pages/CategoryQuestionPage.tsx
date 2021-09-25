@@ -33,22 +33,20 @@ const CategoryQuestionPage = (props: Props) => {
   const theNumberOfQuestions = getTheNumberOfQuestionsSelector(selector);
 
   const [choice, setChoice] = useState(false);
-  const [questionNumber, setQuestionNumber] = useState(0);
 
   const handleClick = (event: any) => {
-    setQuestionNumber(Number(event.target.value));
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
     setChoice(true);
-  };
-
-  useEffect(() => {
     switch (questionCategory) {
       case "言語":
         const filterQuestionDataList = questionData.filter(
           (question) => question.category === "skill"
         );
         const shuffleQuestionList = shuffle(filterQuestionDataList);
-        const questionList = shuffleQuestionList.slice(0, questionNumber);
+        const questionList = shuffleQuestionList.slice(
+          0,
+          Number(event.target.value)
+        );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionList));
         break;
@@ -57,7 +55,10 @@ const CategoryQuestionPage = (props: Props) => {
           (question) => question.category === "git"
         );
         const shuffleGitQuestionList = shuffle(filterGitQuestionDataList);
-        const questionGitList = shuffleGitQuestionList.slice(0, questionNumber);
+        const questionGitList = shuffleGitQuestionList.slice(
+          0,
+          Number(event.target.value)
+        );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionGitList));
         break;
@@ -68,7 +69,7 @@ const CategoryQuestionPage = (props: Props) => {
         const shuffleWorkQuestionList = shuffle(filterWorkQuestionDataList);
         const questionWorkList = shuffleWorkQuestionList.slice(
           0,
-          questionNumber
+          Number(event.target.value)
         );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionWorkList));
@@ -80,16 +81,15 @@ const CategoryQuestionPage = (props: Props) => {
         const shuffleNetworkQuestionList = shuffle(
           filterNetworkQuestionDataList
         );
-        console.log(questionNumber);
         const questionNetworkList = shuffleNetworkQuestionList.slice(
           0,
-          questionNumber
+          Number(event.target.value)
         );
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionNetworkList));
         break;
     }
-  }, []);
+  };
 
   return (
     <Layout>

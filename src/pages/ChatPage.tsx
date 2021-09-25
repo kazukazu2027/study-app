@@ -22,7 +22,6 @@ const ChatPage = (props: Props) => {
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
   const isHaveUserName = getIsHaveChatUserName(selector);
-  console.log(isHaveUserName);
 
   const uid = Firebase.auth().currentUser?.uid;
 

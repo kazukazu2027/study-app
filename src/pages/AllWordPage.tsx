@@ -21,7 +21,6 @@ type Props = {
 
 const AllWordPage = (props: Props) => {
   const { skillWord, gitWord, workWord, networkWord } = props;
-  console.log(skillWord);
 
   return (
     <Layout>
