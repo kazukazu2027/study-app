@@ -14,7 +14,7 @@ const AskQuestion = () => {
         <TitleInCard>掲示板</TitleInCard>
         <div className="my-5">
           <TextInCard>
-            このページでは、さまざまなことを質問することができます。もし、学習中に何かわからないことがあれば、積極的に質問をしましょう！！
+            このページは、掲示板となっています。会員登録をしたユーザーは、チャットルームを作ることができます。もし、学習中に何か聞きたいことができれば、積極的にこの掲示板を利用してください！
           </TextInCard>
         </div>
         <Link href={"ChatPage"}>
