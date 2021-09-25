@@ -9,6 +9,7 @@ import Layout from "../layouts/Layout";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { getUserNameSelector } from "../../redux/selector/chatSelector";
+import Link from "next/link";
 
 type Props = {
   roomsData: firebase.firestore.DocumentData[];
@@ -63,8 +64,13 @@ const ChatRoom = (props: Props) => {
 
   return (
     <Layout>
-      <div className="bg-gray-200 mt-3">
+      <div className="bg-gray-200 mt-3 flex">
         <RoomTitle>{roomsData[0].roomName}</RoomTitle>
+        <Link href="/SelectChatRoomPage">
+          <button className="ml-auto mr-6 my-2 rounded px-2 bg-gray-500 text-gray-50">
+            戻る
+          </button>
+        </Link>
       </div>
       <div className="overflow-auto h-xl" id="scrollArea">
         {posts.map((post) => {
