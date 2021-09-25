@@ -49,14 +49,14 @@ const SelectChatRoomPage = () => {
   return (
     <Layout>
       <div className="py-3 pl-4">
-        <SubTitle>チャット選択ページ</SubTitle>
+        <SubTitle>チャットルーム選択ページ</SubTitle>
       </div>
       <div className="pb-4 text-center">
         <input
           type="text"
           className="block border border-grey-light w-full p-3 rounded mb-4"
           name="userName"
-          placeholder="チャット名"
+          placeholder="チャットルーム名"
           onChange={onChangeRoomName}
           value={roomName}
         />
