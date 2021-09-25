@@ -33,9 +33,9 @@ const AllWordPage = (props: Props) => {
             {skillWord && gitWord && (
               <>
                 <CategoryWord title={"skill"} data={skillWord} />
-                <CategoryWord title={"git"} data={gitWord} />
-                <CategoryWord title={"職業"} data={workWord} />
                 <CategoryWord title={"ネットワーク関連"} data={networkWord} />
+                <CategoryWord title={"職業"} data={workWord} />
+                <CategoryWord title={"git"} data={gitWord} />
               </>
             )}
           </div>
