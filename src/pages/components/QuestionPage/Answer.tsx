@@ -13,6 +13,7 @@ const Answer = () => {
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
 
+  console.log(answerList)
   // 問題の中から正解の答えを抽出
   const correctAnswerString = answerList.filter(
     (list) => list.check === true
