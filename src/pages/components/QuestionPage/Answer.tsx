@@ -16,12 +16,12 @@ const Answer = () => {
 
   // 問題の中から正解の答えを抽出
   useEffect(() => {
+    console.log(answerList)
     const correctAnswerString = answerList.filter(
       (list) => list.check === true
     )[0].body;
-    console.log(correctAnswerString)
     setCorrectAnswerString(correctAnswerString);
-  }, [answerList]);
+  }, [correctAnswerString]);
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
