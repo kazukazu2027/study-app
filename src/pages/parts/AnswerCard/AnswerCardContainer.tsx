@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   getAnswerListSelector,
+  getCheckedAnswerStringSelector,
   getCountAnswerSelector,
 } from "../../../redux/selector/answerSelector";
 import { getTheNumberOfQuestions } from "../../../redux/selector/questionSelector";
@@ -17,11 +18,21 @@ interface Props {
 const AnswerCardContainer = (props: Props) => {
   const { answerResult, color } = props;
   const selector = useSelector((state: RootState) => state);
-  const answerList = getAnswerListSelector(selector);
   const theNumberOfQuestions = getTheNumberOfQuestions(selector);
-  // const correctAnswerString = answerList.filter(
-  //   (list) => list.check === true
-  // )[0].body;
+  const [correctAnswerString, setCorrectAnswerString] = useState("");
+  const checkedAnswerString = getCheckedAnswerStringSelector(selector);
+
+
+  useEffect(() => {
+    (async () => {
+      const answerList = await getAnswerListSelector(selector);
+      // 問題の中から正解の答えを抽出
+      const correctAnswerString = await answerList.filter(
+        (list) => list.check === true
+      )[0].body;
+      setCorrectAnswerString(correctAnswerString);
+    })();
+  }, [checkedAnswerString]);
 
   const resultAnswersList = getCountAnswerSelector(selector);
   return (
@@ -30,7 +41,7 @@ const AnswerCardContainer = (props: Props) => {
         <p>{answerResult}</p>
       </div>
       <div className=" font-bold text-2xl py-8 px-2">
-        <p className="">a</p>
+        <p className="">{correctAnswerString}</p>
       </div>
 
       {/* 最終問題か確認 */}
