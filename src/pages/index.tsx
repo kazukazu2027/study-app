@@ -1,7 +1,8 @@
-import Layout from "./layouts/Layout";
-import StudyOfWord from "./components/TopPage/StudyOfWord";
-import AllWord from "./components/TopPage/AllWord";
-import AskQuestion from "./components/TopPage/AskQuestion";
+import AllWord from "../components/TopPage/AllWord";
+import AskQuestion from "../components/TopPage/AskQuestion";
+import StudyOfWord from "../components/TopPage/StudyOfWord";
+import Layout from "../layouts/Layout";
+
 
 const IndexPage = () => (
   <Layout>

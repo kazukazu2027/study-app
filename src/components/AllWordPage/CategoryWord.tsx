@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { Word } from "../../pages/AllWordPage";
 import WordParts from "../../parts/WordParts/WordParts";
-import { Word } from "../../AllWordPage";
 
 type Props = {
   title?: string;

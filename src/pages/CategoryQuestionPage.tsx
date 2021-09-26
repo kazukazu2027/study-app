@@ -4,22 +4,24 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import firebase from "firebase";
 import { shuffle } from "../functions/Shuffle";
-import Layout from "./layouts/Layout";
-import Card from "./layouts/Card";
-import TitleInCard from "./parts/Card/TitleInCard";
-import TextInCard from "./parts/Card/TextInCard";
-import Button from "./parts/Button/Button";
+import Layout from "../layouts/Layout";
+import Card from "../layouts/Card";
+import TitleInCard from "../parts/Card/TitleInCard";
+import TextInCard from "../parts/Card/TextInCard";
+import Button from "../parts/Button/Button";
 import {
   getQuestionCategorySelector,
   getTheNumberOfQuestions as getTheNumberOfQuestionsSelector,
 } from "../redux/selector/questionSelector";
 import { RootState } from "../redux/store";
-import SubTitle from "./parts/Title/SubTitle";
+import SubTitle from "../parts/Title/SubTitle";
 import {
+  getQuestionNumber,
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
 import { getData } from "../functions/getData";
+import { countCorrectAnswer } from "../redux/action/answerAction";
 
 type Props = {
   questionData: firebase.firestore.DocumentData[];
@@ -36,6 +38,8 @@ const CategoryQuestionPage = (props: Props) => {
 
   const handleClick = (event: any) => {
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
+    dispatch(getQuestionNumber(0));
+    dispatch(countCorrectAnswer([]));
     setChoice(true);
     switch (questionCategory) {
       case "言語":

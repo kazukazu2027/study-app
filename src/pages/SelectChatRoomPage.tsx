@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import SubTitle from "./parts/Title/SubTitle";
-import Link from "next/dist/client/link";
-import Button from "./parts/Button/Button";
+import Link from "next/link";
 import { db } from "../Firebase/firebase";
 import firebase from "firebase";
-import Layout from "./layouts/Layout";
 import Firebase from "firebase";
 import { makeRoomId } from "../functions/makeRoomId";
+import Layout from "../layouts/Layout";
+import SubTitle from "../parts/Title/SubTitle";
+import Button from "../parts/Button/Button";
 
 const SelectChatRoomPage = () => {
   const [roomName, setRoomName] = useState("");

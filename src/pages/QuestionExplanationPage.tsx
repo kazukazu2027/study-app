@@ -8,14 +8,14 @@ import {
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
-import Layout from "./layouts/Layout";
-import Card from "./layouts/Card";
-import TitleInCard from "./parts/Card/TitleInCard";
-import TextInCard from "./parts/Card/TextInCard";
-import Button from "./parts/Button/Button";
 import { getData } from "../functions/getData";
 import { countCorrectAnswer } from "../redux/action/answerAction";
 import firebase from "firebase";
+import Layout from "../layouts/Layout";
+import Card from "../layouts/Card";
+import TitleInCard from "../parts/Card/TitleInCard";
+import TextInCard from "../parts/Card/TextInCard";
+import Button from "../parts/Button/Button";
 
 type Props = {
   shuffleQuestionList: firebase.firestore.DocumentData[];
@@ -30,15 +30,10 @@ const QuestionExplanationPage = (props: Props) => {
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
     const sliceQuestionList = shuffleQuestionList.slice(0, event.target.value);
     dispatch(getSliceQuestionDataList(sliceQuestionList));
+    dispatch(getQuestionNumber(0));
+    dispatch(countCorrectAnswer([]));
     setChoice(true);
   };
-
-  useEffect(() => {
-    (async () => {
-      await dispatch(getQuestionNumber(0));
-      await dispatch(countCorrectAnswer([]));
-    })();
-  }, []);
 
   return (
     <Layout>

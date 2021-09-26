@@ -1,4 +1,5 @@
-import { AnswerList } from "../../pages/components/QuestionPage/Question";
+import { AnswerList } from "../../components/QuestionPage/Question";
+
 export type AnswerData = {
   question: string;
   isCorrect: boolean;

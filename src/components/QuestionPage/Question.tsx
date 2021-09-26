@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getQuestionDataListSelector,
-  getQuestionNumberSelector,
-} from "../../../redux/selector/questionSelector";
-import { RootState } from "../../../redux/store";
-import { makeAnswerList } from "../../../functions/makeAnswerList";
+import { makeAnswerList } from "../../functions/makeAnswerList";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
 import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
 import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
-import { getAnswerList } from "../../../redux/action/answerAction";
+import { getAnswerList } from "../../redux/action/answerAction";
+import {
+  getQuestionDataListSelector,
+  getQuestionNumberSelector,
+} from "../../redux/selector/questionSelector";
+import { RootState } from "../../redux/store";
 import AnswerList from "../ResultPage/AnswerList";
 
 export type Data = {
@@ -56,7 +56,6 @@ const Question = (props: Props) => {
             questionDataList,
             questionNumber
           );
-          console.log(shuffleAnswerList)
           await dispatch(getAnswerList(shuffledAnswerList));
           setShuffleAnswerList(shuffledAnswerList);
         })();

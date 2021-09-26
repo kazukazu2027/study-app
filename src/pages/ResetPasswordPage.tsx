@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { auth } from "../Firebase/firebase";
-import Layout from "./layouts/Layout";
 import ErrorMessage from "../Firebase/ErrorMassage";
-import InputParts from "./parts/Input/InputParts";
-import HaveAccount from "./parts/SignLink/HaveAccount";
-import CreateAccount from "./parts/SignLink/CreateAccount";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { getEmailSelector } from "../redux/selector/userSelector";
+import Layout from "../layouts/Layout";
+import InputParts from "../parts/Input/InputParts";
+import CreateAccount from "../parts/SignLink/CreateAccount";
+import HaveAccount from "../parts/SignLink/HaveAccount";
 
 const ResetPasswordPage = () => {
   const [error, setError] = useState("");

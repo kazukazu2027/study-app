@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   countCorrectAnswer,
   getCheckedAnswer,
-} from "../../../../redux/action/answerAction";
-import { getQuestionNumber } from "../../../../redux/action/questionAction";
-import { getCountAnswerSelector } from "../../../../redux/selector/answerSelector";
-import { getQuestionDataListSelector, getQuestionNumberSelector } from "../../../../redux/selector/questionSelector";
-import { RootState } from "../../../../redux/store";
+} from "../../../redux/action/answerAction";
+import { getQuestionNumber } from "../../../redux/action/questionAction";
+import { getCountAnswerSelector } from "../../../redux/selector/answerSelector";
+import { getQuestionDataListSelector, getQuestionNumberSelector } from "../../../redux/selector/questionSelector";
+import { RootState } from "../../../redux/store";
 
 const IncorrectAnswerCard = () => {
   const dispatch = useDispatch();

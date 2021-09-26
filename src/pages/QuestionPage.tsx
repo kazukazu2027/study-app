@@ -1,8 +1,8 @@
 import React from "react";
+import Answer from "../components/QuestionPage/Answer";
+import Question, { AnswerList } from "../components/QuestionPage/Question";
 import { getData } from "../functions/getData";
-import Answer from "./components/QuestionPage/Answer";
-import Question, { AnswerList } from "./components/QuestionPage/Question";
-import Layout from "./layouts/Layout";
+import Layout from "../layouts/Layout";
 
 type Props = {
   answerDataList: AnswerList[];

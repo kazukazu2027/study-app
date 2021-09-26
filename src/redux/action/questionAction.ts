@@ -1,5 +1,5 @@
-import { Data } from "../../pages/components/QuestionPage/Question";
 import firebase from "firebase";
+import { Data } from "../../components/QuestionPage/Question";
 
 export type questionList = {
   id: string;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import CategoryWord from "../components/AllWordPage/CategoryWord";
 import { getData } from "../functions/getData";
-import Layout from "./layouts/Layout";
-import CategoryWord from "./components/AllWordPage/CategoryWord";
-import WordPageHeader from "./parts/Header/WordPageHeader";
+import Layout from "../layouts/Layout";
+import WordPageHeader from "../parts/Header/WordPageHeader";
 
 export type Word = {
   answerList: { body: string; check: boolean };

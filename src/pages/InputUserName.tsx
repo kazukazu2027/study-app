@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { db, Firebase } from "../Firebase/firebase";
-import Layout from "./layouts/Layout";
 import { useDispatch } from "react-redux";
 import { getChatUserNameAction } from "../redux/action/chatAction";
+import Layout from "../layouts/Layout";
 
 export const InputUserName = () => {
   const [userName, setUserName] = useState("");

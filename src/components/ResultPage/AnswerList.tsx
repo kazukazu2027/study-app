@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { AnswerData } from "../../../redux/action/answerAction";
-import BookMark from "../../../../public/bookmark2.svg";
-import { toggleItem } from "../../../functions/toggleItem";
-import { addFavoriteWordAction } from "../../../redux/action/favoriteAction";
+import BookMark from "../../../public/bookmark2.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { addFavoriteWordsSelector } from "../../../redux/selector/favoriteSelector";
+import { AnswerData } from "../../redux/action/answerAction";
+import { RootState } from "../../redux/store";
+import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
+import { toggleItem } from "../../functions/toggleItem";
+import { addFavoriteWordAction } from "../../redux/action/favoriteAction";
 
 type Props = {
   question: AnswerData;

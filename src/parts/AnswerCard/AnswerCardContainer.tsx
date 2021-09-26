@@ -4,9 +4,9 @@ import {
   getAnswerListSelector,
   getCheckedAnswerStringSelector,
   getCountAnswerSelector,
-} from "../../../redux/selector/answerSelector";
-import { getTheNumberOfQuestions } from "../../../redux/selector/questionSelector";
-import { RootState } from "../../../redux/store";
+} from "../../redux/selector/answerSelector";
+import { getTheNumberOfQuestions } from "../../redux/selector/questionSelector";
+import { RootState } from "../../redux/store";
 import LastQuestion from "./AnswerParts/LastQuestion";
 import QuestionCard from "./AnswerParts/QuestionCard";
 
@@ -34,6 +34,8 @@ const AnswerCardContainer = (props: Props) => {
   }, [checkedAnswerString]);
 
   const resultAnswersList = getCountAnswerSelector(selector);
+  console.log(theNumberOfQuestions)
+  console.log(resultAnswersList.length)
   return (
     <>
       <div className={`${color} rounded py-4 w-5/12 m-auto`}>

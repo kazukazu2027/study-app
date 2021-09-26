@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import firebase from "firebase";
-import Layout from "./layouts/Layout";
+import CategoryWord from "../components/AllWordPage/CategoryWord";
 import { getData } from "../functions/getData";
-import CategoryWord from "./components/AllWordPage/CategoryWord";
-import WordPageHeader from "./parts/Header/WordPageHeader";
+import Layout from "../layouts/Layout";
+import WordPageHeader from "../parts/Header/WordPageHeader";
 import { Word } from "./AllWordPage";
 
 type Props = {

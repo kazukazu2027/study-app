@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import firebase from "firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriteWordAction } from "../../../redux/action/favoriteAction";
-import { RootState } from "../../../redux/store";
-import { addFavoriteWordsSelector } from "../../../redux/selector/favoriteSelector";
-import { toggleItem } from "../../../functions/toggleItem";
-import BookMark from "../../../../public/bookmark2.svg";
-import { Word } from "../../AllWordPage";
+import { addFavoriteWordAction } from "../../redux/action/favoriteAction";
+import { RootState } from "../../redux/store";
+import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
+import { toggleItem } from "../../functions/toggleItem";
+import BookMark from '../../../public/bookmark2.svg'
+import { Word } from "../../pages/AllWordPage";
 
 type Props = {
   data: Word;
@@ -33,7 +32,11 @@ const WordParts = (props: Props) => {
     <div>
       <div className="border-t-2 flex px-2 py-2">
         <button onClick={handleFavorite}>
-          <div className={`fill-current stroke-current ${isFavorited ? "text-red-400" : "text-gray-200"} `}>
+          <div
+            className={`fill-current stroke-current ${
+              isFavorited ? "text-red-400" : "text-gray-200"
+            } `}
+          >
             <BookMark />
           </div>
         </button>

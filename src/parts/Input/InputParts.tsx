@@ -5,7 +5,7 @@ import {
   signInEmail,
   signInPassword,
   signInUserName,
-} from "../../../redux/action/usersAction";
+} from "../../redux/action/usersAction";
 
 type Props = {
   name: InputName;

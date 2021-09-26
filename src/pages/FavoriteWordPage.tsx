@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import CategoryWord from "../components/AllWordPage/CategoryWord";
 import { getData } from "../functions/getData";
+import Layout from "../layouts/Layout";
+import WordPageHeader from "../parts/Header/WordPageHeader";
 import { addFavoriteWordsSelector } from "../redux/selector/favoriteSelector";
 import { RootState } from "../redux/store";
-import CategoryWord from "./components/AllWordPage/CategoryWord";
-import Layout from "./layouts/Layout";
-import WordPageHeader from "./parts/Header/WordPageHeader";
 import { Word } from "./AllWordPage";
 
 type Props = {

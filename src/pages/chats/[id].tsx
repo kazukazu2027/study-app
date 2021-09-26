@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import { db } from "../../Firebase/firebase";
-import RoomTitle from "../components/ChatPage/RoomTitle";
-import ChatPosts from "../components/ChatPage/ChatPosts";
+import RoomTitle from "../../components/ChatPage/RoomTitle";
+import ChatPosts from "../../components/ChatPage/ChatPosts";
 import { useRouter } from "next/dist/client/router";
 import { getData } from "../../functions/getData";
-import Layout from "../layouts/Layout";
+import Layout from "../../layouts/Layout";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { getUserNameSelector } from "../../redux/selector/chatSelector";

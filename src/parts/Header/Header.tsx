@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Firebase } from "../../../Firebase/firebase";
+import { Firebase } from "../../Firebase/firebase";
 
 const Header = () => {
   const user = Firebase.auth().currentUser;

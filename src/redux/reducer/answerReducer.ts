@@ -1,4 +1,4 @@
-import { AnswerList } from "../../pages/components/QuestionPage/Question";
+import { AnswerList } from "../../components/QuestionPage/Question";
 import * as Actions from "../action/answerAction";
 
 export const initialState = {
