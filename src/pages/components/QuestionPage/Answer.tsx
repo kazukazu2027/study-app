@@ -13,11 +13,11 @@ const Answer = () => {
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
 
-  console.log(answerList)
   // 問題の中から正解の答えを抽出
-  const correctAnswerString = answerList.filter(
-    (list) => list.check === true
-  )[0].body;
+  const correctAnswerString =
+  answerList.length > 0 &&
+  answerList.filter((list) => list.check === true)[0].body;
+  console.log(correctAnswerString);
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
