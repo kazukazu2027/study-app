@@ -20,11 +20,6 @@ const Category = () => {
         </Link>
         <Link href={"CategoryQuestionPage"} passHref>
           <a>
-            <CategoryComponent category={"git用語"} src="/git.svg" />
-          </a>
-        </Link>
-        <Link href={"CategoryQuestionPage"} passHref>
-          <a>
             <CategoryComponent category={"職業"} src="/work.svg" />
           </a>
         </Link>
@@ -34,6 +29,11 @@ const Category = () => {
               category={"ネットワーク関連"}
               src="/network.svg"
             />
+          </a>
+        </Link>
+        <Link href={"CategoryQuestionPage"} passHref>
+          <a>
+            <CategoryComponent category={"git用語"} src="/git.svg" />
           </a>
         </Link>
       </div>
