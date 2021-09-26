@@ -13,20 +13,20 @@ const Answer = () => {
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const [correctAnswerString, setCorrectAnswerString] = useState("");
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const answerList = await getAnswerListSelector(selector);
-  //     // 問題の中から正解の答えを抽出
-  //     const correctAnswerString = await answerList.filter(
-  //       (list) => list.check === true
-  //     )[0].body;
-  //     setCorrectAnswerString(correctAnswerString);
-  //   })();
-  // }, [checkedAnswerString]);
+  useEffect(() => {
+    (async () => {
+      const answerList = await getAnswerListSelector(selector);
+      // 問題の中から正解の答えを抽出
+      const correctAnswerString = await answerList.filter(
+        (list) => list.check === true
+      )[0].body;
+      setCorrectAnswerString(correctAnswerString);
+    })();
+  }, [checkedAnswerString]);
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
-      {'a' === checkedAnswerString ? (
+      {correctAnswerString === checkedAnswerString ? (
         <AnswerCard>
           <AnswerCardContainer answerResult="正解" color={"bg-green-200"} />
         </AnswerCard>

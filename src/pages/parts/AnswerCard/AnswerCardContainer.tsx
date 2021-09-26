@@ -19,9 +19,9 @@ const AnswerCardContainer = (props: Props) => {
   const selector = useSelector((state: RootState) => state);
   const answerList = getAnswerListSelector(selector);
   const theNumberOfQuestions = getTheNumberOfQuestions(selector);
-  const correctAnswerString = answerList.filter(
-    (list) => list.check === true
-  )[0].body;
+  // const correctAnswerString = answerList.filter(
+  //   (list) => list.check === true
+  // )[0].body;
 
   const resultAnswersList = getCountAnswerSelector(selector);
   return (
@@ -30,7 +30,7 @@ const AnswerCardContainer = (props: Props) => {
         <p>{answerResult}</p>
       </div>
       <div className=" font-bold text-2xl py-8 px-2">
-        <p className="">{correctAnswerString}</p>
+        <p className="">a</p>
       </div>
 
       {/* 最終問題か確認 */}

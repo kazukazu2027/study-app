@@ -14,7 +14,7 @@ const QuestionPage = (props: Props) => {
   return (
     <Layout>
       <div className="mx-2 mt-16">
-        {/* <Question answerDataList={answerDataList} /> */}
+        <Question answerDataList={answerDataList} />
         <Answer />
       </div>
     </Layout>
