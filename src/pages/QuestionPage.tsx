@@ -10,12 +10,11 @@ type Props = {
 
 const QuestionPage = (props: Props) => {
   const { answerDataList } = props;
-  console.log(answerDataList)
 
   return (
     <Layout>
       <div className="mx-2 mt-16">
-        <Question answerDataList={answerDataList} />
+        {/* <Question answerDataList={answerDataList} /> */}
         <Answer />
       </div>
     </Layout>
