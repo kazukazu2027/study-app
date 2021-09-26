@@ -120,7 +120,7 @@ const Question = (props: Props) => {
             </div>
             <div className="w-11/12 m-auto bg-gray-100 rounded-md">
               <div className=" w-10/12 m-auto py-4">
-                {/* <ShuffleAnswerList shuffleAnswerList={shuffleAnswerList} /> */}
+                <ShuffleAnswerList shuffleAnswerList={shuffleAnswerList} />
               </div>
             </div>
           </div>

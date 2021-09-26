@@ -16,7 +16,7 @@ const QuestionPage = (props: Props) => {
     <Layout>
       <div className="mx-2 mt-16">
         <Question answerDataList={answerDataList} />
-        <Answer />
+        {/* <Answer /> */}
       </div>
     </Layout>
   );
