@@ -18,7 +18,6 @@ type Props = {
 
 const ChatPage = (props: Props) => {
   const { userNameData } = props;
-  console.log(userNameData)
 
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
