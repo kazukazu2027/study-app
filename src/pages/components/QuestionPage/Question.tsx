@@ -9,9 +9,7 @@ import { makeAnswerList } from "../../../functions/makeAnswerList";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
 import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
 import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
-import { getData } from "../../../functions/getData";
 import { getAnswerList } from "../../../redux/action/answerAction";
-import { getAnswerListSelector } from "../../../redux/selector/answerSelector";
 import AnswerList from "../ResultPage/AnswerList";
 
 export type Data = {
@@ -45,6 +43,7 @@ const Question = (props: Props) => {
   const questionNumber = getQuestionNumberSelector(selector);
 
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
+  console.log(shuffleAnswerList)
 
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
@@ -87,7 +86,6 @@ const Question = (props: Props) => {
             questionNumber
           );
           await dispatch(getAnswerList(shuffledAnswerList));
-
           setShuffleAnswerList(shuffledAnswerList);
         })();
         break;
