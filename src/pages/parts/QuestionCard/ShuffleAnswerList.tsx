@@ -31,6 +31,7 @@ const ShuffleAnswerList = (props: Props) => {
   useEffect(() => {
     scrollBottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [handleCheck]);
+  console.log(shuffleAnswerList)
   return (
     <>
       {shuffleAnswerList.length > 0 &&
