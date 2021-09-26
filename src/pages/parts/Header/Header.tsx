@@ -40,22 +40,24 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
-        <div className="py-3 flex w-full justify-around">
-          <Link href="/">
-            <h1 className="font-bold">ホーム</h1>
-          </Link>
-          <Link href="QuestionMainPage">
-            <h1 className="font-bold">クイズ</h1>
-          </Link>
-          <Link href="AllWordPage">
-            <h1 className="font-bold">一覧</h1>
-          </Link>
-          <Link href="InputUserNamePage">
-            <h1 className="font-bold">掲示板</h1>
-          </Link>
+      {user && (
+        <div className="flex mt-4 mx-3 rounded-md bg-gray-500">
+          <div className="py-3 flex w-full justify-around">
+            <Link href="/">
+              <h1 className="font-bold">ホーム</h1>
+            </Link>
+            <Link href="QuestionMainPage">
+              <h1 className="font-bold">クイズ</h1>
+            </Link>
+            <Link href="AllWordPage">
+              <h1 className="font-bold">一覧</h1>
+            </Link>
+            <Link href="InputUserNamePage">
+              <h1 className="font-bold">掲示板</h1>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

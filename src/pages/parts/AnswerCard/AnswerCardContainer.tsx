@@ -22,7 +22,6 @@ const AnswerCardContainer = (props: Props) => {
   const [correctAnswerString, setCorrectAnswerString] = useState("");
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
 
-
   useEffect(() => {
     (async () => {
       const answerList = await getAnswerListSelector(selector);
