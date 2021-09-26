@@ -1,20 +1,22 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCheckedAnswer } from "../../../redux/action/answerAction";
-import {
-  getAnswerListSelector,
-  getCheckedAnswerIsCheckedSelector,
-} from "../../../redux/selector/answerSelector";
+import { getCheckedAnswerIsCheckedSelector } from "../../../redux/selector/answerSelector";
 import { getQuestionDataListSelector } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
+import { AnswerList } from "../../components/QuestionPage/Question";
 
-const ShuffleAnswerList = () => {
+type Props = {
+  shuffleAnswerList: AnswerList[];
+};
+
+const ShuffleAnswerList = (props: Props) => {
+  const { shuffleAnswerList } = props;
   const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
 
   const questionDataList = getQuestionDataListSelector(selector);
   const isChecked = getCheckedAnswerIsCheckedSelector(selector);
-  const shuffleAnswerList = getAnswerListSelector(selector);
 
   const scrollBottomRef = useRef<HTMLDivElement>(null);
   const handleCheck = (event: any) => {

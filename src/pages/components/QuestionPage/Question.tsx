@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getQuestionDataListSelector,
@@ -12,6 +12,7 @@ import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
 import { getData } from "../../../functions/getData";
 import { getAnswerList } from "../../../redux/action/answerAction";
 import { getAnswerListSelector } from "../../../redux/selector/answerSelector";
+import AnswerList from "../ResultPage/AnswerList";
 
 export type Data = {
   question: string;
@@ -42,7 +43,8 @@ const Question = (props: Props) => {
   const selector = useSelector((state: RootState) => state);
   const questionDataList = getQuestionDataListSelector(selector);
   const questionNumber = getQuestionNumberSelector(selector);
-  const shuffleAnswerList = getAnswerListSelector(selector);
+
+  const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
@@ -51,12 +53,13 @@ const Question = (props: Props) => {
           const skillAnswerDataList = await answerDataList.filter(
             (answer) => answer.category === "skill"
           );
-          const shuffledAnswerList = makeAnswerList(
+          const shuffledAnswerList = await makeAnswerList(
             skillAnswerDataList,
             questionDataList,
             questionNumber
           );
-          dispatch(getAnswerList(shuffledAnswerList));
+          await dispatch(getAnswerList(shuffledAnswerList));
+          setShuffleAnswerList(shuffledAnswerList);
         })();
         break;
       case "git":
@@ -64,12 +67,13 @@ const Question = (props: Props) => {
           const gitAnswerDataList = await answerDataList.filter(
             (answer) => answer.category === "git"
           );
-          const gitShuffledAnswerList = makeAnswerList(
+          const shuffledAnswerList = await makeAnswerList(
             gitAnswerDataList,
             questionDataList,
             questionNumber
           );
-          dispatch(getAnswerList(gitShuffledAnswerList));
+          await dispatch(getAnswerList(shuffledAnswerList));
+          setShuffleAnswerList(shuffledAnswerList);
         })();
         break;
       case "work":
@@ -77,12 +81,14 @@ const Question = (props: Props) => {
           const workAnswerDataList = await answerDataList.filter(
             (answer) => answer.category === "work"
           );
-          const workShuffledAnswerList = makeAnswerList(
+          const shuffledAnswerList = await makeAnswerList(
             workAnswerDataList,
             questionDataList,
             questionNumber
           );
-          dispatch(getAnswerList(workShuffledAnswerList));
+          await dispatch(getAnswerList(shuffledAnswerList));
+
+          setShuffleAnswerList(shuffledAnswerList);
         })();
         break;
       case "network":
@@ -90,12 +96,13 @@ const Question = (props: Props) => {
           const networkAnswerDataList = await answerDataList.filter(
             (answer) => answer.category === "network"
           );
-          const networkShuffledAnswerList = makeAnswerList(
+          const shuffledAnswerList = await makeAnswerList(
             networkAnswerDataList,
             questionDataList,
             questionNumber
           );
-          dispatch(getAnswerList(networkShuffledAnswerList));
+          await dispatch(getAnswerList(shuffledAnswerList));
+          setShuffleAnswerList(shuffledAnswerList);
         })();
         break;
     }
@@ -103,25 +110,23 @@ const Question = (props: Props) => {
 
   return (
     <>
-      {shuffleAnswerList && (
-        <div className="border rounded-lg shadow m-auto">
-          <div className="text-center py-8">
-            <div className="pb-4">
-              <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
-            </div>
-            <div className="pb-4 px-4">
-              <QuestionTitle>
-                {questionDataList[questionNumber].question}
-              </QuestionTitle>
-            </div>
-            <div className="w-11/12 m-auto bg-gray-100 rounded-md">
-              <div className=" w-10/12 m-auto py-4">
-                <ShuffleAnswerList />
-              </div>
+      <div className="border rounded-lg shadow m-auto">
+        <div className="text-center py-8">
+          <div className="pb-4">
+            <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
+          </div>
+          <div className="pb-4 px-4">
+            <QuestionTitle>
+              {questionDataList[questionNumber].question}
+            </QuestionTitle>
+          </div>
+          <div className="w-11/12 m-auto bg-gray-100 rounded-md">
+            <div className=" w-10/12 m-auto py-4">
+              <ShuffleAnswerList shuffleAnswerList={shuffleAnswerList} />
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
