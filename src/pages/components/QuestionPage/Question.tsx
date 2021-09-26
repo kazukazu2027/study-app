@@ -43,7 +43,7 @@ const Question = (props: Props) => {
   const questionNumber = getQuestionNumberSelector(selector);
 
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
-  console.log(shuffleAnswerList)
+  console.log(shuffleAnswerList);
 
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
@@ -104,27 +104,29 @@ const Question = (props: Props) => {
         })();
         break;
     }
-  }, [questionNumber]);
+  }, []);
 
   return (
     <>
-      <div className="border rounded-lg shadow m-auto">
-        <div className="text-center py-8">
-          <div className="pb-4">
-            <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
-          </div>
-          <div className="pb-4 px-4">
-            <QuestionTitle>
-              {questionDataList[questionNumber].question}
-            </QuestionTitle>
-          </div>
-          <div className="w-11/12 m-auto bg-gray-100 rounded-md">
-            <div className=" w-10/12 m-auto py-4">
-              <ShuffleAnswerList shuffleAnswerList={shuffleAnswerList} />
+      {shuffleAnswerList && (
+        <div className="border rounded-lg shadow m-auto">
+          <div className="text-center py-8">
+            <div className="pb-4">
+              <QuestionNumber>{`第${questionNumber + 1}問目`}</QuestionNumber>
+            </div>
+            <div className="pb-4 px-4">
+              <QuestionTitle>
+                {questionDataList[questionNumber].question}
+              </QuestionTitle>
+            </div>
+            <div className="w-11/12 m-auto bg-gray-100 rounded-md">
+              <div className=" w-10/12 m-auto py-4">
+                <ShuffleAnswerList shuffleAnswerList={shuffleAnswerList} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
