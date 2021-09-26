@@ -12,16 +12,11 @@ const Answer = () => {
   const selector = useSelector((state: RootState) => state);
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
   const answerList = getAnswerListSelector(selector);
-  const [correctAnswerString, setCorrectAnswerString] = useState("");
 
   // 問題の中から正解の答えを抽出
-  useEffect(() => {
-    console.log(answerList)
-    const correctAnswerString = answerList.filter(
-      (list) => list.check === true
-    )[0].body;
-    setCorrectAnswerString(correctAnswerString);
-  }, [correctAnswerString]);
+  const correctAnswerString = answerList.filter(
+    (list) => list.check === true
+  )[0].body;
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
