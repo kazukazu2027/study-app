@@ -1,6 +1,6 @@
-import { AnswerList, Data } from "../pages/components/QuestionPage/Question";
 import { shuffle } from "./Shuffle";
 import firebase from "firebase";
+import { AnswerList } from "../components/QuestionPage/Question";
 
 export const makeAnswerList = (
   answerData: firebase.firestore.DocumentData[],
