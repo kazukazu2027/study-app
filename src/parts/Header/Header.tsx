@@ -52,7 +52,7 @@ const Header = () => {
             <Link href="AllWordPage">
               <h1 className="font-bold">一覧</h1>
             </Link>
-            <Link href="InputUserNamePage">
+            <Link href="ChatPage">
               <h1 className="font-bold">掲示板</h1>
             </Link>
           </div>
