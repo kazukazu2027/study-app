@@ -43,7 +43,6 @@ const Question = (props: Props) => {
   const questionNumber = getQuestionNumberSelector(selector);
 
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
-  console.log(shuffleAnswerList);
 
   useEffect(() => {
     switch (questionDataList[questionNumber].category) {
@@ -108,7 +107,7 @@ const Question = (props: Props) => {
 
   return (
     <>
-      {shuffleAnswerList && (
+      {shuffleAnswerList.length > 0 && (
         <div className="border rounded-lg shadow m-auto">
           <div className="text-center py-8">
             <div className="pb-4">
