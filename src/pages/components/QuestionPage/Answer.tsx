@@ -20,7 +20,7 @@ const Answer = () => {
       (list) => list.check === true
     )[0].body;
     setCorrectAnswerString(correctAnswerString);
-  }, [checkedAnswerString]);
+  }, [answerList]);
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
