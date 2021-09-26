@@ -193,6 +193,7 @@
     "question": "リモートリポジトリ",
     "questionID": "19",
     "category": "git",
+    "explanation": "リモートリポジトリを使うことによって、複数人で作業することができるようになります。チーム開発の際は、基本的に、ローカルで編集したものを、リモートリポジトリにアップして開発していく流れになります。",
     "answerList": {
       "body": "サーバーにあるリポジトリ",
       "check": true
@@ -202,17 +203,9 @@
     "question": "ローカルリポジトリ",
     "questionID": "20",
     "category": "git",
+    "explanation": "ファイルを編集する際は、基本的に、ローカルリポジトリを編集します。そして、その変更内容をリモートリポジトリにアップして、チーム開発を進めていく形になります。",
     "answerList": {
       "body": "自分のPCにあるリポジトリ",
-      "check": true
-    }
-  },
-  {
-    "question": "ワークツリー",
-    "questionID": "21",
-    "category": "git",
-    "answerList": {
-      "body": "ファイルを変更したりする作業場のこと",
       "check": true
     }
   },
@@ -220,6 +213,7 @@
     "question": "ステージング",
     "questionID": "22",
     "category": "git",
+    "explanation": "ファイルを編集する際は、基本的に、ローカルリポジトリを編集します。そして、その変更内容をリモートリポジトリにアップして、チーム開発を進めていく形になります。",
     "answerList": {
       "body": "Gitリポジトリにコミットするファイルを置いておく場所",
       "check": true
@@ -247,6 +241,7 @@
     "question": "ブランチ",
     "questionID": "25",
     "category": "git",
+    "explanation": "ブランチを利用することによって、他人と同時に開発をすることになります。チーム開発の際は、基本的にブランチを切って作業することになります。",
     "answerList": {
       "body": "変更を分岐して記録し、他人と同時に開発をするためのもの",
       "check": true
@@ -256,6 +251,7 @@
     "question": "プルリクエスト",
     "questionID": "26",
     "category": "git",
+    "explanation": "プルリクエスト機能を利用することによって、マージをする前に、コードに問題がないか確認をすることができます。",
     "answerList": {
       "body": "変更したコードをリポジトリに取り込む前にレビューを頼むことができる機能",
       "check": true
@@ -274,6 +270,7 @@
     "question": "git clone <リポジトリ名>",
     "questionID": "28",
     "category": "git",
+    "explanation": "git cloneをすることによって、",
     "answerList": {
       "body": "リポジトリのコピーを作成する",
       "check": true

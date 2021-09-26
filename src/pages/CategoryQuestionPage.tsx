@@ -85,6 +85,7 @@ const CategoryQuestionPage = (props: Props) => {
           0,
           Number(event.target.value)
         );
+        console.log(questionNetworkList)
         dispatch(getSliceQuestionDataList([]));
         dispatch(getSliceQuestionDataList(questionNetworkList));
         break;
