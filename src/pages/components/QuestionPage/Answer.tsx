@@ -11,13 +11,18 @@ import AnswerCardContainer from "../../parts/AnswerCard/AnswerCardContainer";
 const Answer = () => {
   const selector = useSelector((state: RootState) => state);
   const checkedAnswerString = getCheckedAnswerStringSelector(selector);
-  const answerList = getAnswerListSelector(selector);
+  const [correctAnswerString, setCorrectAnswerString] = useState("");
 
-  // 問題の中から正解の答えを抽出
-  const correctAnswerString =
-  answerList.length > 0 &&
-  answerList.filter((list) => list.check === true)[0].body;
-  console.log(correctAnswerString);
+  useEffect(() => {
+    (async () => {
+      const answerList = await getAnswerListSelector(selector);
+      // 問題の中から正解の答えを抽出
+      const correctAnswerString = await answerList.filter(
+        (list) => list.check === true
+      )[0].body;
+      setCorrectAnswerString(correctAnswerString);
+    })();
+  }, [checkedAnswerString]);
 
   return (
     <div className={`${checkedAnswerString ? "block" : "hidden"}`}>
