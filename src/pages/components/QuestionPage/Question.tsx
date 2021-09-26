@@ -56,6 +56,7 @@ const Question = (props: Props) => {
             questionDataList,
             questionNumber
           );
+          console.log(shuffleAnswerList)
           await dispatch(getAnswerList(shuffledAnswerList));
           setShuffleAnswerList(shuffledAnswerList);
         })();
@@ -103,7 +104,7 @@ const Question = (props: Props) => {
         })();
         break;
     }
-  }, []);
+  }, [questionNumber]);
 
   return (
     <>

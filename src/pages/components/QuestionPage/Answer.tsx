@@ -19,6 +19,7 @@ const Answer = () => {
     const correctAnswerString = answerList.filter(
       (list) => list.check === true
     )[0].body;
+    console.log(correctAnswerString)
     setCorrectAnswerString(correctAnswerString);
   }, [answerList]);
 
