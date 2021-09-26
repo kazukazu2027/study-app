@@ -10,6 +10,7 @@ type Props = {
 
 const QuestionPage = (props: Props) => {
   const { answerDataList } = props;
+  console.log(answerDataList)
 
   return (
     <Layout>
