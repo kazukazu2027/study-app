@@ -1,5 +1,5 @@
 import AllWord from "../components/TopPage/AllWord";
-import AskQuestion from "../components/TopPage/AskQuestion";
+import BulletinBoard from "../components/TopPage/BulletinBoard";
 import StudyOfWord from "../components/TopPage/StudyOfWord";
 import Layout from "../layouts/Layout";
 
@@ -9,7 +9,7 @@ const IndexPage = () => (
     <div className="pb-10 mx-3 ">
       <StudyOfWord />
       <AllWord />
-      <AskQuestion />
+      <BulletinBoard />
     </div>
   </Layout>
 );

@@ -6,7 +6,7 @@ import TextInCard from "../../parts/Card/TextInCard";
 import Link from "next/dist/client/link";
 import Button from "../../parts/Button/Button";
 
-const AskQuestion = () => {
+const BulletinBoard = () => {
   return (
     <div className="mt-10">
       <Card>
@@ -27,4 +27,4 @@ const AskQuestion = () => {
   );
 };
 
-export default AskQuestion;
+export default BulletinBoard;

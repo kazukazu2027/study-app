@@ -13,7 +13,7 @@ export const InputUserName = () => {
     setUserName(e.target.value);
   };
   const sendUserName = () => {
-    db.collection("userName").add({ uid: uid, userName: userName });
+    db.collection("users").doc(uid).update({ userName: userName });
     dispatch(getChatUserNameAction([{ uid: uid, userName: userName }]));
   };
 
