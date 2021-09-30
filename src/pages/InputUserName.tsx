@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { db, Firebase } from "../Firebase/firebase";
-import { useDispatch } from "react-redux";
+import { db } from "../Firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
 import { getChatUserNameAction } from "../redux/action/chatAction";
 import Layout from "../layouts/Layout";
+import { RootState } from "../redux/store";
+import { getUidSelector } from "../redux/selector/userSelector";
 
 export const InputUserName = () => {
-  const [userName, setUserName] = useState("");
-  const uid = Firebase.auth().currentUser?.uid;
   const dispatch = useDispatch();
+  const selector = useSelector((state: RootState) => state);
+  const uid = getUidSelector(selector);
+
+  const [userName, setUserName] = useState("");
   const inputUserName = (e: any) => {
     setUserName(e.target.value);
   };
+  
   const sendUserName = () => {
     db.collection("users").doc(uid).update({ userName: userName });
     dispatch(getChatUserNameAction([{ uid: uid, userName: userName }]));

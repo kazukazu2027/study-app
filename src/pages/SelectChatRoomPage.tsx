@@ -1,32 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { db } from "../Firebase/firebase";
-import firebase from "firebase";
-import Firebase from "firebase";
-import { makeRoomId } from "../functions/makeRoomId";
 import Layout from "../layouts/Layout";
 import SubTitle from "../parts/Title/SubTitle";
-import Button from "../parts/Button/Button";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { getUidSelector } from "../redux/selector/userSelector";
+import RoomList from "../components/SelectChatRoomPage/RoomList";
+import BottomBorder from "../parts/Border/BottomBorder";
+import AddChatRoom from "../components/SelectChatRoomPage/AddChatRoom";
 
 const SelectChatRoomPage = () => {
-  const [roomName, setRoomName] = useState("");
   const [chatRoom, setChatRoom] = useState([{ id: "", name: "", uid: "" }]);
-  const uid = Firebase.auth().currentUser?.uid;
-
-  const onChangeRoomName = (e: any) => {
-    setRoomName(e.target.value);
-  };
-
-  const addChatRoom = () => {
-    const id = makeRoomId();
-    db.collection("rooms").doc(id).set({
-      roomName: roomName,
-      id: id,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      uid: uid,
-    });
-    setRoomName("");
-  };
+  const selector = useSelector((state: RootState) => state);
+  const uid = getUidSelector(selector);
 
   useEffect(() => {
     const unSub = db
@@ -52,50 +38,13 @@ const SelectChatRoomPage = () => {
         <SubTitle>チャットルーム選択ページ</SubTitle>
       </div>
       <div className="pb-4 text-center">
-        <input
-          type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
-          name="userName"
-          placeholder="チャットルーム名"
-          onChange={onChangeRoomName}
-          value={roomName}
-        />
-        <Button color="bg-blue-400" onClick={addChatRoom}>
-          追加
-        </Button>
+        <AddChatRoom />
       </div>
       <div>
         {chatRoom.map((room) => {
-          const deleteChatRoom = () => {
-            const res = confirm("本当に削除しますか？");
-            if (res) {
-              db.collection("rooms").doc(room.id).delete();
-            } else {
-            }
-          };
-          return (
-            <div className="flex border-t-2 py-4 ">
-              <Link href={`/chats/${room.id}`}>
-                <div className=" ">
-                  <div className="pl-4 pt-1  font-semibold">
-                    <p className="">{room.name}</p>
-                  </div>
-                </div>
-              </Link>
-              {room.uid === uid && (
-                <button
-                  className="bg-red-400 py-1 text-white font-bold  px-6 rounded ml-auto mr-6"
-                  onClick={deleteChatRoom}
-                >
-                  削除
-                </button>
-              )}
-            </div>
-          );
+          return <RoomList room={room} uid={uid} />;
         })}
-        {chatRoom.length > 0 && (
-          <div className=" w-full bg-gray-200 h-border"></div>
-        )}
+        {chatRoom.length > 0 && <BottomBorder />}
       </div>
     </Layout>
   );

@@ -25,5 +25,5 @@ export const getChatUserNameSelector = createSelector(
 );
 export const getUidSelector = createSelector(
   [favoriteSelector],
-  (state) => state.signIn.uid
+  (state) => state.uid
 );

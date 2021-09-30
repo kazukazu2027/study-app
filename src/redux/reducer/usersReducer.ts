@@ -7,6 +7,7 @@ export const initialState = {
   password: "" as string,
   confirmPassword: "" as string,
   chatUserName: "" as string,
+  uid: "" as string,
 };
 
 export const user = (
@@ -37,6 +38,10 @@ export const user = (
     case Actions.CHAT_USER_NAME: {
       const { chatUserName } = action;
       return { ...state, chatUserName };
+    }
+    case Actions.ADD_USER_ID: {
+      const { uid } = action;
+      return { ...state, uid };
     }
 
     default:

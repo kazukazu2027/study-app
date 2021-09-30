@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../functions/getData";
 import { InputUserName } from "./InputUserName";
 import SelectChatRoomPage from "./SelectChatRoomPage";
@@ -7,7 +7,8 @@ import {
   chatUserName,
   getChatUserNameAction,
 } from "../redux/action/chatAction";
-import Firebase from "firebase";
+import { RootState } from "../redux/store";
+import { getUidSelector } from "../redux/selector/userSelector";
 
 type Props = {
   userNameData: chatUserName[];
@@ -17,8 +18,8 @@ const ChatPage = (props: Props) => {
   const { userNameData } = props;
   const [isHaveUserName, setIsHaveUserName] = useState<boolean>();
   const dispatch = useDispatch();
-
-  const uid = Firebase.auth().currentUser?.uid;
+  const selector = useSelector((state: RootState) => state);
+  const uid = getUidSelector(selector);
 
   useEffect(() => {
     (async () => {

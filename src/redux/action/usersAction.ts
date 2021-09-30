@@ -46,6 +46,13 @@ export const chatUserName = (chatUserName: string) => {
     chatUserName,
   };
 };
+export const ADD_USER_ID = "add user ID";
+export const addUserID = (uid: string) => {
+  return {
+    type: ADD_USER_ID as typeof ADD_USER_ID,
+    uid,
+  };
+};
 
 export type UserType =
   | ReturnType<typeof signInAction>
@@ -53,4 +60,6 @@ export type UserType =
   | ReturnType<typeof signInEmail>
   | ReturnType<typeof signInPassword>
   | ReturnType<typeof signInConfirmPassword>
-  | ReturnType<typeof chatUserName>;
+  | ReturnType<typeof chatUserName>
+  | ReturnType<typeof addUserID>
+  ;
