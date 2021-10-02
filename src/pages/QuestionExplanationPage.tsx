@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { shuffle } from "../functions/Shuffle";
 import {
@@ -16,6 +16,7 @@ import Card from "../layouts/Card";
 import TitleInCard from "../parts/Card/TitleInCard";
 import TextInCard from "../parts/Card/TextInCard";
 import Button from "../parts/Button/Button";
+import SelectTheNumberOfQuestion from "../components/QuestionExplanationPage/SelectTheNumberOfQuestion";
 
 type Props = {
   shuffleQuestionList: firebase.firestore.DocumentData[];
@@ -26,9 +27,12 @@ const QuestionExplanationPage = (props: Props) => {
   const dispatch = useDispatch();
   const [choice, setChoice] = useState(false);
 
-  const handleClick = (event: any) => {
-    dispatch(getTheNumberOfQuestions(Number(event.target.value)));
-    const sliceQuestionList = shuffleQuestionList.slice(0, event.target.value);
+  const handleClick = (e: any) => {
+    dispatch(getTheNumberOfQuestions(Number(e.target.value)));
+    const sliceQuestionList = shuffleQuestionList.slice(
+      0,
+      Number(e.target.value)
+    );
     dispatch(getSliceQuestionDataList(sliceQuestionList));
     dispatch(getQuestionNumber(0));
     dispatch(countCorrectAnswer([]));
@@ -48,42 +52,7 @@ const QuestionExplanationPage = (props: Props) => {
             </TextInCard>
           </div>
           <div className="pb-5">
-            <p>問題数を選んでください</p>
-            <div className="flex justify-between w-3/4 m-auto">
-              <label className="my-2 mr-4">
-                <input
-                  id="answerRadio"
-                  type="radio"
-                  className="mt-4 mr-2 "
-                  value={3}
-                  onClick={handleClick}
-                  name={"問題数"}
-                />
-                <span>3問</span>
-              </label>
-              <label className="my-2 mr-4">
-                <input
-                  id="answerRadio"
-                  type="radio"
-                  className="mt-4 mr-2 "
-                  value={7}
-                  onClick={handleClick}
-                  name={"問題数"}
-                />
-                <span>7問</span>
-              </label>
-              <label className="my-2">
-                <input
-                  id="answerRadio"
-                  type="radio"
-                  className="mt-4 mr-2 "
-                  value={10}
-                  onClick={handleClick}
-                  name={"問題数"}
-                />
-                <span>10問</span>
-              </label>
-            </div>
+            <SelectTheNumberOfQuestion handleClick={handleClick} />
           </div>
           <Link href={choice ? "QuestionPage" : ""}>
             <div className="pb-8 text-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Word } from "../../pages/AllWordPage";
+import BottomBorder from "../../parts/Border/BottomBorder";
 import WordParts from "../../parts/WordParts/WordParts";
 
 type Props = {
@@ -14,9 +15,9 @@ const CategoryWord = (props: Props) => {
     <div>
       {title && <p className="font-bold py-2 text-2xl">{title}</p>}
       {data.map((word) => {
-        return <WordParts data={word} key={word.question} />;
+        return <WordParts data={word} key={word.questionID} />;
       })}
-      <div className=" w-full bg-gray-200 h-border"></div>
+      <BottomBorder />
     </div>
   );
 };

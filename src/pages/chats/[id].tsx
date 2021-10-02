@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import { db } from "../../Firebase/firebase";
-import RoomTitle from "../../components/ChatPage/RoomTitle";
 import ChatPosts from "../../components/ChatPage/ChatPosts";
 import { useRouter } from "next/dist/client/router";
 import { getData } from "../../functions/getData";
@@ -9,7 +8,8 @@ import Layout from "../../layouts/Layout";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { getUserNameSelector } from "../../redux/selector/chatSelector";
-import Link from "next/link";
+import ChatRoomPageHeader from "../../components/ChatRoomPage/ChatRoomHeader";
+import AddChatText from "../../components/ChatRoomPage/AddChatText";
 
 type Props = {
   roomsData: firebase.firestore.DocumentData[];
@@ -52,9 +52,11 @@ const ChatRoom = (props: Props) => {
     });
     setMsg("");
   };
-  const onChangeMsg = (e: any) => {
+  const onChangeMsg = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMsg(e.target.value);
   };
+
+  // テキストを送った際に自動スクロール
   useEffect(() => {
     const scrollArea = document.getElementById("scrollArea");
     if (scrollArea) {
@@ -65,12 +67,7 @@ const ChatRoom = (props: Props) => {
   return (
     <Layout>
       <div className="bg-gray-200 mt-3 flex">
-        <RoomTitle>{roomsData[0].roomName}</RoomTitle>
-        <Link href="/SelectChatRoomPage">
-          <button className="ml-auto mr-6 my-2 rounded px-2 bg-gray-500 text-gray-50">
-            戻る
-          </button>
-        </Link>
+        <ChatRoomPageHeader roomName={roomsData[0].roomName} />
       </div>
       <div className="overflow-auto h-xl" id="scrollArea">
         {posts.map((post) => {
@@ -78,25 +75,7 @@ const ChatRoom = (props: Props) => {
         })}
       </div>
       <div className="p-0 bg-gray-100 w-full absolute bottom-0">
-        <form onSubmit={sendMsg}>
-          <div className="p-3 flex justify-between">
-            <textarea
-              placeholder={"メッセージを送信"}
-              className="block border-2 border-green-400 p-3 rounded w-9/12 h-sm"
-              onChange={onChangeMsg}
-              value={msg}
-            />
-            <button
-              className={`text-white font-bold block rounded px-6 ${
-                msg ? "bg-green-400" : "bg-gray-400"
-              } `}
-              type="submit"
-              disabled={!msg}
-            >
-              送信
-            </button>
-          </div>
-        </form>
+        <AddChatText sendMsg={sendMsg} onChangeMsg={onChangeMsg} msg={msg} />
       </div>
     </Layout>
   );

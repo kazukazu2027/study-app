@@ -31,7 +31,7 @@ const SearchWordPage = (props: Props) => {
           <WordPageHeader />
         </div>
         <div className=" bg-white mb-3 rounded-md pb-4">
-          <div className="w-full py-6">
+          <div className="py-6">
             <input
               type="text"
               placeholder={"用語を入力"}

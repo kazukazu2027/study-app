@@ -13,8 +13,8 @@ type Props = {
 
 const WordParts = (props: Props) => {
   const { data } = props;
-  const [displayExplanation, setDisplayExplanation] = useState(false);
   const dispatch = useDispatch();
+  const [displayExplanation, setDisplayExplanation] = useState(false);
   const selector = useSelector((state: RootState) => state);
   const questionIDs = addFavoriteWordsSelector(selector);
   const questionID: string = data.questionID;
@@ -31,7 +31,7 @@ const WordParts = (props: Props) => {
   return (
     <div>
       <div className="border-t-2 flex px-2 py-2">
-        <button onClick={handleFavorite}>
+        <a onClick={handleFavorite}>
           <div
             className={`fill-current stroke-current ${
               isFavorited ? "text-red-400" : "text-gray-200"
@@ -39,7 +39,7 @@ const WordParts = (props: Props) => {
           >
             <BookMark />
           </div>
-        </button>
+        </a>
         <a className="flex w-11/12" onClick={handleExplanation}>
           <a className="pt-1 pl-4 no-underline">
             <p>{data.question}</p>

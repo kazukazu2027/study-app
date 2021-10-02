@@ -30,14 +30,10 @@ const AllWordPage = (props: Props) => {
         </div>
         <div className="bg-white mb-3 pb-6 rounded-md">
           <div className="px-4">
-            {skillWord && gitWord && (
-              <>
-                <CategoryWord title={"skill"} data={skillWord} />
-                <CategoryWord title={"ネットワーク関連"} data={networkWord} />
-                <CategoryWord title={"職業"} data={workWord} />
-                <CategoryWord title={"git"} data={gitWord} />
-              </>
-            )}
+            <CategoryWord title={"skill"} data={skillWord} />
+            <CategoryWord title={"ネットワーク関連"} data={networkWord} />
+            <CategoryWord title={"職業"} data={workWord} />
+            <CategoryWord title={"git"} data={gitWord} />
           </div>
         </div>
       </div>
