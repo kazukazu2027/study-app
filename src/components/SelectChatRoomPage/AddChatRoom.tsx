@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { db } from "../../Firebase/firebase";
 import { addData } from "../../functions/addData";
 import { makeRoomId } from "../../functions/makeRoomId";
 import Button from "../../parts/Button/Button";

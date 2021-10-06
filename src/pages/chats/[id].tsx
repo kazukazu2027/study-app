@@ -27,6 +27,8 @@ const ChatRoom = (props: Props) => {
   ]);
   useEffect(() => {
     const unSub = db
+      .collection("rooms")
+      .doc(roomsData[0].roomName)
       .collection(chatRoomName)
       .orderBy("timestamp")
       .onSnapshot((snapshot) =>
@@ -45,11 +47,14 @@ const ChatRoom = (props: Props) => {
   }, []);
   const sendMsg = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    db.collection(chatRoomName).add({
-      text: msg,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      userName: userName[0].userName,
-    });
+    db.collection("rooms")
+      .doc(roomsData[0].roomName)
+      .collection(chatRoomName)
+      .add({
+        text: msg,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        userName: userName[0].userName,
+      });
     setMsg("");
   };
   const onChangeMsg = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

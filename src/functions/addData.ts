@@ -7,7 +7,7 @@ export const addData = (
   roomName: string,
   uid: string
 ) => {
-  db.collection(collectionName).doc(id).set({
+  db.collection(collectionName).doc(roomName).set({
     roomName: roomName,
     id: id,
     timestamp: firebase.firestore.FieldValue.serverTimestamp(),

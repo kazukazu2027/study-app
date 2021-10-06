@@ -16,7 +16,7 @@ const RoomList = (props: Props) => {
   const deleteChatRoom = () => {
     const res = confirm("本当に削除しますか？");
     if (res) {
-      db.collection("rooms").doc(room.id).delete();
+      db.collection("rooms").doc(room.name).delete();
     }
   };
   return (
