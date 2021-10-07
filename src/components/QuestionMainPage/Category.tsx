@@ -4,38 +4,40 @@ import CategoryComponent from "../../parts/Category/CategoryComponent";
 import SubTitle from "../../parts/Title/SubTitle";
 
 const Category = () => {
+  const categoryList = [
+    {
+      category: "言語",
+      img: "/programmingLanguage.png",
+    },
+    {
+      category: "職業",
+      img: "/work.svg",
+    },
+    {
+      category: "ネットワーク関連",
+      img: "/network.svg",
+    },
+    {
+      category: "git用語",
+      img: "/git.svg",
+    },
+  ];
+
   return (
     <>
       <div className="py-4">
         <SubTitle>カテゴリ</SubTitle>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <Link href={"CategoryQuestionPage"} passHref>
-          <a>
-            <CategoryComponent
-              category={"言語"}
-              src="/programmingLanguage.png"
-            />
-          </a>
-        </Link>
-        <Link href={"CategoryQuestionPage"} passHref>
-          <a>
-            <CategoryComponent category={"職業"} src="/work.svg" />
-          </a>
-        </Link>
-        <Link href={"CategoryQuestionPage"} passHref>
-          <a>
-            <CategoryComponent
-              category={"ネットワーク関連"}
-              src="/network.svg"
-            />
-          </a>
-        </Link>
-        <Link href={"CategoryQuestionPage"} passHref>
-          <a>
-            <CategoryComponent category={"git用語"} src="/git.svg" />
-          </a>
-        </Link>
+        {categoryList.map((list) => {
+          return (
+            <Link href={"CategoryQuestionPage"} passHref>
+              <a>
+                <CategoryComponent category={list.category} img={list.img} />
+              </a>
+            </Link>
+          );
+        })}
       </div>
     </>
   );

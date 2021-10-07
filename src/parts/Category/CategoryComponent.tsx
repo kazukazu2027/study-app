@@ -3,14 +3,14 @@ import CategoryCard from "./CategoryCard";
 
 type Props = {
   category: string;
-  src: string;
+  img: string;
 };
 
 const CategoryComponent = (props: Props) => {
-  const { category, src } = props;
+  const { category, img } = props;
   return (
     <CategoryCard
-      src={src}
+      src={img}
       width={150}
       height={90}
       category={category}
