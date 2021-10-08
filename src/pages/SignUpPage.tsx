@@ -8,7 +8,6 @@ import {
   getConfirmPasswordSelector,
   getEmailSelector,
   getPasswordSelector,
-  getUserNameSelector,
 } from "../redux/selector/userSelector";
 import Layout from "../layouts/Layout";
 import InputParts from "../parts/Input/InputParts";
@@ -17,7 +16,6 @@ import HaveAccount from "../parts/SignLink/HaveAccount";
 const SignUpPage = () => {
   const router = useRouter();
   const selector = useSelector((state: RootState) => state);
-  const userName = getUserNameSelector(selector);
   const email = getEmailSelector(selector);
   const password = getPasswordSelector(selector);
   const confirmPassword = getConfirmPasswordSelector(selector);
@@ -44,6 +42,7 @@ const SignUpPage = () => {
             const userInitialData = {
               email: email,
               uid: uid,
+              userName: "",
             };
             db.collection("users").doc(uid).set(userInitialData);
           }

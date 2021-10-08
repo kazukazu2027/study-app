@@ -3,10 +3,6 @@ import { RootState } from "../store";
 
 const favoriteSelector = (state: RootState) => state.user;
 
-export const getUserNameSelector = createSelector(
-  [favoriteSelector],
-  (state) => state.userName
-);
 export const getEmailSelector = createSelector(
   [favoriteSelector],
   (state) => state.email

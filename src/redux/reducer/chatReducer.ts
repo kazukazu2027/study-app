@@ -1,10 +1,9 @@
 import * as Actions from "../action/chatAction";
-import firebase from "firebase";
 
 export const initialState = {
   roomName: "" as string,
-  userName: [] as firebase.firestore.DocumentData[],
-  isHaveChatUserName: false as boolean
+  userName: {} as Actions.chatUserName,
+  isHaveChatUserName: false as boolean,
 };
 
 export const chat = (

@@ -42,7 +42,7 @@ const SelectChatRoomPage = () => {
       </div>
       <div>
         {chatRoom.map((room) => {
-          return <RoomList room={room} uid={uid} />;
+          return <RoomList key={room.id} room={room} uid={uid} />;
         })}
         {chatRoom.length > 0 && <BottomBorder />}
       </div>

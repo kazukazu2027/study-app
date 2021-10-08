@@ -11,6 +11,8 @@ import ChatRoomPageHeader from "../../components/ChatRoomPage/ChatRoomHeader";
 import AddChatText from "../../components/ChatRoomPage/AddChatText";
 import { sendMsgToDatabase } from "../../functions/sendMsg";
 import { getRoomData } from "../../functions/getRoomData";
+import { getUidSelector } from "../../redux/selector/userSelector";
+import { getChatUserNameData } from "../../functions/getChatUserNameData";
 
 type roomData = {
   id: string;
@@ -51,13 +53,15 @@ const ChatRoom = (props: Props) => {
       unSub();
     };
   }, []);
-  const sendMsg = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendMsg = async (e: React.FormEvent<HTMLFormElement>) => {
+    const uid = await getUidSelector(selector);
+    const userData = await getChatUserNameData(uid);
     e.preventDefault();
     sendMsgToDatabase(
       roomsData.roomName,
       msg,
       firebase.firestore.FieldValue.serverTimestamp(),
-      userName[0].userName
+      userData.userName
     );
     setMsg("");
   };

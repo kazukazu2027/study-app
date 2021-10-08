@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { db } from "../Firebase/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { getChatUserNameAction } from "../redux/action/chatAction";
+import { useSelector } from "react-redux";
 import Layout from "../layouts/Layout";
 import { RootState } from "../redux/store";
 import { getUidSelector } from "../redux/selector/userSelector";
 
-export const InputUserName = () => {
-  const dispatch = useDispatch();
+export const InputUserNamePage = () => {
   const selector = useSelector((state: RootState) => state);
   const uid = getUidSelector(selector);
 
@@ -16,10 +14,9 @@ export const InputUserName = () => {
   const inputUserName = (e: any) => {
     setUserName(e.target.value);
   };
-  
+
   const sendUserName = () => {
     db.collection("users").doc(uid).update({ userName: userName });
-    dispatch(getChatUserNameAction([{ uid: uid, userName: userName }]));
   };
 
   return (
@@ -54,4 +51,4 @@ export const InputUserName = () => {
   );
 };
 
-export default InputUserName;
+export default InputUserNamePage;
