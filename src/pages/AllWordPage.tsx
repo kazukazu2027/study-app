@@ -1,8 +1,6 @@
 import React from "react";
-import CategoryWord from "../components/AllWordPage/CategoryWord";
+import AllWordPageComponent from "../components/AllWordPage/AllWordPageComponent";
 import { getData } from "../functions/getData";
-import Layout from "../layouts/Layout";
-import WordPageHeader from "../parts/Header/WordPageHeader";
 
 export type Word = {
   answerList: { body: string; check: boolean };
@@ -23,21 +21,12 @@ const AllWordPage = (props: Props) => {
   const { skillWord, gitWord, workWord, networkWord } = props;
 
   return (
-    <Layout>
-      <div className="bg-gray-200 pb-8 mt-4 px-3">
-        <div className="py-4">
-          <WordPageHeader />
-        </div>
-        <div className="bg-white mb-3 pb-6 rounded-md">
-          <div className="px-4">
-            <CategoryWord title={"skill"} data={skillWord} />
-            <CategoryWord title={"ネットワーク関連"} data={networkWord} />
-            <CategoryWord title={"職業"} data={workWord} />
-            <CategoryWord title={"git"} data={gitWord} />
-          </div>
-        </div>
-      </div>
-    </Layout>
+    <AllWordPageComponent
+      skillWord={skillWord}
+      gitWord={gitWord}
+      workWord={workWord}
+      networkWord={networkWord}
+    />
   );
 };
 

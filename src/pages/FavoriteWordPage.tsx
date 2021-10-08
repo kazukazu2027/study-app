@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CategoryWord from "../components/AllWordPage/CategoryWord";
+import FavoriteWordPageComponent from "../components/FavoriteWordPageComponent/FavoriteWordPageComponent";
 import { getData } from "../functions/getData";
-import Layout from "../layouts/Layout";
-import WordPageHeader from "../parts/Header/WordPageHeader";
 import { addFavoriteWordsSelector } from "../redux/selector/favoriteSelector";
 import { RootState } from "../redux/store";
 import { Word } from "./AllWordPage";
@@ -21,20 +19,7 @@ const FavoriteWordPage = (props: Props) => {
     (word) => favoriteWordsIds.indexOf(word.questionID) !== -1
   );
 
-  return (
-    <Layout>
-      <div className="bg-gray-200 min-h-screen px-3 mt-4">
-        <div className="py-4">
-          <WordPageHeader />
-        </div>
-        <div className="bg-white mb-3 pb-6 rounded-md">
-          <div className="px-4">
-            <CategoryWord title={"リスト"} data={favoriteWords} />
-          </div>
-        </div>
-      </div>
-    </Layout>
-  );
+  return <FavoriteWordPageComponent favoriteWords={favoriteWords} />;
 };
 
 export async function getStaticProps() {

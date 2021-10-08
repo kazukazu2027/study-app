@@ -45,64 +45,19 @@ const Question = (props: Props) => {
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
 
   useEffect(() => {
-    switch (questionDataList[questionNumber].category) {
-      case "skill":
-        (async () => {
-          const skillAnswerDataList = await answerDataList.filter(
-            (answer) => answer.category === "skill"
-          );
-          const shuffledAnswerList = await makeAnswerList(
-            skillAnswerDataList,
-            questionDataList,
-            questionNumber
-          );
-          await dispatch(getAnswerList(shuffledAnswerList));
-          setShuffleAnswerList(shuffledAnswerList);
-        })();
-        break;
-      case "git":
-        (async () => {
-          const gitAnswerDataList = await answerDataList.filter(
-            (answer) => answer.category === "git"
-          );
-          const shuffledAnswerList = await makeAnswerList(
-            gitAnswerDataList,
-            questionDataList,
-            questionNumber
-          );
-          await dispatch(getAnswerList(shuffledAnswerList));
-          setShuffleAnswerList(shuffledAnswerList);
-        })();
-        break;
-      case "work":
-        (async () => {
-          const workAnswerDataList = await answerDataList.filter(
-            (answer) => answer.category === "work"
-          );
-          const shuffledAnswerList = await makeAnswerList(
-            workAnswerDataList,
-            questionDataList,
-            questionNumber
-          );
-          await dispatch(getAnswerList(shuffledAnswerList));
-          setShuffleAnswerList(shuffledAnswerList);
-        })();
-        break;
-      case "network":
-        (async () => {
-          const networkAnswerDataList = await answerDataList.filter(
-            (answer) => answer.category === "network"
-          );
-          const shuffledAnswerList = await makeAnswerList(
-            networkAnswerDataList,
-            questionDataList,
-            questionNumber
-          );
-          await dispatch(getAnswerList(shuffledAnswerList));
-          setShuffleAnswerList(shuffledAnswerList);
-        })();
-        break;
-    }
+    (async () => {
+      const answerList = await answerDataList.filter(
+        (answer) =>
+          answer.category === questionDataList[questionNumber].category
+      );
+      const shuffledAnswerList = await makeAnswerList(
+        answerList,
+        questionDataList,
+        questionNumber
+      );
+      await dispatch(getAnswerList(shuffledAnswerList));
+      setShuffleAnswerList(shuffledAnswerList);
+    })();
   }, [questionNumber]);
 
   return (
