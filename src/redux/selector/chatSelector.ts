@@ -7,10 +7,6 @@ export const getRoomNameSelector = createSelector(
   [favoriteSelector],
   (state) => state.roomName
 );
-export const getUserNameSelector = createSelector(
-  [favoriteSelector],
-  (state) => state.userName
-);
 
 export const getIsHaveChatUserName = createSelector(
   [favoriteSelector],

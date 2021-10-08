@@ -10,13 +10,6 @@ export const getChatRoomAction = (roomName: string) => {
     roomName,
   };
 };
-export const GET_CHAT_USER_NAME_ACTION = "add get chat user name";
-export const getChatUserNameAction = (userName: chatUserName) => {
-  return {
-    type: GET_CHAT_USER_NAME_ACTION as typeof GET_CHAT_USER_NAME_ACTION,
-    userName,
-  };
-};
 export const IS_HAVE_CHAT_USER_NAME = "is have chat user name";
 export const isHaveChatUserName = (isHaveChatUserName: boolean) => {
   return {
@@ -27,6 +20,5 @@ export const isHaveChatUserName = (isHaveChatUserName: boolean) => {
 
 export type FavoriteType =
   | ReturnType<typeof getChatRoomAction>
-  | ReturnType<typeof getChatUserNameAction>
   | ReturnType<typeof isHaveChatUserName>
   ;

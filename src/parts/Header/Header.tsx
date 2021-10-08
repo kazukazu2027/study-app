@@ -1,11 +1,28 @@
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 import { Firebase } from "../../Firebase/firebase";
+import { RootState } from "../../redux/store";
+import { getUidSelector } from "../../redux/selector/userSelector";
+import { getChatUserNameData } from "../../functions/getChatUserNameData";
 
 const Header = () => {
   const user = Firebase.auth().currentUser;
   const logout = () => {
     Firebase.auth().signOut();
   };
+
+  const selector = useSelector((state: RootState) => state);
+  const [userName, setUserName] = useState("");
+  const isUserName = async () => {
+    const uid = await getUidSelector(selector);
+    const userData = await getChatUserNameData(uid);
+    await setUserName(userData.userName);
+  };
+  useEffect(() => {
+    isUserName();
+  }, []);
+
   return (
     <div className="text-gray-200 relative">
       <div className="flex py-2 px-3 bg-gray-600">
@@ -52,7 +69,9 @@ const Header = () => {
             <Link href="AllWordPage">
               <h1 className="font-bold">一覧</h1>
             </Link>
-            <Link href="ChatPage">
+            <Link
+              href={userName === "" ? "InputUserName" : "SelectChatRoomPage"}
+            >
               <h1 className="font-bold">掲示板</h1>
             </Link>
           </div>

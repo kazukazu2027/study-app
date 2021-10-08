@@ -15,10 +15,6 @@ export const chat = (
       const { roomName } = action;
       return { ...state, roomName };
     }
-    case Actions.GET_CHAT_USER_NAME_ACTION: {
-      const { userName } = action;
-      return { ...state, userName };
-    }
     case Actions.IS_HAVE_CHAT_USER_NAME: {
       const { isHaveChatUserName } = action;
       return { ...state, isHaveChatUserName };
