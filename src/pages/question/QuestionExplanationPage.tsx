@@ -2,7 +2,7 @@ import React from "react";
 import { shuffle } from "../../functions/Shuffle";
 import { getData } from "../../functions/getData";
 import firebase from "firebase";
-import QuestionExplanationPageContainer from "../../template/QuestionExplanationPageTemplate";
+import QuestionExplanationPageTemplate from "../../template/QuestionExplanationPageTemplate";
 
 type Props = {
   shuffleQuestionList: firebase.firestore.DocumentData[];
@@ -12,7 +12,7 @@ const QuestionExplanationPage = (props: Props) => {
   const { shuffleQuestionList } = props;
 
   return (
-    <QuestionExplanationPageContainer
+    <QuestionExplanationPageTemplate
       shuffleQuestionList={shuffleQuestionList}
     />
   );

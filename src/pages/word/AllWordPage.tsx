@@ -1,6 +1,6 @@
 import React from "react";
-import AllWordPageComponent from "../../template/AllWordPageTemplate";
 import { getData } from "../../functions/getData";
+import AllWordPageTemplate from "../../template/AllWordPageTemplate";
 
 export type Word = {
   answerList: { body: string; check: boolean };
@@ -21,7 +21,7 @@ const AllWordPage = (props: Props) => {
   const { skillWord, gitWord, workWord, networkWord } = props;
 
   return (
-    <AllWordPageComponent
+    <AllWordPageTemplate
       skillWord={skillWord}
       gitWord={gitWord}
       workWord={workWord}

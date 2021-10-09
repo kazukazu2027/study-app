@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import FavoriteWordPageComponent from "../../template/FavoriteWordPageTemplate";
 import { getData } from "../../functions/getData";
 import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
 import { RootState } from "../../redux/store";
 import { Word } from "./AllWordPage";
+import FavoriteWordPageTemplate from "../../template/FavoriteWordPageTemplate";
 
 type Props = {
   wordData: Word[];
@@ -19,7 +19,7 @@ const FavoriteWordPage = (props: Props) => {
     (word) => favoriteWordsIds.indexOf(word.questionID) !== -1
   );
 
-  return <FavoriteWordPageComponent favoriteWords={favoriteWords} />;
+  return <FavoriteWordPageTemplate favoriteWords={favoriteWords} />;
 };
 
 export async function getStaticProps() {
