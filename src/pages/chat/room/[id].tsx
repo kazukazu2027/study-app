@@ -1,8 +1,8 @@
 import React from "react";
 import firebase from "firebase";
-import { getData } from "../../functions/getData";
-import { getRoomData } from "../../functions/getRoomData";
-import ChatRoomPage from "./ChatRoomPage";
+import { getData } from "../../../functions/getData";
+import { getRoomData } from "../../../functions/getRoomData";
+import ChatRoomPage from "../ChatRoomPage";
 
 type Props = {
   roomsData: {
@@ -20,7 +20,7 @@ const ChatRoom = (props: Props) => {
 
 export async function getStaticPaths() {
   const roomsData = await getData("rooms");
-  const paths = await roomsData.map((room) => `/chats/${room.id}`);
+  const paths = await roomsData.map((room) => `/chat/room/${room.id}`);
 
   return { paths, fallback: false };
 }

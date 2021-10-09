@@ -3,25 +3,25 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import firebase from "firebase";
-import { shuffle } from "../functions/Shuffle";
-import Layout from "../layouts/Layout";
-import Card from "../layouts/Card";
-import TitleInCard from "../parts/Card/TitleInCard";
-import TextInCard from "../parts/Card/TextInCard";
-import Button from "../parts/Button/Button";
+import { shuffle } from "../../functions/Shuffle";
+import Layout from "../../layouts/Layout";
+import Card from "../../layouts/Card";
+import TitleInCard from "../../parts/Card/TitleInCard";
+import TextInCard from "../../parts/Card/TextInCard";
+import Button from "../../parts/Button/Button";
 import {
   getQuestionCategorySelector,
   getTheNumberOfQuestions as getTheNumberOfQuestionsSelector,
-} from "../redux/selector/questionSelector";
-import { RootState } from "../redux/store";
-import SubTitle from "../parts/Title/SubTitle";
+} from "../../redux/selector/questionSelector";
+import { RootState } from "../../redux/store";
+import SubTitle from "../../parts/Title/SubTitle";
 import {
   getQuestionNumber,
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
-} from "../redux/action/questionAction";
-import { getData } from "../functions/getData";
-import { countCorrectAnswer } from "../redux/action/answerAction";
+} from "../../redux/action/questionAction";
+import { getData } from "../../functions/getData";
+import { countCorrectAnswer } from "../../redux/action/answerAction";
 
 type Props = {
   questionData: firebase.firestore.DocumentData[];
@@ -150,7 +150,7 @@ const CategoryQuestionPage = (props: Props) => {
             </div>
           </div>
 
-          <Link href={choice ? "QuestionPage" : ""}>
+          <Link href={choice ? "/question/QuestionPage" : ""}>
             <div className="pb-8 text-center">
               <Button color={choice ? "bg-blue-500" : "bg-gray-400"}>
                 学習する

@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import FavoriteWordPageComponent from "../components/FavoriteWordPageComponent/FavoriteWordPageComponent";
-import { getData } from "../functions/getData";
-import { addFavoriteWordsSelector } from "../redux/selector/favoriteSelector";
-import { RootState } from "../redux/store";
+import FavoriteWordPageComponent from "../../template/FavoriteWordPageTemplate";
+import { getData } from "../../functions/getData";
+import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
+import { RootState } from "../../redux/store";
 import { Word } from "./AllWordPage";
 
 type Props = {

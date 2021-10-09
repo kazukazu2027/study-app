@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CategoryWord from "../components/AllWordPage/CategoryWord";
-import { getData } from "../functions/getData";
-import Layout from "../layouts/Layout";
-import WordPageHeader from "../parts/Header/WordPageHeader";
+import CategoryWord from "../../components/AllWordPage/CategoryWord";
+import { getData } from "../../functions/getData";
+import Layout from "../../layouts/Layout";
+import WordPageHeader from "../../parts/Header/WordPageHeader";
 import { Word } from "./AllWordPage";
 
 type Props = {

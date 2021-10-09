@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../Firebase/firebase";
-import Layout from "../layouts/Layout";
-import SubTitle from "../parts/Title/SubTitle";
+import { db } from "../../Firebase/firebase";
+import Layout from "../../layouts/Layout";
+import SubTitle from "../../parts/Title/SubTitle";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { getUidSelector } from "../redux/selector/userSelector";
-import RoomList from "../components/SelectChatRoomPage/RoomList";
-import BottomBorder from "../parts/Border/BottomBorder";
-import AddChatRoom from "../components/SelectChatRoomPage/AddChatRoom";
+import { RootState } from "../../redux/store";
+import { getUidSelector } from "../../redux/selector/userSelector";
+import RoomList from "../../components/SelectChatRoomPage/RoomList";
+import BottomBorder from "../../parts/Border/BottomBorder";
+import AddChatRoom from "../../components/SelectChatRoomPage/AddChatRoom";
 
 const SelectChatRoomPage = () => {
   const [chatRoom, setChatRoom] = useState([{ id: "", name: "", uid: "" }]);

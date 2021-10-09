@@ -5,7 +5,7 @@ const ResetPassword = () => {
   return (
     <div className="text-grey-dark flex">
       <p>パスワードを忘れた方は</p>
-      <Link href="ResetPasswordPage">
+      <Link href="/auth/ResetPasswordPage">
         <p className="underline text-blue-500">こちら</p>
       </Link>
     </div>

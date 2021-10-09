@@ -18,7 +18,7 @@ const BulletinButton = () => {
     isUserName();
   }, []);
   return (
-    <Link href={userName === "" ? "InputUserName" : "SelectChatRoomPage"}>
+    <Link href={userName === "" ? "/chat/InputUserName" : "/chat/SelectChatRoomPage"}>
       <div className="text-center pb-8">
         <Button color={"bg-blue-500"}>掲示板を見てみる</Button>
       </div>

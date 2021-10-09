@@ -31,7 +31,7 @@ const Category = () => {
       <div className="grid grid-cols-2 gap-4">
         {categoryList.map((list) => {
           return (
-            <Link href={"CategoryQuestionPage"} passHref>
+            <Link href={"/question/CategoryQuestionPage"} passHref>
               <a>
                 <CategoryComponent category={list.category} img={list.img} />
               </a>

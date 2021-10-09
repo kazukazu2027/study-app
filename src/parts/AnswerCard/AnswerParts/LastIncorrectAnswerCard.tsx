@@ -35,7 +35,7 @@ const LastIncorrectAnswerCard = () => {
     dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
   };
   return (
-    <Link href={"ResultPage"}>
+    <Link href={"/question/ResultPage"}>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
         onClick={resultIncorrectClick}

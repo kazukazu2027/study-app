@@ -5,7 +5,7 @@ const HaveAccount = () => {
   return (
     <div className="text-grey-dark flex">
       <p>すでにアカウントをお持ちの方は</p>
-      <Link href="SignInPage">
+      <Link href="/auth/SignInPage">
         <p className="underline text-blue-500">こちら</p>
       </Link>
     </div>

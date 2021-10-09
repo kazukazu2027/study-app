@@ -1,14 +1,14 @@
 import React from "react";
-import Layout from "../../layouts/Layout";
-import { Word } from "../../pages/AllWordPage";
-import WordPageHeader from "../../parts/Header/WordPageHeader";
-import CategoryWord from "../AllWordPage/CategoryWord";
+import Layout from "../layouts/Layout";
+import { Word } from "../pages/word/AllWordPage";
+import WordPageHeader from "../parts/Header/WordPageHeader";
+import CategoryWord from "../components/AllWordPage/CategoryWord";
 
 type Props = {
   favoriteWords: Word[];
 };
 
-const FavoriteWordPageComponent = (props: Props) => {
+const FavoriteWordPageTemplate = (props: Props) => {
   const { favoriteWords } = props;
 
   return (
@@ -27,4 +27,4 @@ const FavoriteWordPageComponent = (props: Props) => {
   );
 };
 
-export default FavoriteWordPageComponent;
+export default FavoriteWordPageTemplate;

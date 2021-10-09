@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../../layouts/Layout";
-import WordPageHeader from "../../parts/Header/WordPageHeader";
-import CategoryWord from "./CategoryWord";
+import Layout from "../layouts/Layout";
+import WordPageHeader from "../parts/Header/WordPageHeader";
+import CategoryWord from "../components/AllWordPage/CategoryWord";
 
 export type Word = {
   answerList: { body: string; check: boolean };
@@ -18,7 +18,7 @@ type Props = {
   networkWord: Word[];
 };
 
-const AllWordPageComponent = (props: Props) => {
+const AllWordPageTemplate = (props: Props) => {
   const { skillWord, gitWord, workWord, networkWord } = props;
 
   const WordList = [
@@ -46,4 +46,4 @@ const AllWordPageComponent = (props: Props) => {
   );
 };
 
-export default AllWordPageComponent;
+export default AllWordPageTemplate;

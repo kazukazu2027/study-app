@@ -16,7 +16,7 @@ const StudyOfWord = () => {
             プログラミングを学習するときに、わからない用語がたくさん出てきませんか？用語が分からなければ、当然学習もできません。しっかり学びましょう。
           </TextInCard>
         </div>
-        <Link href={"QuestionMainPage"}>
+        <Link href={"/question/QuestionMainPage"}>
           <div className="text-center pb-8">
             <Button color={"bg-blue-500"}>学習する</Button>
           </div>

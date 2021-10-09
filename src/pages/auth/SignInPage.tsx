@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useDispatch, useSelector } from "react-redux";
-import { auth, db } from "../Firebase/firebase";
-import { signInAction } from "../redux/action/usersAction";
-import ErrorMessage from "../Firebase/ErrorMassage";
-import { RootState } from "../redux/store";
+import { auth, db } from "../../Firebase/firebase";
+import { signInAction } from "../../redux/action/usersAction";
+import ErrorMessage from "../../Firebase/ErrorMassage";
+import { RootState } from "../../redux/store";
 import {
   getEmailSelector,
   getPasswordSelector,
-} from "../redux/selector/userSelector";
-import InputParts from "../parts/Input/InputParts";
-import Layout from "../layouts/Layout";
-import CreateAccount from "../parts/SignLink/CreateAccount";
-import ResetPassword from "../parts/SignLink/ResetPassword";
+} from "../../redux/selector/userSelector";
+import InputParts from "../../parts/Input/InputParts";
+import Layout from "../../layouts/Layout";
+import CreateAccount from "../../parts/SignLink/CreateAccount";
+import ResetPassword from "../../parts/SignLink/ResetPassword";
 
 const SignInPage = () => {
   const router = useRouter();

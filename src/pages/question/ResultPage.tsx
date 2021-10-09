@@ -1,22 +1,22 @@
 import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AnswerList from "../components/ResultPage/AnswerList";
-import Card from "../layouts/Card";
-import Layout from "../layouts/Layout";
-import Button from "../parts/Button/Button";
-import TitleInCard from "../parts/Card/TitleInCard";
-import { countCorrectAnswer } from "../redux/action/answerAction";
+import AnswerList from "../../components/ResultPage/AnswerList";
+import Card from "../../layouts/Card";
+import Layout from "../../layouts/Layout";
+import Button from "../../parts/Button/Button";
+import TitleInCard from "../../parts/Card/TitleInCard";
+import { countCorrectAnswer } from "../../redux/action/answerAction";
 import {
   getQuestionNumber,
   getSliceQuestionDataList,
-} from "../redux/action/questionAction";
-import { getCountAnswerSelector } from "../redux/selector/answerSelector";
+} from "../../redux/action/questionAction";
+import { getCountAnswerSelector } from "../../redux/selector/answerSelector";
 import {
   getQuestionDataListSelector,
   getTheNumberOfQuestions,
-} from "../redux/selector/questionSelector";
-import { RootState } from "../redux/store";
+} from "../../redux/selector/questionSelector";
+import { RootState } from "../../redux/store";
 
 const ResultPage = () => {
   const dispatch = useDispatch();

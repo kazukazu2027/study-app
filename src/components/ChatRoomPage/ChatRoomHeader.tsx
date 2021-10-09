@@ -11,7 +11,7 @@ const ChatRoomPageHeader = (props: Props) => {
   return (
     <>
       <RoomTitle>{roomName}</RoomTitle>
-      <Link href="/SelectChatRoomPage">
+      <Link href="/chat/SelectChatRoomPage">
         <button className="ml-auto mr-6 my-2 rounded px-2 bg-gray-500 text-gray-50">
           戻る
         </button>

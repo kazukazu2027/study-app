@@ -1,26 +1,26 @@
 import React, { useState } from "react";
-import Card from "../../layouts/Card";
-import Layout from "../../layouts/Layout";
+import Card from "../layouts/Card";
+import Layout from "../layouts/Layout";
 import Image from "next/image";
-import TitleInCard from "../../parts/Card/TitleInCard";
-import TextInCard from "../../parts/Card/TextInCard";
-import SelectTheNumberOfQuestion from "./SelectTheNumberOfQuestion";
+import TitleInCard from "../parts/Card/TitleInCard";
+import TextInCard from "../parts/Card/TextInCard";
+import SelectTheNumberOfQuestion from "../components/QuestionExplanationPage/SelectTheNumberOfQuestion";
 import Link from "next/link";
-import Button from "../../parts/Button/Button";
+import Button from "../parts/Button/Button";
 import { useDispatch } from "react-redux";
 import {
   getQuestionNumber,
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
-} from "../../redux/action/questionAction";
-import { countCorrectAnswer } from "../../redux/action/answerAction";
+} from "../redux/action/questionAction";
+import { countCorrectAnswer } from "../redux/action/answerAction";
 import firebase from "firebase";
 
 type Props = {
   shuffleQuestionList: firebase.firestore.DocumentData[];
 };
 
-const QuestionExplanationPageContainer = (props: Props) => {
+const QuestionExplanationPageTemplate = (props: Props) => {
   const { shuffleQuestionList } = props;
 
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const QuestionExplanationPageContainer = (props: Props) => {
           <div className="pb-5">
             <SelectTheNumberOfQuestion handleClick={handleClick} />
           </div>
-          <Link href={choice ? "QuestionPage" : ""}>
+          <Link href={choice ? "/question/QuestionPage" : ""}>
             <div className="pb-8 text-center">
               <Button color={choice ? "bg-blue-500" : "bg-gray-400"}>
                 学習する
@@ -64,4 +64,4 @@ const QuestionExplanationPageContainer = (props: Props) => {
   );
 };
 
-export default QuestionExplanationPageContainer;
+export default QuestionExplanationPageTemplate;

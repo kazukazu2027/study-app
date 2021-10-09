@@ -5,7 +5,7 @@ import { RootState } from "../../redux/store";
 import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
 import { toggleItem } from "../../functions/toggleItem";
 import BookMark from '../../../public/bookmark2.svg'
-import { Word } from "../../pages/AllWordPage";
+import { Word } from "../../pages/word/AllWordPage";
 
 type Props = {
   data: Word;

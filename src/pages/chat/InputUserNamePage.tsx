@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { db } from "../Firebase/firebase";
+import { db } from "../../Firebase/firebase";
 import { useSelector } from "react-redux";
-import Layout from "../layouts/Layout";
-import { RootState } from "../redux/store";
-import { getUidSelector } from "../redux/selector/userSelector";
+import Layout from "../../layouts/Layout";
+import { RootState } from "../../redux/store";
+import { getUidSelector } from "../../redux/selector/userSelector";
 
 export const InputUserNamePage = () => {
   const selector = useSelector((state: RootState) => state);
@@ -34,7 +34,7 @@ export const InputUserNamePage = () => {
             placeholder="お名前を入力"
             onChange={inputUserName}
           />
-          <Link href="SelectChatRoomPage">
+          <Link href="/chat/SelectChatRoomPage">
             <button
               onClick={sendUserName}
               className={`text-white font-bold  rounded px-12 py-2 ${

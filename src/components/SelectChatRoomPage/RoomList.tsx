@@ -21,7 +21,7 @@ const RoomList = (props: Props) => {
   };
   return (
     <div className="flex border-t-2 py-4 ">
-      <Link href={`/chats/${room.id}`}>
+      <Link href={`/chat/room/${room.id}`}>
         <div className=" ">
           <div className="pl-4 pt-1  font-semibold">
             <p className="">{room.name}</p>

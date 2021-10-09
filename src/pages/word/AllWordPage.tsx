@@ -1,6 +1,6 @@
 import React from "react";
-import AllWordPageComponent from "../components/AllWordPage/AllWordPageComponent";
-import { getData } from "../functions/getData";
+import AllWordPageComponent from "../../template/AllWordPageTemplate";
+import { getData } from "../../functions/getData";
 
 export type Word = {
   answerList: { body: string; check: boolean };
