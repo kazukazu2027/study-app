@@ -6,20 +6,24 @@ import SubTitle from "../../parts/Title/SubTitle";
 const Category = () => {
   const categoryList = [
     {
-      category: "言語",
+      category: "skill",
+      name: "言語",
       img: "/programmingLanguage.png",
     },
     {
-      category: "職業",
+      category: "work",
       img: "/work.svg",
+      name: "職業",
     },
     {
-      category: "ネットワーク関連",
+      category: "network",
       img: "/network.svg",
+      name: "ネットワーク言語",
     },
     {
-      category: "git用語",
+      category: "git",
       img: "/git.svg",
+      name: "git用語",
     },
   ];
 
@@ -33,7 +37,7 @@ const Category = () => {
           return (
             <Link href={"/question/CategoryQuestionPage"} passHref>
               <a>
-                <CategoryComponent category={list.category} img={list.img} />
+                <CategoryComponent category={list.category} img={list.img} name={list.name} />
               </a>
             </Link>
           );

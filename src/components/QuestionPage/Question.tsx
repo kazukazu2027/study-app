@@ -43,6 +43,7 @@ const Question = (props: Props) => {
   const questionNumber = getQuestionNumberSelector(selector);
 
   const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
+  console.log(questionDataList[questionNumber])
 
   useEffect(() => {
     (async () => {

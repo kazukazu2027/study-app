@@ -33,7 +33,7 @@ const Header = () => {
         </div>
         {user ? (
           <div className="ml-auto">
-            <Link href={"/auth//SignInPage"}>
+            <Link href={"/auth/SignInPage"}>
               <button
                 className="text-center text-sm py-1 rounded text-white bg-red-400 mr-5  px-2"
                 onClick={logout}
@@ -70,7 +70,11 @@ const Header = () => {
               <h1 className="font-bold">一覧</h1>
             </Link>
             <Link
-              href={userName === "" ? "/chat/InputUserName" : "/chat/SelectChatRoomPage"}
+              href={
+                userName === ""
+                  ? "/chat/InputUserName"
+                  : "/chat/SelectChatRoomPage"
+              }
             >
               <h1 className="font-bold">掲示板</h1>
             </Link>

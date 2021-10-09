@@ -14,16 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/pages/components/Blog.tsx",
-    "src/pages/components/Footer.tsx",
-    "src/pages/parts/Header/Header.tsx",
-    "src/pages/components/SideMenu.tsx",
-    "src/pages/Template/index.tsx"
-, "tsconfig.dev.json"  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tsconfig.dev.json"],
   "exclude": ["node_modules", "functions"],
   "baseUrl": ".",
   "paths": {
