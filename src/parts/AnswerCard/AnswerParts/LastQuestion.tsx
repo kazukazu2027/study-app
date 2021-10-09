@@ -1,6 +1,5 @@
 import React from "react";
-import LastCorrectAnswerCard from "./LastCorrectAnser";
-import LastIncorrectAnswerCard from "./LastIncorrectAnswerCard";
+import LastAnswerCard from "./LastCorrectAnser";
 
 type Props = {
   answerResult: string;
@@ -9,9 +8,9 @@ type Props = {
 const LastQuestion = (props: Props) => {
   const { answerResult } = props;
   return answerResult === "正解" ? (
-    <LastCorrectAnswerCard />
+    <LastAnswerCard isCorrect={true} />
   ) : (
-    <LastIncorrectAnswerCard />
+    <LastAnswerCard isCorrect={false} />
   );
 };
 

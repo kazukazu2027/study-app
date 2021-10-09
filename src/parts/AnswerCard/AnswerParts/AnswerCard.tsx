@@ -12,7 +12,12 @@ import {
 } from "../../../redux/selector/questionSelector";
 import { RootState } from "../../../redux/store";
 
-const CorrectAnswerCard = () => {
+type Props = {
+  isCorrect: boolean;
+};
+
+const AnswerCard = (props: Props) => {
+  const { isCorrect } = props;
   const dispatch = useDispatch();
 
   const selector = useSelector((state: RootState) => state);
@@ -25,7 +30,7 @@ const CorrectAnswerCard = () => {
       countCorrectAnswer([
         ...questionIdsList,
         {
-          isCorrect: true,
+          isCorrect: isCorrect,
           question: questionDataList[questionNumber].question,
           explanation: questionDataList[questionNumber].explanation,
           id: questionDataList[questionNumber].questionID,
@@ -45,4 +50,4 @@ const CorrectAnswerCard = () => {
   );
 };
 
-export default CorrectAnswerCard;
+export default AnswerCard;

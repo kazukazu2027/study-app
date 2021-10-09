@@ -27,34 +27,32 @@ const ShuffleAnswerList = (props: Props) => {
       })
     );
   };
-
   useEffect(() => {
     scrollBottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [handleCheck]);
-  console.log(shuffleAnswerList)
+
   return (
     <>
-      {shuffleAnswerList.length > 0 &&
-        shuffleAnswerList.map((answer) => {
-          return (
-            <div key={answer.body} className="text-left">
-              <label className="my-2">
-                <input
-                  id="answerRadio"
-                  type="radio"
-                  className="mt-4 mr-2 "
-                  value={answer.body}
-                  onClick={handleCheck}
-                  name={questionDataList[0].questionID}
-                  disabled={isChecked}
-                />
-                <span className={`${isChecked && "text-gray-400"}`}>
-                  {answer.body}
-                </span>
-              </label>
-            </div>
-          );
-        })}
+      {shuffleAnswerList.map((answer) => {
+        return (
+          <div key={answer.body} className="text-left">
+            <label className="my-2">
+              <input
+                id="answerRadio"
+                type="radio"
+                className="mt-4 mr-2 "
+                value={answer.body}
+                onClick={handleCheck}
+                name={questionDataList[0].questionID}
+                disabled={isChecked}
+              />
+              <span className={`${isChecked && "text-gray-400"}`}>
+                {answer.body}
+              </span>
+            </label>
+          </div>
+        );
+      })}
       <div ref={scrollBottomRef} />
     </>
   );

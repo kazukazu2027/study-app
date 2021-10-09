@@ -1,6 +1,5 @@
 import React from "react";
-import CorrectAnswerCard from "./CorrectAnswerCard";
-import IncorrectAnswerCard from "./IncorrectAnswerCard";
+import AnswerCard from "./AnswerCard";
 
 type Props = {
   answerResult: string;
@@ -9,9 +8,9 @@ type Props = {
 const QuestionCard = (props: Props) => {
   const { answerResult } = props;
   return answerResult === "正解" ? (
-    <CorrectAnswerCard />
+    <AnswerCard isCorrect={true} />
   ) : (
-    <IncorrectAnswerCard />
+    <AnswerCard isCorrect={false} />
   );
 };
 
