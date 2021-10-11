@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  countCorrectAnswer,
-  getCheckedAnswer,
+  getCheckedAnswerAction,
+  getResultAnswerAction,
 } from "../../../redux/action/answerAction";
 import { getCountAnswerSelector } from "../../../redux/selector/answerSelector";
 import {
@@ -27,7 +27,7 @@ const LastAnswerCard = (props: Props) => {
 
   const resultCorrectClick = () => {
     dispatch(
-      countCorrectAnswer([
+      getResultAnswerAction([
         ...questionIdsList,
         {
           isCorrect: isCorrect,
@@ -37,7 +37,9 @@ const LastAnswerCard = (props: Props) => {
         },
       ])
     );
-    dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
+    dispatch(
+      getCheckedAnswerAction({ isChecked: false, checkedAnswerString: "" })
+    );
   };
   return (
     <Link href={"/question/ResultPage"}>

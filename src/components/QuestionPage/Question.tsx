@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { makeAnswerList } from "../../functions/makeAnswerList";
+import React from "react";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
 import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
 import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
-import { getAnswerList } from "../../redux/action/answerAction";
-import {
-  getQuestionDataListSelector,
-  getQuestionNumberSelector,
-} from "../../redux/selector/questionSelector";
-import { RootState } from "../../redux/store";
+import { questionData } from "../../redux/reducer/questionReducer";
 import AnswerList from "../ResultPage/AnswerList";
 
 export type Data = {
@@ -31,34 +24,13 @@ export type AnswerList = {
 };
 
 type Props = {
-  answerDataList: AnswerList[];
+  questionDataList: questionData[];
+  questionNumber: number;
+  shuffleAnswerList: AnswerList[];
 };
 
 const Question = (props: Props) => {
-  const { answerDataList } = props;
-  const dispatch = useDispatch();
-
-  const selector = useSelector((state: RootState) => state);
-  const questionDataList = getQuestionDataListSelector(selector);
-  const questionNumber = getQuestionNumberSelector(selector);
-
-  const [shuffleAnswerList, setShuffleAnswerList] = useState<AnswerList[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const answerList = await answerDataList.filter(
-        (answer) =>
-          answer.category === questionDataList[questionNumber].category
-      );
-      const shuffledAnswerList = await makeAnswerList(
-        answerList,
-        questionDataList,
-        questionNumber
-      );
-      await dispatch(getAnswerList(shuffledAnswerList));
-      setShuffleAnswerList(shuffledAnswerList);
-    })();
-  }, [questionNumber]);
+  const { questionDataList, questionNumber, shuffleAnswerList } = props;
 
   return (
     <div className="border rounded-lg shadow m-auto">

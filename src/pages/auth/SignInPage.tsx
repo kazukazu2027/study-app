@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/dist/client/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { auth, db } from "../../Firebase/firebase";
-import { signInAction } from "../../redux/action/usersAction";
 import ErrorMessage from "../../Firebase/ErrorMassage";
 import { RootState } from "../../redux/store";
 import {
@@ -16,7 +15,6 @@ import ResetPassword from "../../parts/SignLink/ResetPassword";
 
 const SignInPage = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const selector = useSelector((state: RootState) => state);
   const email = getEmailSelector(selector);
   const password = getPasswordSelector(selector);
@@ -30,21 +28,8 @@ const SignInPage = () => {
         const user = result.user;
         if (user) {
           const uid = user.uid;
-          db.collection("users")
-            .doc(uid)
-            .get()
-            .then((snapshot) => {
-              const data = snapshot.data();
-              data &&
-                dispatch(
-                  signInAction({
-                    isSignedIn: true,
-                    uid: uid,
-                    userName: data.userName,
-                  })
-                );
-              router.push("/");
-            });
+          db.collection("users").doc(uid).get();
+          router.push("/");
         }
       });
     } catch (error: any) {

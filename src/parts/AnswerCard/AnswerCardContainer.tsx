@@ -13,26 +13,13 @@ import QuestionCard from "./AnswerParts/QuestionCard";
 interface Props {
   answerResult: string;
   color: string;
+  correctAnswerString: string;
 }
 
 const AnswerCardContainer = (props: Props) => {
-  const { answerResult, color } = props;
+  const { answerResult, color, correctAnswerString } = props;
   const selector = useSelector((state: RootState) => state);
   const theNumberOfQuestions = getTheNumberOfQuestions(selector);
-  const [correctAnswerString, setCorrectAnswerString] = useState("");
-  const checkedAnswerString = getCheckedAnswerStringSelector(selector);
-
-  useEffect(() => {
-    (async () => {
-      const answerList = await getAnswerListSelector(selector);
-      // 問題の中から正解の答えを抽出
-      const correctAnswerString = await answerList.filter(
-        (list) => list.check === true
-      )[0].body;
-      setCorrectAnswerString(correctAnswerString);
-    })();
-  }, [checkedAnswerString]);
-
   const resultAnswersList = getCountAnswerSelector(selector);
 
   return (

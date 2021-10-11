@@ -19,9 +19,9 @@ import {
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
-import { countCorrectAnswer } from "../redux/action/answerAction";
 import firebase from "firebase";
 import { shuffle } from "../functions/Shuffle";
+import { getResultAnswerAction } from "../redux/action/answerAction";
 
 type Props = {
   questionData: firebase.firestore.DocumentData[];
@@ -39,7 +39,7 @@ const CategoryQuestionPageTemplate = (props: Props) => {
   const handleClick = (event: any) => {
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
     dispatch(getQuestionNumber(0));
-    dispatch(countCorrectAnswer([]));
+    dispatch(getResultAnswerAction([]));
     setChoice(true);
     const filterQuestionDataList = questionData.filter(
       (question) => question.category === questionCategory

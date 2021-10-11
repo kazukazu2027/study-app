@@ -4,7 +4,6 @@ import {
   signInConfirmPassword,
   signInEmail,
   signInPassword,
-  signInUserName,
 } from "../../redux/action/usersAction";
 
 type Props = {

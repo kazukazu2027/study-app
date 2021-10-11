@@ -46,7 +46,7 @@ const SignUpPage = () => {
             };
             db.collection("users").doc(uid).set(userInitialData);
           }
-          router.push("/SignInPage");
+          router.push("/auth/SignInPage");
         });
     } catch (error: any) {
       setError(error.message);
@@ -73,7 +73,6 @@ const SignUpPage = () => {
                 </button>
               </form>
             </div>
-
             <div className=" mt-6 ">
               <HaveAccount />
             </div>

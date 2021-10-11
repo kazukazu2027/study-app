@@ -12,17 +12,13 @@ export const answer = (
   action: Actions.AnswerType
 ): typeof initialState => {
   switch (action.type) {
-    case Actions.COUNT_CORRECT_ANSWER: {
+    case Actions.GET_RESULT_ANSWER_ACTION: {
       const { answerData } = action;
       return { ...state, answerData };
     }
-    case Actions.GET_CHECKED_ANSWER: {
+    case Actions.GET_CHECKED_ANSWER_ACTION: {
       const { checkedAnswer } = action;
       return { ...state, checkedAnswer };
-    }
-    case Actions.ANSWER_LIST: {
-      const { answerList } = action;
-      return { ...state, answerList };
     }
     default:
       return state;

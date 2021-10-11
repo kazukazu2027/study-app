@@ -6,7 +6,6 @@ export const initialState = {
   email: "" as string,
   password: "" as string,
   confirmPassword: "" as string,
-  chatUserName: "" as string,
   uid: "" as string,
 };
 
@@ -15,10 +14,6 @@ export const user = (
   action: Actions.UserType
 ): typeof initialState => {
   switch (action.type) {
-    case Actions.SIGN_IN: {
-      const { signIn } = action;
-      return { ...state, signIn };
-    }
     case Actions.SEND_USERNAME: {
       const { userName } = action;
       return { ...state, userName };
@@ -34,10 +29,6 @@ export const user = (
     case Actions.SEND_CONFIRM_PASSWORD: {
       const { confirmPassword } = action;
       return { ...state, confirmPassword };
-    }
-    case Actions.CHAT_USER_NAME: {
-      const { chatUserName } = action;
-      return { ...state, chatUserName };
     }
     case Actions.ADD_USER_ID: {
       const { uid } = action;

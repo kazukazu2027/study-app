@@ -1,5 +1,5 @@
-import firebase from "firebase";
 import { Data } from "../../components/QuestionPage/Question";
+import { questionData } from "../reducer/questionReducer";
 
 export type questionList = {
   id: string;
@@ -8,7 +8,7 @@ export type questionList = {
 
 export const GET_SLICE_QUESTION_DATA_LIST = "get question data list";
 export const getSliceQuestionDataList = (
-  questionDataList: firebase.firestore.DocumentData[]
+  questionDataList: questionData[]
 ) => {
   return {
     type: GET_SLICE_QUESTION_DATA_LIST as typeof GET_SLICE_QUESTION_DATA_LIST,

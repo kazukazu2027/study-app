@@ -6,7 +6,7 @@ import Card from "../../layouts/Card";
 import Layout from "../../layouts/Layout";
 import Button from "../../parts/Button/Button";
 import TitleInCard from "../../parts/Card/TitleInCard";
-import { countCorrectAnswer } from "../../redux/action/answerAction";
+import { getResultAnswerAction } from "../../redux/action/answerAction";
 import {
   getQuestionNumber,
   getSliceQuestionDataList,
@@ -39,7 +39,7 @@ const ResultPage = () => {
   const resetAnswer = () => {
     dispatch(getSliceQuestionDataList([]));
     dispatch(getQuestionNumber(0));
-    dispatch(countCorrectAnswer([]));
+    dispatch(getResultAnswerAction([]));
   };
 
   return (

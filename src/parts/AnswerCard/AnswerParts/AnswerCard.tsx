@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  countCorrectAnswer,
-  getCheckedAnswer,
+  getCheckedAnswerAction,
+  getResultAnswerAction,
 } from "../../../redux/action/answerAction";
 import { getQuestionNumber } from "../../../redux/action/questionAction";
 import { getCountAnswerSelector } from "../../../redux/selector/answerSelector";
@@ -27,7 +27,7 @@ const AnswerCard = (props: Props) => {
 
   const nextQuestionCorrectClick = () => {
     dispatch(
-      countCorrectAnswer([
+      getResultAnswerAction([
         ...questionIdsList,
         {
           isCorrect: isCorrect,
@@ -38,7 +38,9 @@ const AnswerCard = (props: Props) => {
       ])
     );
     dispatch(getQuestionNumber(questionNumber + 1));
-    dispatch(getCheckedAnswer({ isChecked: false, checkedAnswerString: "" }));
+    dispatch(
+      getCheckedAnswerAction({ isChecked: false, checkedAnswerString: "" })
+    );
   };
   return (
     <button

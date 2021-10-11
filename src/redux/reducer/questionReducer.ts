@@ -1,10 +1,21 @@
 import * as Actions from "../action/questionAction";
 import { QuestionType } from "../action/questionAction";
-import firebase from "firebase";
 import { Data } from "../../components/QuestionPage/Question";
+import { AnswerData } from "../action/answerAction";
+
+export type questionData = {
+  answerList: {
+    body: string;
+    check: boolean;
+  };
+  category: string;
+  explanation: string;
+  question: string;
+  questionID: string;
+};
 
 export const initialState = {
-  questionDataList: [] as firebase.firestore.DocumentData[],
+  questionDataList: [] as questionData[],
   questionNumber: 0 as number,
   questionCategory: "" as string,
   questionData: [] as Data[],

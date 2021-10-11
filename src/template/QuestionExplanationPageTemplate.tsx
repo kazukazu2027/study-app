@@ -13,11 +13,11 @@ import {
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
-import { countCorrectAnswer } from "../redux/action/answerAction";
-import firebase from "firebase";
+import { getResultAnswerAction } from "../redux/action/answerAction";
+import { questionData } from "../redux/reducer/questionReducer";
 
 type Props = {
-  shuffleQuestionList: firebase.firestore.DocumentData[];
+  shuffleQuestionList:  questionData[];
 };
 
 const QuestionExplanationPageTemplate = (props: Props) => {
@@ -33,7 +33,7 @@ const QuestionExplanationPageTemplate = (props: Props) => {
     );
     dispatch(getSliceQuestionDataList(sliceQuestionList));
     dispatch(getQuestionNumber(0));
-    dispatch(countCorrectAnswer([]));
+    dispatch(getResultAnswerAction([]));
     setChoice(true);
   };
   return (
