@@ -1,11 +1,11 @@
 import React from "react";
 import { shuffle } from "../../functions/Shuffle";
 import { getData } from "../../functions/getData";
-import firebase from "firebase";
 import QuestionExplanationPageTemplate from "../../template/QuestionExplanationPageTemplate";
+import { questionData } from "../../redux/reducer/questionReducer";
 
 type Props = {
-  shuffleQuestionList: firebase.firestore.DocumentData[];
+  shuffleQuestionList: questionData[];
 };
 
 const QuestionExplanationPage = (props: Props) => {
