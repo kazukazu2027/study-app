@@ -55,6 +55,11 @@ const SignInPage = () => {
                   サインインする
                 </button>
               </form>
+              <div className="text-left pt-8">
+                <p>メールアドレス: test@gmail.com</p>
+                <p>パスワード: test1234</p>
+                <p>テストログインすることができます</p>
+              </div>
             </div>
 
             <div className="mt-6">
