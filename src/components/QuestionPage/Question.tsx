@@ -12,7 +12,6 @@ type Props = {
 
 const Question = (props: Props) => {
   const { questionDataList, questionNumber, shuffleAnswerList } = props;
-  console.log(shuffleAnswerList);
 
   return (
     <div className="border rounded-lg shadow m-auto">

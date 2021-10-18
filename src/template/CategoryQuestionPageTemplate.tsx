@@ -22,6 +22,7 @@ import {
 import { shuffle } from "../functions/Shuffle";
 import { getResultAnswerAction } from "../redux/action/answerAction";
 import { questionData } from "../types/questionTypes";
+import { translateCategory } from "../functions/translateCategory";
 
 type Props = {
   questionData: questionData[];
@@ -52,18 +53,7 @@ const CategoryQuestionPageTemplate = (props: Props) => {
     dispatch(getSliceQuestionDataList([]));
     dispatch(getSliceQuestionDataList(questionList));
   };
-  const translateCategory = () => {
-    switch (questionCategory) {
-      case "skill":
-        return "言語";
-      case "work":
-        return "職業";
-      case "network":
-        return "ネットワーク言語";
-      case "git":
-        return "git用語";
-    }
-  };
+  const categoryName = translateCategory(questionCategory);
   return (
     <Layout>
       <div className="px-3">
@@ -73,7 +63,7 @@ const CategoryQuestionPageTemplate = (props: Props) => {
         <Card>
           <Image src={"/studying.png"} width={360} height={240} />
           <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
-          <p className="text-center text-lg">[{translateCategory()}]</p>
+          <p className="text-center text-lg">[{categoryName}]</p>
           <div className="py-5">
             <TextInCard>
               これから、問題が{theNumberOfQuestions}問表示されます。
