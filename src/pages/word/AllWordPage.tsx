@@ -1,20 +1,13 @@
 import React from "react";
 import { getData } from "../../functions/getData";
 import AllWordPageTemplate from "../../template/AllWordPageTemplate";
-
-export type Word = {
-  answerList: { body: string; check: boolean };
-  category: string;
-  explanation: string;
-  question: string;
-  questionID: string;
-};
+import { WordData } from "../../types/wordTypes";
 
 type Props = {
-  skillWord: Word[];
-  gitWord: Word[];
-  workWord: Word[];
-  networkWord: Word[];
+  skillWord: WordData[];
+  gitWord: WordData[];
+  workWord: WordData[];
+  networkWord: WordData[];
 };
 
 const AllWordPage = (props: Props) => {

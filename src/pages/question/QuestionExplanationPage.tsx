@@ -2,7 +2,7 @@ import React from "react";
 import { shuffle } from "../../functions/Shuffle";
 import { getData } from "../../functions/getData";
 import QuestionExplanationPageTemplate from "../../template/QuestionExplanationPageTemplate";
-import { questionData } from "../../redux/reducer/questionReducer";
+import { questionData } from "../../types/questionTypes";
 
 type Props = {
   shuffleQuestionList: questionData[];

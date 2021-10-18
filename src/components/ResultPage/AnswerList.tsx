@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import BookMark from "../../../public/bookmark2.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { AnswerData } from "../../redux/action/answerAction";
 import { RootState } from "../../redux/store";
 import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
 import { toggleItem } from "../../functions/toggleItem";
 import { addFavoriteWordAction } from "../../redux/action/favoriteAction";
+import { userAnswerData } from "../../types/questionTypes";
 
 type Props = {
-  question: AnswerData;
+  question: userAnswerData;
 };
 
 const AnswerList = (props: Props) => {

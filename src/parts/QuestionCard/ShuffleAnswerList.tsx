@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCheckedAnswerIsCheckedSelector } from "../../redux/selector/answerSelector";
 import { getQuestionDataListSelector } from "../../redux/selector/questionSelector";
 import { RootState } from "../../redux/store";
-import { AnswerList } from "../../components/QuestionPage/Question";
 import { getCheckedAnswerAction } from "../../redux/action/answerAction";
+import { AnswerList } from "../../types/questionTypes";
 
 type Props = {
   shuffleAnswerList: AnswerList[];

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Answer from "../../components/QuestionPage/Answer";
-import Question, { AnswerList } from "../../components/QuestionPage/Question";
+import Question from "../../components/QuestionPage/Question";
 import { getData } from "../../functions/getData";
 import { makeAnswerList } from "../../functions/makeAnswerList";
 import Layout from "../../layouts/Layout";
@@ -10,6 +10,7 @@ import {
   getQuestionNumberSelector,
 } from "../../redux/selector/questionSelector";
 import { RootState } from "../../redux/store";
+import { AnswerList } from "../../types/questionTypes";
 
 type Props = {
   answerDataList: AnswerList[];

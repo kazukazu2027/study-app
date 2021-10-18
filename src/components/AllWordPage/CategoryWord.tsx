@@ -1,11 +1,11 @@
 import React from "react";
-import { Word } from "../../pages/word/AllWordPage";
 import BottomBorder from "../../parts/Border/BottomBorder";
 import WordParts from "../../parts/WordParts/WordParts";
+import { WordData } from "../../types/wordTypes";
 
 type Props = {
   title?: string;
-  data: Word[];
+  data: WordData[];
 };
 
 const CategoryWord = (props: Props) => {

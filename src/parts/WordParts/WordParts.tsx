@@ -5,10 +5,10 @@ import { RootState } from "../../redux/store";
 import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
 import { toggleItem } from "../../functions/toggleItem";
 import BookMark from '../../../public/bookmark2.svg'
-import { Word } from "../../pages/word/AllWordPage";
+import { WordData } from "../../types/wordTypes";
 
 type Props = {
-  data: Word;
+  data: WordData;
 };
 
 const WordParts = (props: Props) => {

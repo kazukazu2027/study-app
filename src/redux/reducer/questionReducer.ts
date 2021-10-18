@@ -1,24 +1,12 @@
 import * as Actions from "../action/questionAction";
 import { QuestionType } from "../action/questionAction";
-import { Data } from "../../components/QuestionPage/Question";
-import { AnswerData } from "../action/answerAction";
-
-export type questionData = {
-  answerList: {
-    body: string;
-    check: boolean;
-  };
-  category: string;
-  explanation: string;
-  question: string;
-  questionID: string;
-};
+import { questionData } from "../../types/questionTypes";
 
 export const initialState = {
   questionDataList: [] as questionData[],
   questionNumber: 0 as number,
   questionCategory: "" as string,
-  questionData: [] as Data[],
+  questionData: [] as questionData[],
   theNumberOfQuestions: 0 as number,
 };
 

@@ -15,13 +15,13 @@ type InputName = "email" | "password" | "confirmPassword";
 const InputParts = (props: Props) => {
   const dispatch = useDispatch();
   const { name } = props;
-  const onChangeEmail = (e: any) => {
+  const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(signInEmail(e.target.value));
   };
-  const onChangePassword = (e: any) => {
+  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(signInPassword(e.target.value));
   };
-  const onChangeConfirmPassword = (e: any) => {
+  const onChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(signInConfirmPassword(e.target.value));
   };
   const displayInput = () => {

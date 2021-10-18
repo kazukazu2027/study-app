@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../layouts/Layout";
-import { Word } from "../pages/word/AllWordPage";
 import WordPageHeader from "../parts/Header/WordPageHeader";
 import CategoryWord from "../components/AllWordPage/CategoryWord";
+import { WordData } from "../types/wordTypes";
 
 type Props = {
-  favoriteWords: Word[];
+  favoriteWords: WordData[];
 };
 
 const FavoriteWordPageTemplate = (props: Props) => {

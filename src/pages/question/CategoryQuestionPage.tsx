@@ -1,10 +1,10 @@
 import React from "react";
-import firebase from "firebase";
 import { getData } from "../../functions/getData";
 import CategoryQuestionPageTemplate from "../../template/CategoryQuestionPageTemplate";
+import { questionData } from "../../types/questionTypes";
 
 type Props = {
-  questionData: firebase.firestore.DocumentData[];
+  questionData: questionData[];
 };
 
 const CategoryQuestionPage = (props: Props) => {

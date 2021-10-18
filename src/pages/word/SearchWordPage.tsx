@@ -3,16 +3,16 @@ import CategoryWord from "../../components/AllWordPage/CategoryWord";
 import { getData } from "../../functions/getData";
 import Layout from "../../layouts/Layout";
 import WordPageHeader from "../../parts/Header/WordPageHeader";
-import { Word } from "./AllWordPage";
+import { WordData } from "../../types/wordTypes";
 
 type Props = {
-  wordData: Word[];
+  wordData: WordData[];
 };
 
 const SearchWordPage = (props: Props) => {
   const { wordData } = props;
 
-  const [searchWordData, setSearchWordData] = useState<Word[]>([]);
+  const [searchWordData, setSearchWordData] = useState<WordData[]>([]);
   const [text, setText] = useState("");
 
   const handleChange = (e: any) => {

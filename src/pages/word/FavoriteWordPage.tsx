@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { getData } from "../../functions/getData";
 import { addFavoriteWordsSelector } from "../../redux/selector/favoriteSelector";
 import { RootState } from "../../redux/store";
-import { Word } from "./AllWordPage";
 import FavoriteWordPageTemplate from "../../template/FavoriteWordPageTemplate";
+import { WordData } from "../../types/wordTypes";
 
 type Props = {
-  wordData: Word[];
+  wordData: WordData[];
 };
 
 const FavoriteWordPage = (props: Props) => {

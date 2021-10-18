@@ -14,7 +14,7 @@ import {
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
 import { getResultAnswerAction } from "../redux/action/answerAction";
-import { questionData } from "../redux/reducer/questionReducer";
+import { questionData } from "../types/questionTypes";
 
 type Props = {
   shuffleQuestionList:  questionData[];

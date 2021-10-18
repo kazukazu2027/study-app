@@ -2,26 +2,7 @@ import React from "react";
 import QuestionNumber from "../../parts/QuestionCard/QuestionNumber";
 import QuestionTitle from "../../parts/QuestionCard/QuestionTitle";
 import ShuffleAnswerList from "../../parts/QuestionCard/ShuffleAnswerList";
-import { questionData } from "../../redux/reducer/questionReducer";
-import AnswerList from "../ResultPage/AnswerList";
-
-export type Data = {
-  question: string;
-  questionID: string;
-  category: string;
-  explanation: string;
-  answerList: {
-    ID: string;
-    body: string;
-    check: boolean;
-  };
-};
-
-export type AnswerList = {
-  body: string;
-  check: boolean;
-  category: string;
-};
+import { AnswerList, questionData } from "../../types/questionTypes";
 
 type Props = {
   questionDataList: questionData[];
@@ -31,6 +12,7 @@ type Props = {
 
 const Question = (props: Props) => {
   const { questionDataList, questionNumber, shuffleAnswerList } = props;
+  console.log(shuffleAnswerList);
 
   return (
     <div className="border rounded-lg shadow m-auto">

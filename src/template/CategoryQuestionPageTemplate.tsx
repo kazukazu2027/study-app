@@ -19,12 +19,12 @@ import {
   getSliceQuestionDataList,
   getTheNumberOfQuestions,
 } from "../redux/action/questionAction";
-import firebase from "firebase";
 import { shuffle } from "../functions/Shuffle";
 import { getResultAnswerAction } from "../redux/action/answerAction";
+import { questionData } from "../types/questionTypes";
 
 type Props = {
-  questionData: firebase.firestore.DocumentData[];
+  questionData: questionData[];
 };
 
 const CategoryQuestionPageTemplate = (props: Props) => {

@@ -1,9 +1,13 @@
-import { AnswerList } from "../../components/QuestionPage/Question";
+import {
+  AnswerList,
+  isCheckedAnswer,
+  userAnswerData,
+} from "../../types/questionTypes";
 import * as Actions from "../action/answerAction";
 
 export const initialState = {
-  answerData: [] as Actions.AnswerData[],
-  checkedAnswer: {} as Actions.checkedAnswer,
+  answerData: [] as userAnswerData[],
+  checkedAnswer: {} as isCheckedAnswer,
   answerList: [] as AnswerList[],
 };
 

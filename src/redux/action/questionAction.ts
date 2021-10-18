@@ -1,15 +1,7 @@
-import { Data } from "../../components/QuestionPage/Question";
-import { questionData } from "../reducer/questionReducer";
-
-export type questionList = {
-  id: string;
-  question: string;
-};
+import { questionData } from "../../types/questionTypes";
 
 export const GET_SLICE_QUESTION_DATA_LIST = "get question data list";
-export const getSliceQuestionDataList = (
-  questionDataList: questionData[]
-) => {
+export const getSliceQuestionDataList = (questionDataList: questionData[]) => {
   return {
     type: GET_SLICE_QUESTION_DATA_LIST as typeof GET_SLICE_QUESTION_DATA_LIST,
     questionDataList,
@@ -33,7 +25,7 @@ export const getQuestionCategory = (questionCategory: string) => {
 };
 
 export const GET_QUESTION_DATA = "question data";
-export const getQuestionData = (questionData: Data[]) => {
+export const getQuestionData = (questionData: questionData[]) => {
   return {
     type: GET_QUESTION_DATA as typeof GET_QUESTION_DATA,
     questionData,

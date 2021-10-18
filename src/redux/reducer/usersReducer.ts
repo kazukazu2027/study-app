@@ -1,7 +1,6 @@
 import * as Actions from "../action/usersAction";
 
 export const initialState = {
-  signIn: {} as Actions.signIn,
   userName: "" as string,
   email: "" as string,
   password: "" as string,
@@ -14,10 +13,6 @@ export const user = (
   action: Actions.UserType
 ): typeof initialState => {
   switch (action.type) {
-    case Actions.SEND_USERNAME: {
-      const { userName } = action;
-      return { ...state, userName };
-    }
     case Actions.SEND_EMAIL: {
       const { email } = action;
       return { ...state, email };

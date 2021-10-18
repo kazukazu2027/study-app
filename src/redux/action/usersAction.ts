@@ -1,16 +1,3 @@
-export type signIn = {
-  isSignedIn: boolean;
-  userName: string;
-  uid: string;
-};
-
-export const SEND_USERNAME = "user name";
-export const signInUserName = (userName: string) => {
-  return {
-    type: SEND_USERNAME as typeof SEND_USERNAME,
-    userName,
-  };
-};
 export const SEND_EMAIL = "email";
 export const signInEmail = (email: string) => {
   return {
@@ -24,8 +11,6 @@ export const signInPassword = (password: string) => {
     type: SEND_PASSWORD as typeof SEND_PASSWORD,
     password,
   };
-
-  
 };
 export const SEND_CONFIRM_PASSWORD = "confirm password";
 export const signInConfirmPassword = (confirmPassword: string) => {
@@ -43,9 +28,7 @@ export const addUserID = (uid: string) => {
 };
 
 export type UserType =
-  | ReturnType<typeof signInUserName>
   | ReturnType<typeof signInEmail>
   | ReturnType<typeof signInPassword>
   | ReturnType<typeof signInConfirmPassword>
-  | ReturnType<typeof addUserID>
-  ;
+  | ReturnType<typeof addUserID>;
