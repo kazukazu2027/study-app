@@ -18,7 +18,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <div className="pb-10 mx-3 ">
+      <div className="pb-10 mx-3">
         <StudyOfWord />
         <AllWord />
         <BulletinBoard />

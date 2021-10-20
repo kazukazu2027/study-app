@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useSelector } from "react-redux";
-import { auth, db } from "../../Firebase/firebase";
+import { auth } from "../../Firebase/firebase";
 import ErrorMessage from "../../Firebase/ErrorMassage";
 import { RootState } from "../../redux/store";
 import {
@@ -21,14 +21,12 @@ const SignInPage = () => {
 
   const [error, setError] = useState("");
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password).then((result) => {
         const user = result.user;
         if (user) {
-          const uid = user.uid;
-          db.collection("users").doc(uid).get();
           router.push("/");
         }
       });

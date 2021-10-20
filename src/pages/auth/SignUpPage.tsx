@@ -22,7 +22,7 @@ const SignUpPage = () => {
 
   const [error, setError] = useState("");
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       if (email === "" || password === "" || confirmPassword === "") {
@@ -54,7 +54,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
       <Layout>
         <div className="bg-grey-lighter pt-24">
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
@@ -73,7 +73,7 @@ const SignUpPage = () => {
                 </button>
               </form>
             </div>
-            <div className=" mt-6 ">
+            <div className="mt-6 ">
               <HaveAccount />
             </div>
           </div>

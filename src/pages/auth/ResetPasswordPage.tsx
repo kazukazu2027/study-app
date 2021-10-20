@@ -8,13 +8,15 @@ import Layout from "../../layouts/Layout";
 import InputParts from "../../parts/Input/InputParts";
 import CreateAccount from "../../parts/SignLink/CreateAccount";
 import HaveAccount from "../../parts/SignLink/HaveAccount";
+import { useRouter } from "next/dist/client/router";
 
 const ResetPasswordPage = () => {
+  const router = useRouter();
   const [error, setError] = useState("");
   const selector = useSelector((state: RootState) => state);
   const email = getEmailSelector(selector);
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       if (email === "") {
@@ -24,6 +26,7 @@ const ResetPasswordPage = () => {
       await auth.sendPasswordResetEmail(email).then(() => {
         alert("入力されたアドレスにパスワードリセット用のメールを送りました。");
       });
+      router.push("/auth/SignInPage");
     } catch (error: any) {
       setError(error.message);
     }
