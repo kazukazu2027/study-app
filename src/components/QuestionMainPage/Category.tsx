@@ -37,7 +37,11 @@ const Category = () => {
           return (
             <Link href={"/question/CategoryQuestionPage"} passHref>
               <a>
-                <CategoryComponent category={list.category} img={list.img} name={list.name} />
+                <CategoryComponent
+                  category={list.category}
+                  img={list.img}
+                  name={list.name}
+                />
               </a>
             </Link>
           );

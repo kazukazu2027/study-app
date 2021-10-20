@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout";
 import Firebase from "firebase";
 import { useDispatch } from "react-redux";
 import { addUserID } from "../redux/action/usersAction";
-import StudyOfWordCard from "../components/TopPage/StudyOfWord";
+import StudyOfWordCard from "../parts/Card/StudyOfWordCard";
 import AllWordCard from "../components/TopPage/AllWord";
 import BulletinBoardCard from "../components/TopPage/BulletinBoard";
 
@@ -19,7 +19,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="pb-10 mx-3">
-        <StudyOfWordCard />
+        <div className="mt-10">
+          <StudyOfWordCard href="/question/QuestionMainPage" />
+        </div>
         <AllWordCard />
         <BulletinBoardCard />
       </div>

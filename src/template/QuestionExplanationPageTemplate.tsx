@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import Card from "../layouts/Card";
 import Layout from "../layouts/Layout";
-import Image from "next/image";
-import TitleInCard from "../parts/Card/TitleInCard";
-import TextInCard from "../parts/Card/TextInCard";
-import SelectTheNumberOfQuestion from "../components/QuestionExplanationPage/SelectTheNumberOfQuestion";
-import Link from "next/link";
-import Button from "../parts/Button/Button";
+
 import { useDispatch } from "react-redux";
 import {
   getQuestionNumber,
@@ -15,9 +9,10 @@ import {
 } from "../redux/action/questionAction";
 import { getResultAnswerAction } from "../redux/action/answerAction";
 import { questionData } from "../types/questionTypes";
+import QuestionCard from "../parts/Card/questionCard";
 
 type Props = {
-  shuffleQuestionList:  questionData[];
+  shuffleQuestionList: questionData[];
 };
 
 const QuestionExplanationPageTemplate = (props: Props) => {
@@ -25,40 +20,22 @@ const QuestionExplanationPageTemplate = (props: Props) => {
 
   const dispatch = useDispatch();
   const [choice, setChoice] = useState(false);
+
   const handleClick = (e: any) => {
     dispatch(getTheNumberOfQuestions(Number(e.target.value)));
+    dispatch(getQuestionNumber(0));
+    dispatch(getResultAnswerAction([]));
+    setChoice(true);
     const sliceQuestionList = shuffleQuestionList.slice(
       0,
       Number(e.target.value)
     );
     dispatch(getSliceQuestionDataList(sliceQuestionList));
-    dispatch(getQuestionNumber(0));
-    dispatch(getResultAnswerAction([]));
-    setChoice(true);
   };
   return (
     <Layout>
       <div className="mt-10 mx-3">
-        <Card>
-          <Image src={"/studying.png"} width={360} height={240} />
-          <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
-          <div className="py-5">
-            <TextInCard>
-              これから、問題が１０問表示されます。
-              正しいと思う答えを4択の中から選んでください。
-            </TextInCard>
-          </div>
-          <div className="pb-5">
-            <SelectTheNumberOfQuestion handleClick={handleClick} />
-          </div>
-          <Link href={choice ? "/question/QuestionPage" : ""}>
-            <div className="pb-8 text-center">
-              <Button color={choice ? "bg-blue-500" : "bg-gray-400"}>
-                学習する
-              </Button>
-            </div>
-          </Link>
-        </Card>
+        <QuestionCard onClick={handleClick} isChoice={choice} />
       </div>
     </Layout>
   );
