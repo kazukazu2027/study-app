@@ -18,7 +18,9 @@ const QuestionCard = (props: Props) => {
   return (
     <Card>
       <Image src={"/studying.png"} width={360} height={240} />
-      <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
+      <div className="pt-5">
+        <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
+      </div>
       <div className="py-5">
         <TextInCard>正しいと思う答えを4択の中から選んでください。</TextInCard>
       </div>

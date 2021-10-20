@@ -14,7 +14,9 @@ const StudyOfWordCard = (props: Props) => {
   return (
     <Card>
       <Image src={"/word_study.png"} width={360} height={300} />
-      <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
+      <div className="pt-5">
+        <TitleInCard>プログラミング用語を学ぶ</TitleInCard>
+      </div>
       <div className="my-5">
         <TextInCard>
           プログラミングを学習するときに、わからない用語がたくさん出てきませんか？用語が分からなければ、当然学習もできません。しっかり学びましょう。
