@@ -5,7 +5,7 @@ import TitleInCard from "../../parts/Card/TitleInCard";
 import TextInCard from "../../parts/Card/TextInCard";
 import BulletinButton from "./BulletinButton";
 
-const BulletinBoard = () => {
+const BulletinBoardCard = () => {
   return (
     <div className="mt-10">
       <Card>
@@ -22,4 +22,4 @@ const BulletinBoard = () => {
   );
 };
 
-export default BulletinBoard;
+export default BulletinBoardCard;

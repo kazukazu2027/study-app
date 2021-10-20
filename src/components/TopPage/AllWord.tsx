@@ -6,7 +6,7 @@ import TitleInCard from "../../parts/Card/TitleInCard";
 import TextInCard from "../../parts/Card/TextInCard";
 import Button from "../../parts/Button/Button";
 
-const AllWord = () => {
+const AllWordCard = () => {
   return (
     <div className="mt-10">
       <Card>
@@ -27,4 +27,4 @@ const AllWord = () => {
   );
 };
 
-export default AllWord;
+export default AllWordCard;

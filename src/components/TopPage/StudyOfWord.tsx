@@ -5,7 +5,7 @@ import Button from "../../parts/Button/Button";
 import TitleInCard from "../../parts/Card/TitleInCard";
 import TextInCard from "../../parts/Card/TextInCard";
 
-const StudyOfWord = () => {
+const StudyOfWordCard = () => {
   return (
     <div className="mt-10">
       <Card>
@@ -26,4 +26,4 @@ const StudyOfWord = () => {
   );
 };
 
-export default StudyOfWord;
+export default StudyOfWordCard;

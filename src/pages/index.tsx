@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import AllWord from "../components/TopPage/AllWord";
-import BulletinBoard from "../components/TopPage/BulletinBoard";
-import StudyOfWord from "../components/TopPage/StudyOfWord";
 import Layout from "../layouts/Layout";
 import Firebase from "firebase";
 import { useDispatch } from "react-redux";
 import { addUserID } from "../redux/action/usersAction";
+import StudyOfWordCard from "../components/TopPage/StudyOfWord";
+import AllWordCard from "../components/TopPage/AllWord";
+import BulletinBoardCard from "../components/TopPage/BulletinBoard";
 
 const IndexPage = () => {
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="pb-10 mx-3">
-        <StudyOfWord />
-        <AllWord />
-        <BulletinBoard />
+        <StudyOfWordCard />
+        <AllWordCard />
+        <BulletinBoardCard />
       </div>
     </Layout>
   );
