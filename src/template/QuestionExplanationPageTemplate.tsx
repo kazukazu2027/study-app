@@ -9,7 +9,7 @@ import {
 } from "../redux/action/questionAction";
 import { getResultAnswerAction } from "../redux/action/answerAction";
 import { questionData } from "../types/questionTypes";
-import QuestionCard from "../parts/Card/questionCard";
+import QuestionCard from "../parts/Card/QuestionCard";
 
 type Props = {
   shuffleQuestionList: questionData[];

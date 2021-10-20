@@ -13,7 +13,7 @@ import { shuffle } from "../functions/Shuffle";
 import { getResultAnswerAction } from "../redux/action/answerAction";
 import { questionData } from "../types/questionTypes";
 import { translateCategory } from "../functions/translateCategory";
-import QuestionCard from "../parts/Card/questionCard";
+import QuestionCard from "../parts/Card/QuestionCard";
 
 type Props = {
   questionData: questionData[];

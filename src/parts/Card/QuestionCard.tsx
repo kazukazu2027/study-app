@@ -6,8 +6,6 @@ import TitleInCard from "./TitleInCard";
 import TextInCard from "./TextInCard";
 import SelectTheNumberOfQuestion from "../../components/QuestionExplanationPage/SelectTheNumberOfQuestion";
 import Button from "../Button/Button";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 
 type Props = {
   onClick: (event: any) => void;
@@ -16,7 +14,6 @@ type Props = {
 
 const QuestionCard = (props: Props) => {
   const { onClick, isChoice } = props;
-  const selector = useSelector((state: RootState) => state);
 
   return (
     <Card>
