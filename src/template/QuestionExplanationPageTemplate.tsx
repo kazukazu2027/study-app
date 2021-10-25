@@ -21,7 +21,7 @@ const QuestionExplanationPageTemplate = (props: Props) => {
   const dispatch = useDispatch();
   const [choice, setChoice] = useState(false);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(getTheNumberOfQuestions(Number(e.target.value)));
     dispatch(getQuestionNumber(0));
     dispatch(getResultAnswerAction([]));

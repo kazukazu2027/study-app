@@ -19,7 +19,7 @@ const ShuffleAnswerList = (props: Props) => {
   const isChecked = getCheckedAnswerIsCheckedSelector(selector);
 
   const scrollBottomRef = useRef<HTMLDivElement>(null);
-  const handleCheck = (event: any) => {
+  const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(
       getCheckedAnswerAction({
         isChecked: true,
@@ -42,7 +42,7 @@ const ShuffleAnswerList = (props: Props) => {
                 type="radio"
                 className="mt-4 mr-2 "
                 value={answer.body}
-                onClick={handleCheck}
+                onChange={handleCheck}
                 name={questionDataList[0].questionID}
                 disabled={isChecked}
               />

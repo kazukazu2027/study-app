@@ -15,7 +15,7 @@ const SearchWordPage = (props: Props) => {
   const [searchWordData, setSearchWordData] = useState<WordData[]>([]);
   const [text, setText] = useState("");
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updateList = wordData.filter((data) => {
       return (
         data.question.toLowerCase().search(e.target.value.toLowerCase()) !== -1

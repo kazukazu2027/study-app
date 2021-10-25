@@ -28,7 +28,7 @@ const CategoryQuestionPageTemplate = (props: Props) => {
 
   const [choice, setChoice] = useState(false);
 
-  const handleClick = (event: any) => {
+  const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(getTheNumberOfQuestions(Number(event.target.value)));
     dispatch(getQuestionNumber(0));
     dispatch(getResultAnswerAction([]));

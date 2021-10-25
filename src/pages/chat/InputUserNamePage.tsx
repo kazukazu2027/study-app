@@ -11,7 +11,7 @@ export const InputUserNamePage = () => {
   const uid = getUidSelector(selector);
 
   const [userName, setUserName] = useState("");
-  const inputUserName = (e: any) => {
+  const inputUserName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
   };
 
