@@ -8,9 +8,9 @@ export interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <main className=" min-h-screen bg-gray-50">
+      <main className="min-h-screen bg-gray-50">
         <Header />
-        <div className="">{children}</div>
+        {children}
       </main>
     </>
   );

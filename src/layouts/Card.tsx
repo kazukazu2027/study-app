@@ -5,7 +5,7 @@ const Card = (props: LayoutProps) => {
     const {children} = props
   return (
     <div className="border rounded-lg shadow">
-      <div className=" w-10/12 m-auto ">
+      <div className="w-10/12 m-auto ">
         {children}
       </div>
     </div>
